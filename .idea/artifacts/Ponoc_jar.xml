@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Ponoc:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Ponoc_jar</output-path>
+    <root id="archive" name="Ponoc.jar">
+      <element id="module-output" name="Ponoc" />
+    </root>
+  </artifact>
+</component>
