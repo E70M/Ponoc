@@ -37,10 +37,12 @@ public class maincrawl extends Application {
         gridlock.setHalignment(welcomeLabel, HPos.CENTER);
         gridlock.setHalignment(startButton, HPos.CENTER);
         gridlock.setHalignment(settingsButton, HPos.CENTER);
-        gridlock.setGridLinesVisible(true); // Temporary
+        // gridlock.setGridLinesVisible(true); // Temporary
         startButton.setOnAction(e -> fight.fightscene("Ponoc", GLOBAL_INSETS, window, display));
+        startButton.setStyle("-fx-base: #ffffff; -fx-focus-color: transparent");
         settingsButton.setOnAction(e -> settings.setup("Ponoc", GLOBAL_INSETS, window, display));
         settingsButton.setGraphic(settingsmenu);
+        settingsButton.setStyle("-fx-base: #ffffff; -fx-focus-color: transparent");
         gridlock.getChildren().addAll(settingsButton, welcomeLabel, startButton);
         display = new Scene(gridlock, 1000, 500);
         window.setScene(display);
