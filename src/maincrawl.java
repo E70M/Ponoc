@@ -38,8 +38,8 @@ public class maincrawl extends Application {
         gridlock.setHalignment(startButton, HPos.CENTER);
         gridlock.setHalignment(settingsButton, HPos.CENTER);
         gridlock.setGridLinesVisible(true); // Temporary
-        startButton.setOnAction(e -> fight.fightscene("Ponoc", GLOBAL_INSETS, window));
-        settingsButton.setOnAction(e -> System.out.println("Test settings"));
+        startButton.setOnAction(e -> fight.fightscene("Ponoc", GLOBAL_INSETS, window, display));
+        settingsButton.setOnAction(e -> settings.setup("Ponoc", GLOBAL_INSETS, window, display));
         settingsButton.setGraphic(settingsmenu);
         gridlock.getChildren().addAll(settingsButton, welcomeLabel, startButton);
         display = new Scene(gridlock, 1000, 500);
