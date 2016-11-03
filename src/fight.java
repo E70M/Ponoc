@@ -16,6 +16,7 @@ public class fight {
         Scene layout = new Scene(battleGrid, 1000, 500);
         window.setScene(layout);
         window.setResizable(false);
+        window.setTitle(title);
         window.initModality(Modality.APPLICATION_MODAL);
         window.setX(parentStage.getX());
         window.setY(parentStage.getY());

@@ -33,7 +33,6 @@ public class maincrawl extends Application {
         startButton.setOnAction(e -> fight.fightscene("Ponoc", GLOBAL_INSETS, window));
         gridlock.getChildren().addAll(welcomeLabel, startButton);
         display = new Scene(gridlock, 1000, 500);
-        window.initModality(Modality.APPLICATION_MODAL);
         window.setScene(display);
         window.setResizable(false);
         window.show();
