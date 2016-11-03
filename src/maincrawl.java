@@ -25,11 +25,14 @@ public class maincrawl extends Application {
         gridlock.setHgap(10);
         Label welcomeLabel = new Label("Ponoc");
         Button startButton = new Button("Start Game");
-        gridlock.setConstraints(welcomeLabel, 1, 2);
-        gridlock.setConstraints(startButton, 3, 2);
+        gridlock.setConstraints(welcomeLabel, 2, 1);
+        gridlock.setConstraints(startButton, 2, 3);
+        gridlock.setHalignment(welcomeLabel, HPos.CENTER);
+        gridlock.setHalignment(startButton, HPos.CENTER);
+        gridlock.setGridLinesVisible(true); // Temporary
         startButton.setOnAction(e -> System.out.println("Enter game"));
         gridlock.getChildren().addAll(welcomeLabel, startButton);
-        display = new Scene(gridlock, 1200, 600);
+        display = new Scene(gridlock, 1000, 500);
         window.setScene(display);
         window.setResizable(false);
         window.show();
