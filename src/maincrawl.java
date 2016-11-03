@@ -19,7 +19,7 @@ public class maincrawl extends Application {
     public void start(Stage primaryStage) throws Exception {
         window = primaryStage;
         GridPane gridlock = new GridPane();
-        display = new Scene(gridlock, 600, 300);
+        display = new Scene(gridlock, 1200, 600);
         window.setScene(display);
         window.setResizable(false);
         window.show();
