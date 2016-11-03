@@ -18,6 +18,7 @@ public class maincrawl extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         window = primaryStage;
+        window.setTitle("Ponoc");
         GridPane gridlock = new GridPane();
         display = new Scene(gridlock, 1200, 600);
         window.setScene(display);
