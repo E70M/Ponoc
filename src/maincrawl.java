@@ -23,7 +23,10 @@ public class maincrawl extends Application {
         gridlock.setPadding(GLOBAL_INSETS);
         gridlock.setVgap(20);
         gridlock.setHgap(10);
-        Label welcomeLabel = new Label("Ponoc");
+        Image welcome = new Image("title.jpg");
+        ImageView welcomemat = new ImageView(welcome);
+        Label welcomeLabel = new Label();
+        welcomeLabel.setGraphic(welcomemat);
         Button startButton = new Button("Start Game");
         gridlock.setConstraints(welcomeLabel, 2, 1);
         gridlock.setConstraints(startButton, 2, 3);
