@@ -30,9 +30,10 @@ public class maincrawl extends Application {
         gridlock.setHalignment(welcomeLabel, HPos.CENTER);
         gridlock.setHalignment(startButton, HPos.CENTER);
         gridlock.setGridLinesVisible(true); // Temporary
-        startButton.setOnAction(e -> System.out.println("Enter game"));
+        startButton.setOnAction(e -> fight.fightscene("Ponoc", GLOBAL_INSETS, window));
         gridlock.getChildren().addAll(welcomeLabel, startButton);
         display = new Scene(gridlock, 1000, 500);
+        window.initModality(Modality.APPLICATION_MODAL);
         window.setScene(display);
         window.setResizable(false);
         window.show();
