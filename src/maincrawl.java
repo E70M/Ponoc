@@ -21,6 +21,14 @@ public class maincrawl extends Application {
         window.setTitle("Ponoc");
         GridPane gridlock = new GridPane();
         gridlock.setPadding(GLOBAL_INSETS);
+        gridlock.setVgap(20);
+        gridlock.setHgap(10);
+        Label welcomeLabel = new Label("Ponoc");
+        Button startButton = new Button("Start Game");
+        gridlock.setConstraints(welcomeLabel, 1, 2);
+        gridlock.setConstraints(startButton, 3, 2);
+        startButton.setOnAction(e -> System.out.println("Enter game"));
+        gridlock.getChildren().addAll(welcomeLabel, startButton);
         display = new Scene(gridlock, 1200, 600);
         window.setScene(display);
         window.setResizable(false);
