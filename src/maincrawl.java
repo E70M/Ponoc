@@ -21,18 +21,18 @@ public class maincrawl extends Application {
         window.setTitle("Ponoc");
         GridPane gridlock = new GridPane();
         gridlock.setPadding(GLOBAL_INSETS);
-        gridlock.setVgap(20);
-        gridlock.setHgap(10);
+        gridlock.setVgap(40);
+        gridlock.setHgap(132);
         Image welcome = new Image("title.jpg");
         ImageView welcomemat = new ImageView(welcome);
         Label welcomeLabel = new Label();
         welcomeLabel.setGraphic(welcomemat);
         Button startButton = new Button("Start Game");
         gridlock.setConstraints(welcomeLabel, 2, 1);
-        gridlock.setConstraints(startButton, 2, 3);
+        gridlock.setConstraints(startButton, 2, 5);
         gridlock.setHalignment(welcomeLabel, HPos.CENTER);
         gridlock.setHalignment(startButton, HPos.CENTER);
-        gridlock.setGridLinesVisible(true); // Temporary
+        // gridlock.setGridLinesVisible(true); // Temporary
         startButton.setOnAction(e -> fight.fightscene("Ponoc", GLOBAL_INSETS, window));
         gridlock.getChildren().addAll(welcomeLabel, startButton);
         display = new Scene(gridlock, 1000, 500);

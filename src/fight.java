@@ -13,11 +13,11 @@ public class fight {
         Stage window = parentStage;
         GridPane battleGrid = new GridPane();
         battleGrid.setPadding(param);
+        battleGrid.setGridLinesVisible(true);
         Scene layout = new Scene(battleGrid, 1000, 500);
         window.setScene(layout);
         window.setResizable(false);
         window.setTitle(title);
-        window.initModality(Modality.APPLICATION_MODAL);
         window.setX(parentStage.getX());
         window.setY(parentStage.getY());
         window.showAndWait();
