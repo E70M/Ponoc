@@ -20,6 +20,7 @@ public class maincrawl extends Application {
         window = primaryStage;
         window.setTitle("Ponoc");
         GridPane gridlock = new GridPane();
+        gridlock.setPadding(GLOBAL_INSETS);
         display = new Scene(gridlock, 1200, 600);
         window.setScene(display);
         window.setResizable(false);
