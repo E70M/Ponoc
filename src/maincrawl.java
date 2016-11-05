@@ -45,7 +45,7 @@ public class maincrawl extends Application {
         settingsButton.setGraphic(settingsmenu);
         settingsButton.setStyle("-fx-base: #ffffff; -fx-focus-color: transparent");
         gridlock.getChildren().addAll(settingsButton, welcomeLabel, startButton);
-        display = new Scene(gridlock, 1000, 500);
+        display = new Scene(gridlock, 1000, 500, Color.BLACK);
         window.setScene(display);
         window.setResizable(false);
         window.show();
