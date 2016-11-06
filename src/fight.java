@@ -1,6 +1,7 @@
 /**
  * Created by Eitan on 11/3/16.
  */
+import javafx.scene.shape.Rectangle;
 import javafx.stage.*;
 import javafx.scene.*;
 import javafx.scene.layout.*;
@@ -14,7 +15,10 @@ public class fight {
         battleGrid.setPadding(param);
         battleGrid.setGridLinesVisible(true);
         Button goBack = new Button("Main menu");
-        goBack.setOnAction(e -> parentStage.setScene(parentScene));
+        goBack.setOnAction(e -> {
+            parentStage.setScene(parentScene);
+            // parentStage.setFullScreen(false);
+        });
         battleGrid.setConstraints(goBack, 1, 1);
         battleGrid.setHalignment(goBack, HPos.CENTER);
         battleGrid.setStyle("-fx-background-color: #062f5a;");

@@ -19,6 +19,7 @@ public class maincrawl extends Application {
     public void start(Stage primaryStage) throws Exception {
         window = primaryStage;
         window.setTitle("Ponoc");
+        // Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
         GridPane gridlock = new GridPane();
         gridlock.setPadding(GLOBAL_INSETS);
         gridlock.setVgap(30);
@@ -38,8 +39,10 @@ public class maincrawl extends Application {
         gridlock.setHalignment(startButton, HPos.CENTER);
         gridlock.setHalignment(settingsButton, HPos.CENTER);
         gridlock.setStyle("-fx-background-image: url('backdrop.jpeg')");
-        // gridlock.setGridLinesVisible(true); // Temporary
-        startButton.setOnAction(e -> fight.fightscene(GLOBAL_INSETS, window, display));
+        startButton.setOnAction(e -> {
+            fight.fightscene(GLOBAL_INSETS, window, display);
+            // window.setFullScreen(true);
+        });
         startButton.setStyle("-fx-base: #ffffff; -fx-focus-color: transparent");
         settingsButton.setOnAction(e -> settings.setup(GLOBAL_INSETS, window, display));
         settingsButton.setGraphic(settingsmenu);
