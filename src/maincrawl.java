@@ -37,7 +37,7 @@ public class maincrawl extends Application {
         gridlock.setHalignment(welcomeLabel, HPos.CENTER);
         gridlock.setHalignment(startButton, HPos.CENTER);
         gridlock.setHalignment(settingsButton, HPos.CENTER);
-        gridlock.setStyle("-fx-background-color: #062f5a;");
+        gridlock.setStyle("-fx-background-image: url('backdrop.jpeg')");
         // gridlock.setGridLinesVisible(true); // Temporary
         startButton.setOnAction(e -> fight.fightscene("Ponoc", GLOBAL_INSETS, window, display));
         startButton.setStyle("-fx-base: #ffffff; -fx-focus-color: transparent");
