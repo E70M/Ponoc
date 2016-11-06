@@ -18,6 +18,7 @@ public class fight {
         goBack.setOnAction(e -> window.setScene(parentScene));
         battleGrid.setConstraints(goBack, 1, 1);
         battleGrid.setHalignment(goBack, HPos.CENTER);
+        battleGrid.setStyle("-fx-background-color: #062f5a;");
         battleGrid.getChildren().addAll(goBack);
         Scene layout = new Scene(battleGrid, 1000, 500);
         window.setScene(layout);
