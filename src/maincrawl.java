@@ -39,9 +39,9 @@ public class maincrawl extends Application {
         gridlock.setHalignment(settingsButton, HPos.CENTER);
         gridlock.setStyle("-fx-background-image: url('backdrop.jpeg')");
         // gridlock.setGridLinesVisible(true); // Temporary
-        startButton.setOnAction(e -> fight.fightscene("Ponoc", GLOBAL_INSETS, window, display));
+        startButton.setOnAction(e -> fight.fightscene(GLOBAL_INSETS, window, display));
         startButton.setStyle("-fx-base: #ffffff; -fx-focus-color: transparent");
-        settingsButton.setOnAction(e -> settings.setup("Ponoc", GLOBAL_INSETS, window, display));
+        settingsButton.setOnAction(e -> settings.setup(GLOBAL_INSETS, window, display));
         settingsButton.setGraphic(settingsmenu);
         settingsButton.setStyle("-fx-base: #ffffff; -fx-focus-color: transparent");
         gridlock.getChildren().addAll(settingsButton, welcomeLabel, startButton);

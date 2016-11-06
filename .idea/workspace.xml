@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4cc4d510-0d6a-42ff-86bc-0ab0cc95f7d4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fight.java" afterPath="$PROJECT_DIR$/src/fight.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/maincrawl.java" afterPath="$PROJECT_DIR$/src/maincrawl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/settings.java" afterPath="$PROJECT_DIR$/src/settings.java" />
     </list>
     <ignored path="Ponoc.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,8 +60,8 @@
       <file leaf-file-name="maincrawl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/maincrawl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
+            <state relative-caret-position="210">
+              <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -68,8 +70,8 @@
       <file leaf-file-name="settings.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/settings.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+            <state relative-caret-position="330">
+              <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
               <folding>
                 <element signature="docComment;class#settings#0" expanded="false" />
               </folding>
@@ -80,8 +82,8 @@
       <file leaf-file-name="fight.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fight.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+            <state relative-caret-position="120">
+              <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -109,8 +111,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/KeyboardInput.java" />
         <option value="$PROJECT_DIR$/src/settings.java" />
-        <option value="$PROJECT_DIR$/src/fight.java" />
         <option value="$PROJECT_DIR$/src/maincrawl.java" />
+        <option value="$PROJECT_DIR$/src/fight.java" />
       </list>
     </option>
   </component>
@@ -794,28 +796,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/fight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/settings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+        <state relative-caret-position="330">
+          <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
           <folding>
             <element signature="docComment;class#settings#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/maincrawl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
+        <state relative-caret-position="210">
+          <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
           <folding />
         </state>
       </provider>

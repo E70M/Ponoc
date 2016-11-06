@@ -10,15 +10,14 @@ import javafx.stage.Stage;
  * Created by Eitan on 11/3/16.
  */
 public class settings {
-    public static void setup (String title, final Insets param, Stage parentStage, Scene parentScene) {
-        Stage window = parentStage;
+    public static void setup (final Insets param, Stage parentStage, Scene parentScene) {
         GridPane settingsGrid = new GridPane();
         settingsGrid.setPadding(param);
         settingsGrid.setVgap(30);
         settingsGrid.setHgap(50);
         Label tempLabel = new Label("Test");
         Button goBack = new Button("Main menu");
-        goBack.setOnAction(e -> window.setScene(parentScene));
+        goBack.setOnAction(e -> parentStage.setScene(parentScene));
         settingsGrid.setConstraints(tempLabel, 0, 0);
         settingsGrid.setConstraints(goBack, 1, 1);
         settingsGrid.setHalignment(tempLabel, HPos.CENTER);
@@ -27,11 +26,6 @@ public class settings {
         settingsGrid.getChildren().addAll(tempLabel, goBack);
         settingsGrid.setGridLinesVisible(true);
         Scene layout = new Scene(settingsGrid, 1000, 500);
-        window.setTitle(title);
-        window.setScene(layout);
-        window.setX(parentStage.getX());
-        window.setY(parentStage.getY());
-        window.setResizable(false);
-        window.show();
+        parentStage.setScene(layout);
     }
 }
