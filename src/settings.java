@@ -31,6 +31,6 @@ public class settings {
         window.setX(parentStage.getX());
         window.setY(parentStage.getY());
         window.setResizable(false);
-        window.showAndWait();
+        window.show();
     }
 }

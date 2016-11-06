@@ -25,6 +25,6 @@ public class fight {
         window.setTitle(title);
         window.setX(parentStage.getX());
         window.setY(parentStage.getY());
-        window.showAndWait();
+        window.show();
     }
 }
