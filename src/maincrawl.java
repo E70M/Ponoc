@@ -23,7 +23,7 @@ public class maincrawl extends Application {
         gridlock.setPadding(GLOBAL_INSETS);
         gridlock.setVgap(30);
         gridlock.setHgap(110);
-        Image welcome = new Image("title.jpg");
+        Image welcome = new Image("title.png");
         Image settingsgear = new Image("gear.png");
         ImageView welcomemat = new ImageView(welcome);
         ImageView settingsmenu = new ImageView(settingsgear);
