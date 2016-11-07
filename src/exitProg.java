@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 public class exitProg {
     public static void exitProtocal(final Insets param, Stage parentStage) {
         Stage window = new Stage();
+        window.setTitle("Wait!");
         GridPane exitGrid = new GridPane();
         exitGrid.setPadding(param);
         exitGrid.setVgap(10);
