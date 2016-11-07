@@ -41,13 +41,13 @@ public class maincrawl extends Application {
         gridlock.setStyle("-fx-background-image: url('backdrop.jpg')");
         startButton.setOnAction(e -> {
             fight.fightscene(GLOBAL_INSETS, window, display);
-            // window.setFullScreen(true);
+             //window.setFullScreen(true);
         });
         startButton.setStyle("-fx-base: #ffffff; -fx-focus-color: transparent");
         settingsButton.setOnAction(e -> settings.setup(GLOBAL_INSETS, window, display));
         settingsButton.setGraphic(settingsmenu);
         settingsButton.setStyle("-fx-base: #ffffff; -fx-focus-color: transparent");
-        gridlock.getChildren().addAll(settingsButton, welcomeLabel, startButton);
+        gridlock.getChildren().addAll( welcomeLabel, startButton);
         display = new Scene(gridlock, 1000, 500);
         window.setScene(display);
         window.setResizable(false);
