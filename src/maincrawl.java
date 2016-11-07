@@ -38,7 +38,7 @@ public class maincrawl extends Application {
         gridlock.setHalignment(welcomeLabel, HPos.CENTER);
         gridlock.setHalignment(startButton, HPos.CENTER);
         gridlock.setHalignment(settingsButton, HPos.CENTER);
-        gridlock.setStyle("-fx-background-image: url('backdrop.jpeg')");
+        gridlock.setStyle("-fx-background-image: url('backdrop.jpg')");
         startButton.setOnAction(e -> {
             fight.fightscene(GLOBAL_INSETS, window, display);
             // window.setFullScreen(true);

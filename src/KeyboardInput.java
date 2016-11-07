@@ -1,10 +1,10 @@
 /**
  * Created by domin on 11/3/2016.
  */
-/*import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener; */
-public class KeyboardInput /*implements KeyListener*/ {
-    /*
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+public class KeyboardInput  {
+
     private static final int KEY_COUNT = 256;
 
     private enum KeyState {
@@ -60,5 +60,5 @@ public class KeyboardInput /*implements KeyListener*/ {
         }
 
     }
-    */
+
 }
