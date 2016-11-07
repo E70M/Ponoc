@@ -51,6 +51,10 @@ public class maincrawl extends Application {
         display = new Scene(gridlock, 1000, 500);
         window.setScene(display);
         window.setResizable(false);
+        window.setOnCloseRequest(e -> {
+            e.consume();
+            exitProg.exitProtocal(GLOBAL_INSETS, window);
+        });
         window.show();
     }
 }

@@ -24,6 +24,10 @@ public class fight {
         battleGrid.setStyle("-fx-background-color: #062f5a;");
         battleGrid.getChildren().addAll(goBack);
         Scene layout = new Scene(battleGrid, 1000, 500);
+        parentStage.setOnCloseRequest(e -> {
+            e.consume();
+            exitProg.exitProtocal(param, parentStage);
+        });
         parentStage.setScene(layout);
     }
 }

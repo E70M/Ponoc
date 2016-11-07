@@ -26,6 +26,10 @@ public class settings {
         settingsGrid.getChildren().addAll(tempLabel, goBack);
         settingsGrid.setGridLinesVisible(true);
         Scene layout = new Scene(settingsGrid, 1000, 500);
+        parentStage.setOnCloseRequest(e -> {
+            e.consume();
+            exitProg.exitProtocal(param, parentStage);
+        });
         parentStage.setScene(layout);
     }
 }
