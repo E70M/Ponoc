@@ -24,12 +24,8 @@ public class maincrawl extends Application {
         gridlock.setPadding(GLOBAL_INSETS);
         gridlock.setVgap(30);
         gridlock.setHgap(105);
-        Image welcome = new Image("title.png");
-        Image settingsgear = new Image("gear.png");
-        ImageView welcomemat = new ImageView(welcome);
-        ImageView settingsmenu = new ImageView(settingsgear);
         Label welcomeLabel = new Label();
-        welcomeLabel.setGraphic(welcomemat);
+        welcomeLabel.setGraphic(new ImageView(new Image("title.png")));
         Button settingsButton = new Button();
         Button startButton = new Button("Start Game");
         gridlock.setConstraints(welcomeLabel, 2, 1);
@@ -40,12 +36,12 @@ public class maincrawl extends Application {
         gridlock.setHalignment(settingsButton, HPos.CENTER);
         gridlock.setStyle("-fx-background-image: url('backdrop.jpg')");
         startButton.setOnAction(e -> {
-            fight.fightscene(GLOBAL_INSETS, window, display);
+            introcrawl.screen(GLOBAL_INSETS, window, display);
              //window.setFullScreen(true);
         });
         startButton.setStyle("-fx-base: #ffffff; -fx-focus-color: transparent");
         settingsButton.setOnAction(e -> settings.setup(GLOBAL_INSETS, window, display));
-        settingsButton.setGraphic(settingsmenu);
+        settingsButton.setGraphic(new ImageView(new Image("gear.png")));
         settingsButton.setStyle("-fx-base: #ffffff; -fx-focus-color: transparent");
         gridlock.getChildren().addAll( welcomeLabel, startButton, settingsButton);
         display = new Scene(gridlock, 1000, 500);
