@@ -1,6 +1,6 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-public class KeyboardInput  {
+public class KeyboardInput implements KeyListener {
 
     private static final int KEY_COUNT = 256;
 
@@ -13,7 +13,7 @@ public class KeyboardInput  {
     private boolean[] currentKeys = null;
     private KeyState[] keys = null;
 
-    public KeyboardInput() {
+    public void KeyboardInput() {
         currentKeys = new boolean[KEY_COUNT];
         keys = new KeyState[KEY_COUNT];
         for (int i = 0; i < KEY_COUNT; ++i) {
@@ -43,7 +43,13 @@ public class KeyboardInput  {
         return keys[keyCode] == KeyState.ONCE;
     }
 
-    public synchronized void keyPressed(KeyEvent e) {
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
         int keyCode = e.getKeyCode();
         if (keyCode >= 0 && keyCode < KEY_COUNT) {
             currentKeys[keyCode] = true;
