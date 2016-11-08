@@ -23,7 +23,7 @@ public class settings {
         settingsGrid.setConstraints(goBack, 1, 1);
         settingsGrid.setHalignment(tempLabel, HPos.CENTER);
         settingsGrid.setHalignment(goBack, HPos.CENTER);
-        settingsGrid.setStyle("-fx-background-color: #062f5a;");
+        settingsGrid.setStyle("-fx-background-color: #000033;");
         settingsGrid.getChildren().addAll(tempLabel, goBack);
         settingsGrid.setGridLinesVisible(true);
         Scene layout = new Scene(settingsGrid, 1000, 500);

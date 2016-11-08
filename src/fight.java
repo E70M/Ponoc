@@ -21,7 +21,7 @@ public class fight {
         });
         battleGrid.setConstraints(goBack, 1, 1);
         battleGrid.setHalignment(goBack, HPos.CENTER);
-        battleGrid.setStyle("-fx-background-color: #062f5a;");
+        battleGrid.setStyle("-fx-background-color: #000033;");
         battleGrid.getChildren().addAll(goBack);
         Scene layout = new Scene(battleGrid, 1000, 500);
         parentStage.setOnCloseRequest(e -> {

@@ -33,7 +33,7 @@ public class exitProg {
         exitGrid.setHalignment(askLabel, HPos.CENTER);
         exitGrid.setHalignment(yes, HPos.CENTER);
         exitGrid.setHalignment(no, HPos.CENTER);
-        exitGrid.setGridLinesVisible(true); //Temporary
+        exitGrid.setGridLinesVisible(false); //Temporary
         exitGrid.getChildren().addAll(askLabel, yes, no);
         Scene display = new Scene(exitGrid, 500, 250);
         window.setScene(display);

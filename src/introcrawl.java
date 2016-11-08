@@ -25,7 +25,7 @@ public class introcrawl {
         introGrid.setConstraints(settingsButton, 0, 0);
         introGrid.setHalignment(continueButton, HPos.CENTER);
         introGrid.setHalignment(settingsButton, HPos.CENTER);
-        introGrid.setStyle("-fx-background-image: url('intro.png'); -fx-background-color: #062f5a;");
+        introGrid.setStyle("-fx-background-image: url('intro.png'); -fx-background-color: #000033;");
         introGrid.getChildren().addAll(continueButton, settingsButton);
         introGrid.setGridLinesVisible(false);
         Scene display = new Scene(introGrid, 1000, 500);
