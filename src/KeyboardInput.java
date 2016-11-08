@@ -1,6 +1,3 @@
-/**
- * Created by domin on 11/3/2016.
- */
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 public class KeyboardInput  {

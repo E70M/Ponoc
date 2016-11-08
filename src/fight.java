@@ -1,13 +1,8 @@
-/**
- * Created by Eitan on 11/3/16.
- */
-import javafx.scene.shape.Rectangle;
 import javafx.stage.*;
 import javafx.scene.*;
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
-import javafx.scene.paint.*;
-import javafx.scene.image.*;
+//import javafx.scene.image.*;
 import javafx.geometry.*;
 public class fight {
     public static void fightscene(final Insets param, Stage parentStage, Scene parentScene) {

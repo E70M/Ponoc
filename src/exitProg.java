@@ -5,10 +5,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
-/**
- * Created by Eitan on 11/6/16.
- */
 public class exitProg {
     public static void exitProtocal(final Insets param, Stage parentStage) {
         Stage window = new Stage();
