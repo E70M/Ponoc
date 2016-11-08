@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4cc4d510-0d6a-42ff-86bc-0ab0cc95f7d4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/KeyboardInput.java" afterPath="$PROJECT_DIR$/src/KeyboardInput.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/exitProg.java" afterPath="$PROJECT_DIR$/src/exitProg.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fight.java" afterPath="$PROJECT_DIR$/src/fight.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/introcrawl.java" afterPath="$PROJECT_DIR$/src/introcrawl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/maincrawl.java" afterPath="$PROJECT_DIR$/src/maincrawl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/settings.java" afterPath="$PROJECT_DIR$/src/settings.java" />
-    </list>
+    <list default="true" id="4cc4d510-0d6a-42ff-86bc-0ab0cc95f7d4" name="Default" comment="" />
     <ignored path="Ponoc.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
