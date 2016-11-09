@@ -1,3 +1,4 @@
+import javafx.scene.input.KeyEvent;
 import javafx.stage.*;
 import javafx.scene.*;
 import javafx.scene.layout.*;
@@ -24,5 +25,11 @@ public class fight {
             exitProg.exitProtocal(param, parentStage);
         });
         parentStage.setScene(layout);
+        /*while (true) {
+            String keyAction = KeyboardInput.returnKey();
+            if (keyAction.equals("UP")) {
+                System.out.println("You're hitting the UP key");
+            }
+        } */
     }
 }
