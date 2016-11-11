@@ -36,6 +36,7 @@ public class exitProg {
         window.setOnCloseRequest(e -> window.close());
         window.setX(parentStage.getX() + 250);
         window.setY(parentStage.getY() + 125);
+        window.setResizable(false);
         window.show();
     }
 }
