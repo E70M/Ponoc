@@ -10,3 +10,7 @@ Refer to the following link for recommended JavaFX tutorials: https://www.youtub
 #Week 1
 Created framework of game. The stage, scenes, buttons, backdrops, and menus were put in place for future development.
 Immediate goals: Nail gridpane work or use scene builder with FXML, perfect KeyboardInput, find artist for character sprites and for level backdrops.
+
+
+#Week 2
+Added Jonathan Luu to the project. Immediate goals: Nail gridpane work or use scene builder with FXML, perfect KeyboardInput, find artist for character sprites and for level backdrops.
