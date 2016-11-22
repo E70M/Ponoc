@@ -1,6 +1,3 @@
-/**
- * Created by Eitan on 11/3/16.
- */
 import javafx.application.Application;
 import javafx.stage.*;
 import javafx.scene.*;

@@ -6,10 +6,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
-/**
- * Created by Eitan on 11/7/16.
- */
 public class introcrawl {
     public static void screen (final Insets param, Stage parentStage, Scene parentScene) {
         GridPane introGrid = new GridPane();

@@ -5,11 +5,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
-
-/**
- * Created by Eitan on 11/3/16.
- */
 public class settings {
     public static void setup (final Insets param, Stage parentStage, Scene parentScene) {
         GridPane settingsGrid = new GridPane();
