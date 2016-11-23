@@ -29,7 +29,7 @@ public class maincrawl extends Application {
         gridlock.setHalignment(welcomeLabel, HPos.CENTER);
         gridlock.setHalignment(startButton, HPos.CENTER);
         gridlock.setStyle("-fx-background-image: url('backdrop.jpg')");
-        //stage.getIcons().add(new Image("/path/to/icon.png")); application icon
+        window.getIcons().add(new Image("Ponoc_Icon.png"));
         startButton.setOnAction(e -> {
             introcrawl.screen(GLOBAL_INSETS, window, display);
              //window.setFullScreen(true);
