@@ -3,9 +3,9 @@ import javafx.stage.*;
 import javafx.scene.*;
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
-import javafx.scene.paint.*;
 import javafx.scene.image.*;
 import javafx.geometry.*;
+
 public class maincrawl extends Application {
     static final Insets GLOBAL_INSETS = new Insets(10, 10, 10, 10);
     static Stage window; static Scene display;
@@ -30,10 +30,7 @@ public class maincrawl extends Application {
         gridlock.setHalignment(startButton, HPos.CENTER);
         gridlock.setStyle("-fx-background-image: url('backdrop.jpg')");
         window.getIcons().add(new Image("Ponoc_Icon.png"));
-        startButton.setOnAction(e -> {
-            introcrawl.screen(GLOBAL_INSETS, window, display);
-             //window.setFullScreen(true);
-        });
+        startButton.setOnAction(e -> introcrawl.screen(GLOBAL_INSETS, window, display));
         startButton.setStyle("-fx-base: #ffffff; -fx-focus-color: transparent");
         gridlock.getChildren().addAll( welcomeLabel, startButton);
         display = new Scene(gridlock, 1000, 500);
