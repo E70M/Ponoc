@@ -3,6 +3,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 public class exitProg {
@@ -37,6 +38,7 @@ public class exitProg {
         window.setX(parentStage.getX() + 250);
         window.setY(parentStage.getY() + 125);
         window.setResizable(false);
+        window.getIcons().add(new Image("Ponoc_Icon.png"));
         window.show();
     }
 }
