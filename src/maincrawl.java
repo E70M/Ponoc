@@ -1,4 +1,8 @@
 import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.stage.*;
 import javafx.scene.*;
 import javafx.scene.layout.*;
@@ -7,6 +11,7 @@ import javafx.scene.image.*;
 import javafx.geometry.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import java.awt.*;
 
 public class maincrawl extends Application {
     static final Insets GLOBAL_INSETS = new Insets(10, 10, 10, 10);
