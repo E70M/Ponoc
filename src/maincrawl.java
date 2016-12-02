@@ -45,9 +45,8 @@ public class maincrawl extends Application {
         });
         window.show();
     }
-    public static void playSound() {
-       /*
-       try {
+    public static void playSound() {/*
+        try {
            String bip = "Ponoc_Themesong.wav";
            Media hit = new Media(bip);
            MediaPlayer mediaPlayer = new MediaPlayer(hit);
@@ -56,6 +55,5 @@ public class maincrawl extends Application {
         System.out.println("Error with playing sound.");
         ex.printStackTrace();
        }
-       */
-    }
+    */}
 }
