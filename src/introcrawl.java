@@ -6,6 +6,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
 public class introcrawl {
     public static void screen (final Insets param, Stage parentStage, Scene parentScene) {
         GridPane introGrid = new GridPane();

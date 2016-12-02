@@ -5,6 +5,8 @@ import javafx.scene.layout.*;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
 import javafx.geometry.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class maincrawl extends Application {
     static final Insets GLOBAL_INSETS = new Insets(10, 10, 10, 10);
@@ -31,6 +33,7 @@ public class maincrawl extends Application {
         gridlock.setStyle("-fx-background-image: url('backdrop.jpg')");
         window.getIcons().add(new Image("Ponoc_Icon.png"));
         startButton.setOnAction(e -> introcrawl.screen(GLOBAL_INSETS, window, display));
+        playSound();
         startButton.setStyle("-fx-base: #ffffff; -fx-focus-color: transparent");
         gridlock.getChildren().addAll( welcomeLabel, startButton);
         display = new Scene(gridlock, 1000, 500);
@@ -41,5 +44,16 @@ public class maincrawl extends Application {
             exitProg.exitProtocal(GLOBAL_INSETS, window);
         });
         window.show();
+    }
+    /*public static void playSound() {
+       try {
+           String bip = "Ponoc_Themesong.wav";
+           Media hit = new Media(bip);
+           MediaPlayer mediaPlayer = new MediaPlayer(hit);
+           mediaPlayer.play();
+       } catch(Exception ex) {
+        System.out.println("Error with playing sound.");
+        ex.printStackTrace();
+       }
     }
 }
