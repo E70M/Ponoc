@@ -12,6 +12,7 @@ import javafx.geometry.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import java.awt.*;
+import java.awt.image.BufferStrategy;
 
 public class maincrawl extends Application {
     static final Insets GLOBAL_INSETS = new Insets(10, 10, 10, 10);
