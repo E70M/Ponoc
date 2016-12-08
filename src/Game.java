@@ -1,11 +1,7 @@
 import java.awt.*;
 import java.awt.image.BufferStrategy;
-
 public class Game extends Canvas implements Runnable {
-    public static boolean running = false;
-    public void getRun(boolean setUp) {
-        running = setUp;
-    }
+    private static boolean running = false;
     public synchronized void start(){
         if(running)
             return;
@@ -46,10 +42,8 @@ public class Game extends Canvas implements Runnable {
     private void render(){
         BufferStrategy bs = this.getBufferStrategy();
     }
-
-    public static void callLoop(boolean check){
+    public static void callLoop(){
         Game loop = new Game();
-        loop.getRun(check);
         loop.start();
         loop.run();
     }

@@ -25,7 +25,7 @@ public class fight extends Game {
             exitProg.exitProtocal(param, parentStage);
         });
         parentStage.setScene(layout);
-        Game.callLoop(true);
+        Game.callLoop();
         /*while (true) {
             String keyAction = KeyboardInput.returnKey();
             if (keyAction.equals("UP")) {
