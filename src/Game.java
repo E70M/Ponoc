@@ -1,9 +1,6 @@
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 
-/**
- * Created by domin on 11/22/2016.
- */
 public class Game extends Canvas implements Runnable {
     private boolean running = false;
     public synchronized void start(){

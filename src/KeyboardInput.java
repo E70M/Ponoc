@@ -1,5 +1,5 @@
 import java.awt.event.*;
-public class KeyboardInput implements KeyListener {
+public class KeyboardInput extends Game implements KeyListener {
     static int keyCode;
     @Override
     public void keyTyped(KeyEvent e) {
