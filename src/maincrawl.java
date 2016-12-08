@@ -17,6 +17,7 @@ import java.awt.image.BufferStrategy;
 public class maincrawl extends Application {
     static final Insets GLOBAL_INSETS = new Insets(10, 10, 10, 10);
     static Stage window; static Scene display;
+    static GridPane gridlock, introGrid, battleGrid;
     public static void main(String[]args) {
         launch(args);
     }
@@ -25,7 +26,7 @@ public class maincrawl extends Application {
         window = primaryStage;
         window.setTitle("Ponoc");
         // Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-        GridPane gridlock = new GridPane();
+        gridlock = new GridPane();
         gridlock.setPadding(GLOBAL_INSETS);
         gridlock.setVgap(60);
         gridlock.setHgap(128);
@@ -52,7 +53,7 @@ public class maincrawl extends Application {
         window.show();
     }
     public static void screen (final Insets param, Stage parentStage, Scene parentScene) {
-        GridPane introGrid = new GridPane();
+        introGrid = new GridPane();
         introGrid.setPadding(param);
         introGrid.setVgap(380);
         introGrid.setHgap(415);

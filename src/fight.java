@@ -5,8 +5,9 @@ import javafx.scene.layout.*;
 import javafx.scene.control.*;
 //import javafx.scene.image.*;
 import javafx.geometry.*;
-public class fight {
+public class fight extends Game {
     public static void fightscene(final Insets param, Stage parentStage, Scene parentScene) {
+        Game.callLoop(true);
         GridPane battleGrid = new GridPane();
         battleGrid.setPadding(param);
         battleGrid.setGridLinesVisible(true);
