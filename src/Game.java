@@ -2,11 +2,12 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 public class Game extends Canvas implements Runnable {
     private static boolean running = false;
+    static BufferStrategy bs;
+    static boolean status = false;
     public synchronized void start(){
         if(running)
             return;
         running = true;
-
     }
     public void run(){
         long lastTime = System.nanoTime();
@@ -16,7 +17,10 @@ public class Game extends Canvas implements Runnable {
         long timer = System.currentTimeMillis();
         int updates = 0;
         int frames = 0;
-        while(running){
+        while(running && status == true){
+            if (status == false) {
+                break;
+            }
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
             lastTime = now;
@@ -30,7 +34,8 @@ public class Game extends Canvas implements Runnable {
 
             if(System.currentTimeMillis() - timer > 1000){
                 timer += 1000;
-                System.out.println("FPS: " + frames + " TICKS: " + updates);
+                int framerate = frames / 1000000;
+                System.out.printf("FPS: %4d\tTicks: %3d\n", framerate, updates);
                 frames = 0;
                 updates = 0;
             }
@@ -40,11 +45,17 @@ public class Game extends Canvas implements Runnable {
 
     }
     private void render(){
-        BufferStrategy bs = this.getBufferStrategy();
+        bs = this.getBufferStrategy();
     }
-    public static void callLoop(){
+    public static void callLoop(boolean check){
         Game loop = new Game();
-        loop.start();
-        loop.run();
+        if (check == true) {
+            status = true;
+            loop.start();
+            loop.run();
+        }
+        else {
+            status = false;
+        }
     }
 }

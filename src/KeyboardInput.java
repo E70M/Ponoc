@@ -1,6 +1,8 @@
 import java.awt.event.*;
 public class KeyboardInput extends Game implements KeyListener {
     static int keyCode;
+    static String keyStroke = "";
+    static KeyEvent e;
     @Override
     public void keyTyped(KeyEvent e) {
         e.consume();
@@ -8,7 +10,12 @@ public class KeyboardInput extends Game implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         keyCode = e.getKeyCode();
-        System.out.println("You pressed " + KeyEvent.getKeyText(keyCode) + "!");
+        if (keyCode == KeyEvent.VK_ESCAPE) {
+            keyStroke = "ESCAPE";
+        }
+        else {
+            System.out.println("You pressed " + KeyEvent.getKeyText(keyCode) + "!");
+        }
         e.consume();
     }
     @Override
@@ -17,7 +24,10 @@ public class KeyboardInput extends Game implements KeyListener {
         System.out.println("You released " + KeyEvent.getKeyText(keyCode) + "!");
         e.consume();
     }
-
+    public String returnKey() {
+        keyPressed(e);
+        return keyStroke;
+    }
     /*private static final int KEY_COUNT = 256;
     private enum KeyState {
         RELEASED,
@@ -51,10 +61,6 @@ public class KeyboardInput extends Game implements KeyListener {
     }
     public boolean keyDownOnce(int keyCode) {
         return keys[keyCode] == KeyState.ONCE;
-    }
-    @Override
-    public void keyTyped(KeyEvent e) {
-
     }
     @Override
     public void keyPressed(KeyEvent e) {
