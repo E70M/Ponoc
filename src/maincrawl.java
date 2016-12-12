@@ -59,7 +59,7 @@ public class maincrawl extends Application {
         introGrid.setHgap(415);
         Button continueButton = new Button("Continue");
         Button settingsButton = new Button();
-        continueButton.setOnAction(e -> fight.fightscene(param, parentStage, parentScene));
+        continueButton.setOnAction(e -> fight.setupfight(param, parentStage, parentScene));
         settingsButton.setOnAction(e -> settings.setup(param, parentStage, parentScene));
         settingsButton.setGraphic(new ImageView(new Image("gear.png")));
         introGrid.setConstraints(continueButton, 1, 1);

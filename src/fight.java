@@ -6,7 +6,7 @@ import javafx.geometry.*;
 import java.awt.event.KeyListener;
 
 public class fight extends Game {
-    public static void fightscene(final Insets param, Stage parentStage, Scene parentScene) {
+    public static void setupfight(final Insets param, Stage parentStage, Scene parentScene) {
         KeyboardInput keyType = new KeyboardInput();
         GridPane battleGrid = new GridPane();
         battleGrid.setPadding(param);
@@ -33,5 +33,8 @@ public class fight extends Game {
             exitProg.exitProtocal(param, parentStage);
         });
         parentStage.setScene(layout);
+    }
+    public static void fightscene() {
+        // Insert fxml
     }
 }

@@ -53,6 +53,7 @@ public class Game extends Canvas implements Runnable {
             status = true;
             loop.start();
             loop.run();
+            fight.fightscene();
         }
         else {
             status = false;
