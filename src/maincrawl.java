@@ -18,6 +18,7 @@ public class maincrawl extends Application {
     static final Insets GLOBAL_INSETS = new Insets(10, 10, 10, 10);
     static Stage window; static Scene display;
     static GridPane gridlock, introGrid, battleGrid;
+    static fight battleground = new fight();
     public static void main(String[]args) {
         launch(args);
     }
@@ -59,7 +60,7 @@ public class maincrawl extends Application {
         introGrid.setHgap(415);
         Button continueButton = new Button("Continue");
         Button settingsButton = new Button();
-        continueButton.setOnAction(e -> fight.setupfight(param, parentStage, parentScene));
+        continueButton.setOnAction(e -> battleground.setupfight(param, parentStage, parentScene));
         settingsButton.setOnAction(e -> settings.setup(param, parentStage, parentScene));
         settingsButton.setGraphic(new ImageView(new Image("gear.png")));
         introGrid.setConstraints(continueButton, 1, 1);
@@ -74,9 +75,7 @@ public class maincrawl extends Application {
     }
     public static void playSound() {/*
         try {
-           String bip = "Ponoc_Themesong.wav";
-           Media hit = new Media(bip);
-           MediaPlayer mediaPlayer = new MediaPlayer(hit);
+           MediaPlayer mediaPlayer = new MediaPlayer(new Media("Ponoc_Themesong.wav"));
            mediaPlayer.play();
        } catch(Exception ex) {
         System.out.println("Error with playing sound.");

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <BorderPane prefHeight="500.0" prefWidth="1013.0" style="-fx-background-color: #000033;">
+         <center>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#looper" text="Start Game" BorderPane.alignment="CENTER" />
+         </center>
+         <top>
+            <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" text="Click to start" textAlignment="CENTER" textFill="#f8f5f5" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </top>
+         <bottom>
+            <Button alignment="TOP_CENTER" mnemonicParsing="false" text="Go Back" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+   </children>
+</GridPane>
