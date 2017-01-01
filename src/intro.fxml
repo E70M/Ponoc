@@ -6,6 +6,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane prefHeight="500.0" prefWidth="1000.0" style="-fx-background-image: url('intro.png'); -fx-background-color: #000033;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
 
+<GridPane prefHeight="500.0" prefWidth="1000.0" style="-fx-background-image: url('backdrop.jpg'); -fx-background-color: #000033;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="500.0" prefWidth="1000.0" />
+   </children>
 </GridPane>
