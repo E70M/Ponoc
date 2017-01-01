@@ -7,6 +7,7 @@ import javafx.fxml.*;
 import java.awt.event.KeyListener;
 
 public class fight extends Game {
+    /*
     public void setupfight(final Insets param, Stage parentStage, Scene parentScene) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("fightloader.fxml"));
@@ -32,12 +33,11 @@ public class fight extends Game {
             e.consume();
             exitProg.exitProtocal(param, parentStage);
         });
-        */
             parentStage.setScene(new Scene(root, 1000, 500));
         } catch(Exception ex) {
             ex.printStackTrace();
         }
-    }
+    } */
     public static void fightscene() {
         // Insert fxml
     }

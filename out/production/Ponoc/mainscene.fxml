@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane prefHeight="500.0" prefWidth="1000.0" style="-fx-background-image: url('backdrop.jpg'); -fx-background-color: #000033;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="500.0" prefWidth="1000.0">
+         <children>
+            <ImageView fitHeight="80.0" fitWidth="450.0" layoutX="275.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="title.png" />
+                </image>
+            </ImageView>
+            <Button layoutX="471.0" layoutY="334.0" mnemonicParsing="false" onAction="#gotoIntro" text="Start Game" />
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>
