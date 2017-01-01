@@ -4,6 +4,7 @@ public class Game extends Canvas implements Runnable {
     private static boolean running = false;
     static BufferStrategy bs;
     static boolean status = false;
+    static int framerate = 0, updates = 0;
     public synchronized void start(){
         if(running)
             return;
@@ -15,7 +16,6 @@ public class Game extends Canvas implements Runnable {
         double ns = 1000000000 / amountOfTicks;
         double delta = 0;
         long timer = System.currentTimeMillis();
-        int updates = 0;
         int frames = 0;
         while(running && status == true){
             if (status == false) {
@@ -34,7 +34,7 @@ public class Game extends Canvas implements Runnable {
 
             if(System.currentTimeMillis() - timer > 1000){
                 timer += 1000;
-                int framerate = frames / 1000000;
+                framerate = frames / 1000000;
                 System.out.printf("FPS: %4d\tTicks: %3d\n", framerate, updates);
                 frames = 0;
                 updates = 0;
@@ -44,10 +44,16 @@ public class Game extends Canvas implements Runnable {
     private void tick(){
 
     }
+    public String getFPS() {
+        return Integer.toString(framerate);
+    }
+    public String getTicks() {
+        return Integer.toString(updates);
+    }
     private void render(){
         bs = this.getBufferStrategy();
     }
-    public static void callLoop(boolean check){
+    public static void callLoop(boolean check) {
         Game loop = new Game();
         if (check == true) {
             status = true;
