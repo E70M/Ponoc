@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class maincrawl extends Application {
     static final Insets GLOBAL_INSETS = new Insets(10, 10, 10, 10);
-    Stage window; Scene display;
+    Stage window;
     Controller loadGrid = new Controller();
     public static void main(String[]args) {
         launch(args);
