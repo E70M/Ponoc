@@ -11,8 +11,8 @@ import java.io.IOException;
 
 public class maincrawl extends Application {
     static final Insets GLOBAL_INSETS = new Insets(10, 10, 10, 10);
-    Stage window;
-    GridLoader loadGrid = new GridLoader();
+    Stage window; Scene display;
+    Controller loadGrid = new Controller();
     public static void main(String[]args) {
         launch(args);
     }
@@ -21,7 +21,7 @@ public class maincrawl extends Application {
         window = primaryStage;
         window.setTitle("Ponoc");
         loadGrid.setStage(window);
-        loadGrid.setGridPane(FXMLLoader.load(getClass().getResource("mainscene.fxml")));
+        loadGrid.setGridPane(0);
         window.setResizable(false);
         window.setOnCloseRequest(e -> {
             e.consume();
