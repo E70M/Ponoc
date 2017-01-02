@@ -2,8 +2,7 @@ import javafx.scene.*;
 import javafx.stage.*;
 import javafx.fxml.*;
 public class GridLoader {
-    Parent root;
-    Stage parentStage;
+    Parent root; Stage parentStage;
     public void setStage(Stage primaryStage) {
         parentStage = primaryStage;
     }

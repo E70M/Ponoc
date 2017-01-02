@@ -8,7 +8,7 @@ import javafx.fxml.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class fight implements KeyListener {
+public class fight extends Game implements KeyListener {
     public boolean over = false, paused;
     public static final int UP = 0, DOWN = 1, LEFT = 2, RIGHT = 3;
     public int direction = DOWN;
