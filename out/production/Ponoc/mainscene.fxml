@@ -16,12 +16,12 @@
    <children>
       <AnchorPane prefHeight="500.0" prefWidth="1000.0">
          <children>
-            <ImageView fitHeight="80.0" fitWidth="450.0" layoutX="275.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="80.0" fitWidth="450.0" layoutX="260.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="title.png" />
                 </image>
             </ImageView>
-            <Button layoutX="471.0" layoutY="334.0" mnemonicParsing="false" onAction="#gotoIntro" text="Start Game" />
+            <Button layoutX="456.0" layoutY="425.0" mnemonicParsing="false" onAction="#gotoIntro" text="Start Game" />
          </children>
       </AnchorPane>
    </children>
