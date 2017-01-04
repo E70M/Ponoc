@@ -47,8 +47,10 @@ public class Controller extends Game implements Initializable {
     }
     public void looper() {
         loop.callLoop(true);
-        FPStext.setText(loop.getFPS());
-        ticksText.setText(loop.getTicks());
+    }
+    public void textSetters(int FPS, int ticks) {
+        FPStext.setText(Integer.toString(FPS));
+        ticksText.setText(Integer.toString(ticks));
     }
     public static void exitProtocol(Parent root) {
         window = new Stage();
