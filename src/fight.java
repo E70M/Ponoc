@@ -1,9 +1,3 @@
-import javafx.stage.*;
-import javafx.scene.*;
-import javafx.scene.layout.*;
-import javafx.scene.control.*;
-import javafx.geometry.*;
-import javafx.fxml.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 public class fight extends Game implements KeyListener {

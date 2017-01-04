@@ -1,14 +1,7 @@
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.stage.*;
-import javafx.scene.*;
 import javafx.scene.image.*;
-import javafx.geometry.*;
 import javafx.scene.media.*;
-
-import java.io.IOException;
-
 public class maincrawl extends Application {
     Stage window;
     Controller loadGrid = new Controller();
