@@ -10,9 +10,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.ResourceBundle;
 public class Controller extends Game implements Initializable {
-    Stage parentStage;
+    static Stage parentStage;
     Game loop = new Game();
-    Parent root;
+    static Parent root;
     @FXML Label FPStext; @FXML Label ticksText;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -30,22 +30,19 @@ public class Controller extends Game implements Initializable {
     public void setStage(Stage primaryStage) {
         parentStage = primaryStage;
     }
-    public void setGridPane(int choice) throws Exception {
+    public static void setGridPane(int choice) throws Exception {
         try {
-            if(choice == 0) {
-                this.root = FXMLLoader.load(getClass().getResource("mainscene.fxml"));
-            }
-            else if(choice == 1) {
-                this.root = FXMLLoader.load(getClass().getResource("intro.fxml"));
+            if(choice == 1) {
+                root = FXMLLoader.load(Controller.class.getResource("intro.fxml"));
             }
             else if(choice == 2) {
-                this.root = FXMLLoader.load(getClass().getResource("fightloader.fxml"));
+                root = FXMLLoader.load(Controller.class.getResource("fightloader.fxml"));
             }
             else if(choice == 3) {
-                this.root = FXMLLoader.load(getClass().getResource("settings.fxml"));
+                root = FXMLLoader.load(Controller.class.getResource("settings.fxml"));
             }
             else {
-                this.root = FXMLLoader.load(getClass().getResource("mainscene.fxml"));
+                root = FXMLLoader.load(Controller.class.getResource("mainscene.fxml"));
             }
             parentStage.setScene(new Scene(root, 1000, 500));
         } catch(Exception ex) {
