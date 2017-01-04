@@ -1,7 +1,9 @@
 import javafx.application.Application;
+import javafx.concurrent.Task;
 import javafx.stage.*;
 import javafx.scene.image.*;
 import javafx.scene.media.*;
+import static javafx.scene.media.AudioClip.INDEFINITE;
 public class maincrawl extends Application {
     Stage window;
     Controller loadGrid = new Controller();
@@ -24,15 +26,20 @@ public class maincrawl extends Application {
             }
         });
         window.getIcons().add(new Image("Ponoc_Icon.png"));
+        playSound();
         window.show();
     }
-    public static void playSound() {/*
-        try {
-           MediaPlayer mediaPlayer = new MediaPlayer(new Media("Ponoc_Themesong.wav"));
-           mediaPlayer.play();
-       } catch(Exception ex) {
-        System.out.println("Error with playing sound.");
-        ex.printStackTrace();
-       }
-    */}
+    public static void playSound() {
+        final Task task = new Task() {
+            protected Object call() throws Exception {
+                AudioClip audio = new AudioClip(getClass().getResource("Ponoc_Themesong.wav").toExternalForm());
+                audio.setVolume(0.5f);
+                audio.setCycleCount(INDEFINITE);
+                audio.play();
+                return null;
+            }
+        };
+        Thread thread = new Thread(task);
+        thread.start();
+    }
 }

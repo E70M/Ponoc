@@ -16,25 +16,25 @@ public class Controller extends Game implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         // Add something?
     }
-    public void backToMain() throws Exception {
-        setGridPane("mainscene.fxml");
+    public void backToMain() {
+        this.setGridPane("mainscene.fxml");
     }
-    public void gotoIntro() throws Exception {
+    public void gotoIntro() {
         this.setGridPane("intro.fxml");
     }
-    public void gotoFight() throws Exception {
+    public void gotoFight() {
         this.setGridPane("fightloader.fxml");
     }
-    public void gotoSettings() throws Exception {
+    public void gotoSettings() {
         this.setGridPane("settings.fxml");
     }
-    public void exitApp() throws Exception {
+    public void exitApp() {
         this.setGridPane("exit.fxml");
     }
     public void setStage(Stage primaryStage) {
         parentStage = primaryStage;
     }
-    public static void setGridPane(String FXML_file) throws Exception {
+    public static void setGridPane(String FXML_file) {
         try {
             root = FXMLLoader.load(Controller.class.getResource(FXML_file));
             if(FXML_file.equals("exit.fxml")) {
