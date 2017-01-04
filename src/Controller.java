@@ -16,6 +16,9 @@ public class Controller extends Game implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         // Add something?
     }
+    public void backToMain() throws Exception {
+        setGridPane("mainscene.fxml");
+    }
     public void gotoIntro() throws Exception {
         this.setGridPane("intro.fxml");
     }
