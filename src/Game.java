@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 public class Game extends Canvas implements Runnable {
-    Controller control = new Controller();
+    // Controller control = new Controller();
     private static boolean running = false;
     static BufferStrategy bs;
     static boolean status = false;
@@ -37,7 +37,7 @@ public class Game extends Canvas implements Runnable {
                 timer += 1000;
                 framerate = frames / 1000000;
                 System.out.printf("FPS: %4d\tTicks: %3d\n", framerate, updates);
-                control.textSetters(framerate, updates);
+                // control.textSetters(framerate, updates);
                 frames = 0;
                 updates = 0;
             }
