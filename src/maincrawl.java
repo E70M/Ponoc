@@ -10,7 +10,6 @@ import javafx.scene.media.*;
 import java.io.IOException;
 
 public class maincrawl extends Application {
-    static final Insets GLOBAL_INSETS = new Insets(10, 10, 10, 10);
     Stage window;
     Controller loadGrid = new Controller();
     public static void main(String[]args) {
@@ -25,7 +24,11 @@ public class maincrawl extends Application {
         window.setResizable(false);
         window.setOnCloseRequest(e -> {
             e.consume();
-            exitProg.exitProtocal(GLOBAL_INSETS, window);
+            try {
+                loadGrid.exitApp();
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
         });
         window.getIcons().add(new Image("Ponoc_Icon.png"));
         window.show();
