@@ -20,7 +20,7 @@ public class maincrawl extends Application {
         window = primaryStage;
         window.setTitle("Ponoc");
         loadGrid.setStage(window);
-        loadGrid.setGridPane(0);
+        loadGrid.setGridPane("mainscene.fxml");
         window.setResizable(false);
         window.setOnCloseRequest(e -> {
             e.consume();

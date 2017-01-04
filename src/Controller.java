@@ -17,37 +17,25 @@ public class Controller extends Game implements Initializable {
         // Add something?
     }
     public void gotoIntro() throws Exception {
-        this.setGridPane(1);
+        this.setGridPane("intro.fxml");
     }
     public void gotoFight() throws Exception {
-        this.setGridPane(2);
+        this.setGridPane("fightloader.fxml");
     }
     public void gotoSettings() throws Exception {
-        this.setGridPane(3);
+        this.setGridPane("settings.fxml");
     }
     public void exitApp() throws Exception {
-        this.setGridPane(4);
+        this.setGridPane("exit.fxml");
     }
     public void setStage(Stage primaryStage) {
         parentStage = primaryStage;
     }
-    public static void setGridPane(int choice) throws Exception {
+    public static void setGridPane(String FXML_file) throws Exception {
         try {
-            if(choice == 1) {
-                root = FXMLLoader.load(Controller.class.getResource("intro.fxml"));
-            }
-            else if(choice == 2) {
-                root = FXMLLoader.load(Controller.class.getResource("fightloader.fxml"));
-            }
-            else if(choice == 3) {
-                root = FXMLLoader.load(Controller.class.getResource("settings.fxml"));
-            }
-            else if(choice == 4) {
-                root = FXMLLoader.load(Controller.class.getResource("exit.fxml"));
+            root = FXMLLoader.load(Controller.class.getResource(FXML_file));
+            if(FXML_file.equals("exit.fxml")) {
                 exitProtocol(root);
-            }
-            else {
-                root = FXMLLoader.load(Controller.class.getResource("mainscene.fxml"));
             }
             parentStage.setScene(new Scene(root, 1000, 500));
         } catch(Exception ex) {
