@@ -6,6 +6,7 @@ import javafx.scene.media.*;
 import static javafx.scene.media.AudioClip.INDEFINITE;
 public class maincrawl extends Application {
     Stage window;
+    // Static Thread thread;
     Controller loadGrid = new Controller();
     public static void main(String[]args) {
         launch(args);
@@ -27,6 +28,13 @@ public class maincrawl extends Application {
         });
         window.getIcons().add(new Image("Ponoc_Icon.png"));
         playSound();
+        /*boolean temp = loadGrid.handleMusic();
+        if (temp == false) {
+            thread.start();
+        }
+        else {
+            thread.interrupt();
+        }*/
         window.show();
     }
     public static void playSound() {

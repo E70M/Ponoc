@@ -11,7 +11,7 @@ public class Controller extends Game implements Initializable {
     static Stage parentStage, window;
     Game loop = new Game();
     static Parent root;
-    @FXML Label FPStext; @FXML Label ticksText;
+    @FXML Label FPStext; @FXML Label ticksText; @FXML CheckBox musicbox;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Add something?
@@ -67,5 +67,13 @@ public class Controller extends Game implements Initializable {
     }
     public void closeExit() {
         window.close();
+    }
+    public boolean handleMusic() {
+        if(musicbox.isSelected()) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 }
