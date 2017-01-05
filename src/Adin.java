@@ -13,16 +13,31 @@ public class Adin extends Sprite {
     }
     public void move() {
         x += dx;
-        x += dy;
+        y += dy;
     }
-    public void swingSword() {
-        loadImage("Adin_swordswing.png");
+    public void swingSword(boolean pos) {
+        if(pos == true) {
+            loadImage("Adin_swordswing.png");
+        }
+        else {
+            loadImage("Adin.png");
+        }
+    }
+    public void jump() {
+        loadImage("Adin_jump.png");
+    }
+    public void roll(boolean pos) {
+        if(pos == true) {
+            loadImage("Adin_roll.png");
+        }
+        else {
+            loadImage("Adin.png");
+        }
     }
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
         if (key == KeyEvent.VK_X || key == KeyEvent.VK_N) {
-            swingSword();
-            // (swing sword sprite)
+            swingSword(true);
         }
         if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) {
             dx = -1;
@@ -32,17 +47,17 @@ public class Adin extends Sprite {
         }
         if (key == KeyEvent.VK_UP || key == KeyEvent.VK_W) {
             dy = 1;
-            // jump()
+            jump();
         }
         if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) {
-            dy = -1;
-            // roll()
+            roll(true);
         }
+        move();
     }
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
         if (key == KeyEvent.VK_X || key == KeyEvent.VK_N) {
-            // original sprite;
+            swingSword(false);
         }
         if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) {
             dx = 0;
@@ -51,10 +66,12 @@ public class Adin extends Sprite {
             dx = 0;
         }
         if (key == KeyEvent.VK_UP || key == KeyEvent.VK_W) {
-            dy = 0;
+            dy = -1;
         }
         if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) {
             dy = 0;
+            roll(false);
         }
+        move();
     }
 }

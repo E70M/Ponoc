@@ -9,7 +9,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 public class Controller extends Game implements Initializable {
     static Stage parentStage, window;
-    Game loop = new Game();
     static Parent root;
     @FXML Label FPStext; @FXML Label ticksText; @FXML CheckBox musicbox;
     @Override
@@ -46,7 +45,7 @@ public class Controller extends Game implements Initializable {
         }
     }
     public void looper() {
-        loop.callLoop(true);
+        callLoop(true);
     }
     public void textSetters(int FPS, int ticks) {
         FPStext.setText(Integer.toString(FPS));
