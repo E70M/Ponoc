@@ -1,6 +1,6 @@
 import java.awt.*;
 import javax.swing.ImageIcon;
-public class Sprite {
+public class Sprite extends Game {
     protected int x, y, width, height;
     protected boolean vis;
     protected Image image;
@@ -29,7 +29,7 @@ public class Sprite {
     public boolean isVisible() {
         return vis;
     }
-    public void setVisible(Boolean visible) {
+    public void setVisible(boolean visible) {
         vis = visible;
     }
 }
