@@ -40,7 +40,7 @@ public class maincrawl extends Application {
     public static void playSound() {
         final Task task = new Task() {
             protected Object call() throws Exception {
-                AudioClip audio = new AudioClip(getClass().getResource("Ponoc_Themesong.wav").toExternalForm());
+                AudioClip audio = new AudioClip(getClass().getResource("Ponoc-Themesong.wav").toExternalForm());
                 audio.setVolume(0.5f);
                 audio.setCycleCount(INDEFINITE);
                 audio.play();
