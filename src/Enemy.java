@@ -1,12 +1,12 @@
 import java.awt.*;
 import java.util.*;
-public class Enemy_T1 extends Sprite {
+public class Enemy extends Sprite {
     private int dx, dy;
-    public Enemy_T1(int x, int y) {
+    public Enemy(int x, int y) {
         super(x, y);
-        initET1();
+        initEnemy();
     }
-    private void initET1() {
+    private void initEnemy() {
         loadImage("Enemy.png");
         getImageDimensions();
     }
