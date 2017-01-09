@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
 public class Controller extends Game implements Initializable {
     static Stage parentStage, window;
     static Parent root;
-    @FXML Label FPStext; @FXML Label ticksText; @FXML CheckBox musicbox;
+    @FXML CheckBox musicbox;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Add something?
@@ -46,10 +46,6 @@ public class Controller extends Game implements Initializable {
     }
     public void looper() {
         callLoop(true);
-    }
-    public void textSetters(int FPS, int ticks) {
-        FPStext.setText(Integer.toString(FPS));
-        ticksText.setText(Integer.toString(ticks));
     }
     public static void exitProtocol(Parent root) {
         window = new Stage();

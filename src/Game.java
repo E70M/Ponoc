@@ -1,11 +1,13 @@
+import javafx.fxml.*;
+import javafx.scene.control.Label;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 public class Game extends Canvas implements Runnable {
-    // Controller control = new Controller();
     private static boolean running = false;
     static BufferStrategy bs;
     static boolean status = false;
     static int framerate = 0, updates = 0;
+    @FXML Label FPStext; @FXML Label ticksText;
     public synchronized void start(){
         if(running)
             return;
@@ -37,7 +39,7 @@ public class Game extends Canvas implements Runnable {
                 timer += 1000;
                 framerate = frames / 1000000;
                 System.out.printf("FPS: %4d\tTicks: %3d\n", framerate, updates);
-                // control.textSetters(framerate, updates);
+                // textSetters(framerate, updates);
                 frames = 0;
                 updates = 0;
             }
@@ -60,5 +62,9 @@ public class Game extends Canvas implements Runnable {
             status = false;
             loop.run();
         }
+    }
+    public void textSetters(int FPS, int ticks) {
+        FPStext.setText(String.valueOf(FPS));
+        ticksText.setText(String.valueOf(ticks));
     }
 }
