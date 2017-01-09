@@ -27,7 +27,7 @@ public class maincrawl extends Application {
             }
         });
         window.getIcons().add(new Image("Ponoc_Icon.png"));
-        playSound();
+        playSound("Ponoc-Themesong.wav", INDEFINITE);
         /*boolean temp = loadGrid.handleMusic();
         if (temp == false) {
             thread.start();
@@ -37,12 +37,12 @@ public class maincrawl extends Application {
         }*/
         window.show();
     }
-    public static void playSound() {
+    public static void playSound(String soundfile, int cycleCount) {
         final Task task = new Task() {
             protected Object call() throws Exception {
-                AudioClip audio = new AudioClip(getClass().getResource("Ponoc-Themesong.wav").toExternalForm());
+                AudioClip audio = new AudioClip(getClass().getResource(soundfile).toExternalForm());
                 audio.setVolume(0.5f);
-                audio.setCycleCount(INDEFINITE);
+                audio.setCycleCount(cycleCount);
                 audio.play();
                 return null;
             }
