@@ -63,12 +63,16 @@ public class Controller extends Game implements Initializable {
     public void closeExit() {
         window.close();
     }
+    public void callGame() {
+        fight fighter = new fight();
+        fighter.runGame();
+    }
     public boolean handleMusic() {
         if(musicbox.isSelected()) {
-            return false;
+            return true;
         }
         else {
-            return true;
+            return false;
         }
     }
 }

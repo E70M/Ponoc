@@ -1,45 +1,22 @@
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-public class fight extends Game implements KeyListener {
-    public boolean over = false, paused;
-    public static final int UP = 0, DOWN = 1, LEFT = 2, RIGHT = 3;
-    public int direction = DOWN;
-    public static void fightscene() {
-        // Insert fxml
+import javax.swing.*;
+import java.awt.*;
+public class fight extends JFrame {
+    public fight() {
+        initUI();
     }
-    public void startGame() {
-        over = false;
-        paused = false;
-        direction = DOWN;
+    private void initUI() {
+        add(new Game());
+        setResizable(false);
+        pack();
+        setLocationRelativeTo(null);
     }
-    @Override
-    public void keyPressed(KeyEvent e) {
-        int i = e.getKeyCode();
-        if ((i == KeyEvent.VK_A || i == KeyEvent.VK_LEFT) && direction != RIGHT) {
-            direction = LEFT;
-        }
-        if ((i == KeyEvent.VK_D || i == KeyEvent.VK_RIGHT) && direction != LEFT) {
-            direction = RIGHT;
-        }
-        if ((i == KeyEvent.VK_W || i == KeyEvent.VK_UP) && direction != DOWN) {
-            direction = UP;
-        }
-        if ((i == KeyEvent.VK_S || i == KeyEvent.VK_DOWN) && direction != UP) {
-            direction = DOWN;
-        }
-        if (i == KeyEvent.VK_SPACE) {
-            if (over) {
-                startGame();
+    public static void runGame() {
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                fight ex = new fight();
+                ex.setVisible(true);
             }
-            else {
-                paused = !paused;
-            }
-        }
-    }
-    @Override
-    public void keyReleased(KeyEvent e) {
-    }
-    @Override
-    public void keyTyped(KeyEvent e) {
+        });
     }
 }

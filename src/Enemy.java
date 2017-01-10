@@ -6,7 +6,7 @@ public class Enemy extends Sprite {
         super(x, y);
         initEnemy();
     }
-    private void initEnemy() {
+    public void initEnemy() {
         loadImage("Enemy.png");
         getImageDimensions();
     }

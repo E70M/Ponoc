@@ -32,4 +32,7 @@ public class Sprite extends Game {
     public void setVisible(boolean visible) {
         vis = visible;
     }
+    public Rectangle getBounds() {
+        return new Rectangle(x, y, width, height);
+    }
 }

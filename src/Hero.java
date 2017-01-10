@@ -1,13 +1,12 @@
-import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
-public class Adin extends Sprite {
+public class Hero extends Sprite {
     private int dx, dy;
-    public Adin(int x, int y) {
+    static boolean pos = false;
+    public Hero(int x, int y) {
         super(x, y);
-        initAdin();
+        initHero();
     }
-    private void initAdin() {
+    private void initHero() {
         loadImage("Adin.png");
         getImageDimensions();
     }
@@ -15,12 +14,20 @@ public class Adin extends Sprite {
         x += dx;
         y += dy;
     }
-    public void swingSword(boolean pos) {
+    public void swingSword() {
         if(pos == true) {
             loadImage("Adin_swordswing.png");
         }
         else {
             loadImage("Adin.png");
+        }
+    }
+    public boolean checkSwordPos() {
+        if(pos == true) {
+            return true;
+        }
+        else {
+            return false;
         }
     }
     public void jump() {
@@ -37,7 +44,8 @@ public class Adin extends Sprite {
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
         if (key == KeyEvent.VK_X || key == KeyEvent.VK_N) {
-            swingSword(true);
+            pos = true;
+            swingSword();
         }
         if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) {
             dx = -1;
@@ -57,7 +65,8 @@ public class Adin extends Sprite {
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
         if (key == KeyEvent.VK_X || key == KeyEvent.VK_N) {
-            swingSword(false);
+            pos = false;
+            swingSword();
         }
         if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) {
             dx = 0;
