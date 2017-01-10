@@ -44,9 +44,9 @@ public class Controller extends Game implements Initializable {
             ex.printStackTrace();
         }
     }
-    public void looper() {
+    /*public void looper() {
         callLoop(true);
-    }
+    }*/
     public static void exitProtocol(Parent root) {
         window = new Stage();
         window.setTitle("Wait!");

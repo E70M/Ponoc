@@ -41,7 +41,7 @@ public class Game extends JPanel implements ActionListener {
         Adin = new Hero(IHERO_X, IHERO_Y);
         initEnemy();
         timer = new Timer(DELAY, this);
-        Adin.start();
+        timer.start();
     }
     public void initEnemy() {
         enemies = new ArrayList<>();
@@ -131,6 +131,25 @@ public class Game extends JPanel implements ActionListener {
             }
         }
     }
+    /*public void run() {
+        long beforeTime, timeDiff, sleep;
+        beforeTime = System.currentTimeMillis();
+        while (true) {
+            cycle();
+            repaint();
+            timeDiff = System.currentTimeMillis() - beforeTime;
+            sleep = DELAY - timeDiff;
+            if (sleep < 0) {
+                sleep = 2;
+            }
+            try {
+                Thread.sleep(sleep);
+            } catch (InterruptedException e) {
+                System.out.println("Interrupted: " + e.getMessage());
+            }
+            beforeTime = System.currentTimeMillis();
+        }
+    }*/
     private class TAdapter extends KeyAdapter {
         @Override
         public void keyReleased(KeyEvent e) {
@@ -141,7 +160,7 @@ public class Game extends JPanel implements ActionListener {
             Adin.keyPressed(e);
         }
     }
-    public synchronized void start(){
+    /*public synchronized void start(){
         if(running)
             return;
         running = true;
@@ -190,5 +209,5 @@ public class Game extends JPanel implements ActionListener {
     public void textSetters(int FPS, int ticks) {
         FPStext.setText(String.valueOf(FPS));
         ticksText.setText(String.valueOf(ticks));
-    }
+    }*/
 }
