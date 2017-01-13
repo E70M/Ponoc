@@ -1,38 +1,43 @@
-import java.awt.*;
-import javax.swing.ImageIcon;
-public class Sprite extends Game {
-    protected int x, y, width, height;
-    protected boolean vis;
-    protected Image image;
-    public Sprite(int x, int y) {
-        this.x = x;
-        this.y = y;
-        vis = true;
+import javafx.scene.image.Image;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.geometry.Rectangle2D;
+public class Sprite {
+    private Image image;
+    private double posX, posY, vX, vY, width, height;
+    public Sprite(double x, double y) {
+        this.posX = x;
+        this.posY = y;
+        vX = 0;
+        vY = 0;
     }
-    protected void loadImage(String imageName) {
-        ImageIcon ii = new ImageIcon(imageName);
-        image = ii.getImage();
+    public void setImage(String filename) {
+        Image i = new Image(filename);
+        width = i.getWidth();
+        height = i.getHeight();
     }
-    protected void getImageDimensions() {
-        width = image.getWidth(null);
-        height = image.getHeight(null);
+    public void setPosition(double x, double y) {
+        this.posX = x;
+        this.posY = y;
     }
-    public Image getImage() {
-        return image;
+    public void setv(double x, double y) {
+        this.vX = x;
+        this.vY = y;
     }
-    public int getX() {
-        return x;
+    public void addv(double x, double y) {
+        vX += x;
+        vY += y;
     }
-    public int getY() {
-        return y;
+    public void update(double time) {
+        posX += vX * time;
+        posY += vY * time;
     }
-    public boolean isVisible() {
-        return vis;
+    public void render(GraphicsContext gc) {
+        gc.drawImage( image, posX, posY );
     }
-    public void setVisible(boolean visible) {
-        vis = visible;
+    public Rectangle2D getBoundary() {
+        return new Rectangle2D(posX,posY,width,height);
     }
-    public Rectangle getBounds() {
-        return new Rectangle(x, y, width, height);
+    public boolean intersects(Sprite s) {
+        return s.getBoundary().intersects(this.getBoundary());
     }
 }

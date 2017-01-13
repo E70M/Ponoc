@@ -7,14 +7,12 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
-public class Controller extends Game implements Initializable {
+public class Controller implements Initializable {
     static Stage parentStage, window;
     static Parent root;
     @FXML CheckBox musicbox;
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // Add something?
-    }
+    public void initialize(URL location, ResourceBundle resources) {}
     public void backToMain() {
         this.setGridPane("mainscene.fxml");
     }
@@ -23,6 +21,9 @@ public class Controller extends Game implements Initializable {
     }
     public void gotoFight() {
         this.setGridPane("fightloader.fxml");
+    }
+    public void startGame() {
+        Game Ponoc = new Game(parentStage);
     }
     public void gotoSettings() {
         this.setGridPane("settings.fxml");
@@ -44,9 +45,6 @@ public class Controller extends Game implements Initializable {
             ex.printStackTrace();
         }
     }
-    /*public void looper() {
-        callLoop(true);
-    }*/
     public static void exitProtocol(Parent root) {
         window = new Stage();
         window.setTitle("Wait!");
@@ -62,10 +60,6 @@ public class Controller extends Game implements Initializable {
     }
     public void closeExit() {
         window.close();
-    }
-    public void callGame() {
-        fight fighter = new fight();
-        fighter.runGame();
     }
     public boolean handleMusic() {
         if(musicbox.isSelected()) {

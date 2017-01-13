@@ -2,21 +2,21 @@ import java.awt.*;
 import java.util.*;
 public class Enemy extends Sprite {
     private int dx, dy;
-    public Enemy(int x, int y) {
-        super(x, y);
+    public Enemy(double x, double y) {
+        super(x,y);
         initEnemy();
     }
     public void initEnemy() {
-        loadImage("Enemy.png");
-        getImageDimensions();
+        setImage("Enemy.png");
+        //getImageDimensions();
     }
     public void move() {
-        x += dx;
-        y += dy;
+        /*x += dx;
+        y += dy;*/
     }
     public void jump(int jumpdir) {
         // Left
-        if(jumpdir == 1) {
+        /*if(jumpdir == 1) {
             dx = -1;
             loadImage("Enemy_jumpleft.png");
         }
@@ -24,10 +24,10 @@ public class Enemy extends Sprite {
         else if(jumpdir == 2) {
             dx = 1;
             loadImage("Enemy_jumpright.png");
-        }
+        }*/
     }
     public void enemyMovement() {
-        int movementType = (int)(Math.random() * 3) + 1;
+        /*int movementType = (int)(Math.random() * 3) + 1;
         // Left
         if(movementType == 1) {
             dx = -1;
@@ -44,6 +44,6 @@ public class Enemy extends Sprite {
             int jumpdir = (int)(Math.random() * 2) + 1;
             jump(jumpdir);
         }
-        move();
+        move();*/
     }
 }

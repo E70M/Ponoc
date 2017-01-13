@@ -2,25 +2,25 @@ import java.awt.event.*;
 public class Hero extends Sprite {
     private int dx, dy;
     static boolean pos = false;
-    public Hero(int x, int y) {
-        super(x, y);
+    public Hero(double x, double y) {
+        super(x,y);
         initHero();
     }
     private void initHero() {
-        loadImage("Adin.png");
-        getImageDimensions();
+        setImage("Adin.png");
+        //getImageDimensions();
     }
     public void move() {
-        x += dx;
-        y += dy;
+        /*x += dx;
+        y += dy;*/
     }
     public void swingSword() {
-        if(pos == true) {
+        /*if(pos == true) {
             loadImage("Adin_swordswing.png");
         }
         else {
             loadImage("Adin.png");
-        }
+        }*/
     }
     public boolean checkSwordPos() {
         if(pos == true) {
@@ -31,15 +31,15 @@ public class Hero extends Sprite {
         }
     }
     public void jump() {
-        loadImage("Adin_jump.png");
+        /*loadImage("Adin_jump.png");*/
     }
     public void roll(boolean pos) {
-        if(pos == true) {
+        /*if(pos == true) {
             loadImage("Adin_roll.png");
         }
         else {
             loadImage("Adin.png");
-        }
+        }*/
     }
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();

@@ -5,7 +5,7 @@ public class fight extends JFrame {
         initUI();
     }
     private void initUI() {
-        add(new Game());
+        //add(new Game());
         setResizable(false);
         pack();
         setLocationRelativeTo(null);

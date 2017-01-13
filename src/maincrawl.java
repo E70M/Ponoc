@@ -27,10 +27,6 @@ public class maincrawl extends Application {
         });
         window.getIcons().add(new Image("Ponoc_Icon.png"));
         playSound("Ponoc-Themesong.wav", INDEFINITE);
-        /*boolean temp = loadGrid.handleMusic();
-        if (temp == true) {
-            playSound("", 1);
-        }*/
         window.show();
     }
     public static void playSound(String soundfile, int cycleCount) {
