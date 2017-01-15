@@ -4,11 +4,6 @@ public class Enemy extends Sprite {
     private int dx, dy;
     public Enemy(double x, double y) {
         super(x,y);
-        initEnemy();
-    }
-    public void initEnemy() {
-        setImage("Enemy.png");
-        //getImageDimensions();
     }
     public void move() {
         /*x += dx;

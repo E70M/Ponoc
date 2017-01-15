@@ -2,16 +2,16 @@ import javafx.scene.image.Image;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.geometry.Rectangle2D;
 public class Sprite {
-    private Image image;
-    private double posX, posY, vX, vY, width, height;
+    private Image i;
+    private double posX, posY, velocityX, velocityY, width, height;
     public Sprite(double x, double y) {
         this.posX = x;
         this.posY = y;
-        vX = 0;
-        vY = 0;
+        velocityX = 0;
+        velocityY = 0;
     }
     public void setImage(String filename) {
-        Image i = new Image(filename);
+        i = new Image(filename);
         width = i.getWidth();
         height = i.getHeight();
     }
@@ -19,23 +19,23 @@ public class Sprite {
         this.posX = x;
         this.posY = y;
     }
-    public void setv(double x, double y) {
-        this.vX = x;
-        this.vY = y;
+    public void setVelocity(double x, double y) {
+        velocityX = x;
+        velocityY = y;
     }
-    public void addv(double x, double y) {
-        vX += x;
-        vY += y;
+    public void addVelocity(double x, double y) {
+        velocityX += x;
+        velocityY += y;
     }
     public void update(double time) {
-        posX += vX * time;
-        posY += vY * time;
+        posX += velocityX * time;
+        posY += velocityY * time;
     }
     public void render(GraphicsContext gc) {
-        gc.drawImage( image, posX, posY );
+        gc.drawImage(i, posX, posY);
     }
     public Rectangle2D getBoundary() {
-        return new Rectangle2D(posX,posY,width,height);
+        return new Rectangle2D(posX, posY, width, height);
     }
     public boolean intersects(Sprite s) {
         return s.getBoundary().intersects(this.getBoundary());

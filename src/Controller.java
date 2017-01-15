@@ -24,6 +24,7 @@ public class Controller implements Initializable {
     }
     public void startGame() {
         Game Ponoc = new Game(parentStage);
+        Ponoc.mainAction();
     }
     public void gotoSettings() {
         this.setGridPane("settings.fxml");
