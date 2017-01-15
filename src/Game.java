@@ -51,16 +51,16 @@ public class Game {
                 lastNanoTime.value = currentNanoTime;
                 Adin.setVelocity(0,0);
                 if (input.contains("LEFT")) {
-                    Adin.addVelocity(-30, 0);
+                    Adin.addVelocity(-50, 0);
                 }
                 if (input.contains("RIGHT")) {
-                    Adin.addVelocity(30, 0);
+                    Adin.addVelocity(50, 0);
                 }
                 if (input.contains("UP")) {
-                    Adin.addVelocity(0, -30);
+                    Adin.addVelocity(0, -50);
                 }
                 if (input.contains("DOWN")) {
-                    Adin.addVelocity(0, 30);
+                    Adin.addVelocity(0, 50);
                 }
                 Adin.update(elapsedTime);
                 Iterator<Enemy> enemyIter = enemies.iterator();
