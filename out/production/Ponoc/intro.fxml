@@ -16,7 +16,7 @@
    <children>
       <AnchorPane prefHeight="500.0" prefWidth="1000.0">
          <children>
-            <Button layoutX="463.0" layoutY="459.0" mnemonicParsing="false" onAction="#gotoFight" text="Continue" />
+            <Button layoutX="463.0" layoutY="459.0" mnemonicParsing="false" onAction="#startGame" text="Continue" />
             <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#gotoSettings" style="-fx-graphic: url('gear.png');" />
          </children></AnchorPane>
    </children>

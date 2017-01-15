@@ -1,36 +1,51 @@
+import javafx.concurrent.*;
 import javafx.fxml.*;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.*;
 import javafx.scene.control.*;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
+import javafx.scene.media.*;
+import javafx.stage.*;
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.*;
 public class Controller implements Initializable {
     static Stage parentStage, window;
     static Parent root;
     @FXML CheckBox musicbox;
     @Override
     public void initialize(URL location, ResourceBundle resources) {}
+    public static void playSoundFX(String soundfile, int cycleCount) {
+        final Task task = new Task() {
+            protected Object call() throws Exception {
+                AudioClip audio = new AudioClip(getClass().getResource(soundfile).toExternalForm());
+                audio.setVolume(0.5f);
+                audio.setCycleCount(cycleCount);
+                audio.play();
+                return null;
+            }
+        };
+        Thread thread = new Thread(task);
+        thread.start();
+    }
     public void backToMain() {
         this.setGridPane("mainscene.fxml");
+        playSoundFX("staplerclick.wav",1);
     }
     public void gotoIntro() {
         this.setGridPane("intro.fxml");
-    }
-    public void gotoFight() {
-        this.setGridPane("fightloader.fxml");
+        playSoundFX("staplerclick.wav",1);
     }
     public void startGame() {
         Game Ponoc = new Game(parentStage);
+        playSoundFX("staplerclick.wav",1);
         Ponoc.mainAction();
     }
     public void gotoSettings() {
         this.setGridPane("settings.fxml");
+        playSoundFX("staplerclick.wav",1);
     }
     public void exitApp() {
         this.setGridPane("exit.fxml");
+        playSoundFX("staplerclick.wav",1);
     }
     public void setStage(Stage primaryStage) {
         parentStage = primaryStage;
@@ -54,12 +69,15 @@ public class Controller implements Initializable {
         window.setX(parentStage.getX() + 250);
         window.setY(parentStage.getY() + 125);
         window.show();
+        playSoundFX("staplerclick.wav",1);
     }
     public void closeAll() {
+        playSoundFX("staplerclick.wav",1);
         window.close();
         parentStage.close();
     }
     public void closeExit() {
+        playSoundFX("staplerclick.wav",1);
         window.close();
     }
     public boolean handleMusic() {

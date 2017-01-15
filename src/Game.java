@@ -7,7 +7,7 @@ import java.util.*;
 import static javafx.scene.media.AudioClip.INDEFINITE;
 public class Game extends maincrawl {
     private Stage window;
-    private double initialAdinX = 0, initialAdinY = 425;
+    private double initialAdinX = 500, initialAdinY = 425;
     public Game(Stage primaryStage) {
         this.window = primaryStage;
     }
@@ -49,17 +49,35 @@ public class Game extends maincrawl {
                 double elapsedTime = (currentNanoTime - lastNanoTime.value) / 1000000000.0;
                 lastNanoTime.value = currentNanoTime;
                 Adin.setVelocity(0,0);
-                if (input.contains("LEFT")) {
-                    Adin.addVelocity(-50, 0);
+                if(input.contains("LEFT") || input.contains("A")) {
+                    Adin.addVelocity(-75, 0);
+                    if(Adin.getX() == 0) {
+                        Adin.setVelocity(75,0);
+                    }
                 }
-                if (input.contains("RIGHT")) {
-                    Adin.addVelocity(50, 0);
+                if(input.contains("RIGHT") || input.contains("D")) {
+                    Adin.addVelocity(75, 0);
+                    if(Adin.getX() == 1000 - Adin.getWidth()) {
+                        Adin.setVelocity(-75,0);
+                    }
                 }
-                if (input.contains("UP")) {
-                    Adin.addVelocity(0, -50);
+                if(input.contains("UP") || input.contains("W")) {
+                    Adin.addVelocity(0, -75);
+                    if(Adin.getY() == 0) {
+                        Adin.setVelocity(0,75);
+                    }
                 }
-                if (input.contains("DOWN")) {
-                    Adin.addVelocity(0, 50);
+                if(input.contains("DOWN") || input.contains("S")) {
+                    Adin.addVelocity(0, 75);
+                    if(Adin.getY() == 500 - Adin.getHeight()) {
+                        Adin.setVelocity(0,-75);
+                    }
+                }
+                if(input.contains("X")) {
+                    Adin.swingSword(true);
+                }
+                if(!input.contains("X")) {
+                    Adin.swingSword(false);
                 }
                 Adin.update(elapsedTime);
                 Iterator<Enemy> enemyIter = enemies.iterator();
@@ -67,16 +85,23 @@ public class Game extends maincrawl {
                     Sprite villain = enemyIter.next();
                     if (Adin.intersects(villain)) {
                         enemyIter.remove();
+                        playSound("enemydeath.wav", 1);
                         if(!Adin.checkSwordPos()) {
                             Adin.removeLife(1);
+                            if(Adin.getLives() == 0) {
+                                playSound("herodeath.wav", 1);
+                                Adin.setVisible(false);
+                            }
                         }
                     }
                 }
                 gc.clearRect(0, 0, 1000, 500);
-                gc.drawImage(leveldesign,0,0);
-                Adin.render(gc);
-                for (Enemy villain : enemies) {
-                    villain.render(gc);
+                if(Adin.isVisible() == true) {
+                    gc.drawImage(leveldesign, 0, 0);
+                    Adin.render(gc);
+                    for (Enemy villain : enemies) {
+                        villain.render(gc);
+                    }
                 }
             }
         }.start();

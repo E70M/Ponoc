@@ -19,6 +19,18 @@ public class Sprite {
         this.posX = x;
         this.posY = y;
     }
+    public double getX() {
+        return posX;
+    }
+    public double getY() {
+        return posY;
+    }
+    public double getWidth() {
+        return width;
+    }
+    public double getHeight() {
+        return height;
+    }
     public void setVelocity(double x, double y) {
         velocityX = x;
         velocityY = y;
