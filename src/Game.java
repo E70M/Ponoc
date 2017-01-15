@@ -6,8 +6,7 @@ import javafx.stage.*;
 import java.util.*;
 public class Game {
     private Stage window;
-    private double initialAdinX = 500, initialAdinY = 500;
-    private int lives = 5;
+    private double initialAdinX = 0, initialAdinY = 425;
     public Game(Stage primaryStage) {
         this.window = primaryStage;
     }
@@ -70,12 +69,12 @@ public class Game {
                     if (Adin.intersects(villain)) {
                         enemyIter.remove();
                         if(Adin.checkSwordPos() == false) {
-                            lives--;
+                            Adin.removeLife(1);
                         }
                     }
                 }
                 Adin.render(gc);
-                for (Sprite villain : enemies) {
+                for (Enemy villain : enemies) {
                     villain.render(gc);
                 }
             }

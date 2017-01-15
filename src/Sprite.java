@@ -11,7 +11,7 @@ public class Sprite {
         velocityY = 0;
     }
     public void setImage(String filename) {
-        i = new Image(filename);
+        i = new Image(Sprite.class.getResourceAsStream(filename));
         width = i.getWidth();
         height = i.getHeight();
     }

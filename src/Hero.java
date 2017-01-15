@@ -1,6 +1,7 @@
 import java.awt.event.*;
 public class Hero extends Sprite {
     static boolean pos = false;
+    private int lives = 5;
     public Hero(double x, double y) {
         super(x,y);
     }
@@ -23,6 +24,12 @@ public class Hero extends Sprite {
         else {
             return false;
         }
+    }
+    public void removeLife(int factor) {
+        lives -= factor;
+    }
+    public int getLives() {
+        return lives;
     }
     public void jump() {
         /*loadImage("Adin_jump.png");*/
