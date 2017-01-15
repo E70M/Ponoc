@@ -3,7 +3,6 @@ import javafx.concurrent.Task;
 import javafx.stage.*;
 import javafx.scene.image.*;
 import javafx.scene.media.*;
-import static javafx.scene.media.AudioClip.INDEFINITE;
 public class maincrawl extends Application {
     Stage window;
     Controller loadGrid = new Controller();
@@ -26,7 +25,6 @@ public class maincrawl extends Application {
             }
         });
         window.getIcons().add(new Image("Ponoc_Icon.png"));
-        playSound("Ponoc-Themesong.wav", INDEFINITE);
         window.show();
     }
     public static void playSound(String soundfile, int cycleCount) {

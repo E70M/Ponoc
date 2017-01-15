@@ -4,13 +4,15 @@ import javafx.scene.canvas.*;
 import javafx.scene.image.*;
 import javafx.stage.*;
 import java.util.*;
-public class Game {
+import static javafx.scene.media.AudioClip.INDEFINITE;
+public class Game extends maincrawl {
     private Stage window;
     private double initialAdinX = 0, initialAdinY = 425;
     public Game(Stage primaryStage) {
         this.window = primaryStage;
     }
     public void mainAction() {
+        playSound("Ponoc-Themesong.wav", INDEFINITE);
         Group root = new Group();
         Scene level = new Scene(root, 1000, 500);
         window.setScene(level);
@@ -25,9 +27,7 @@ public class Game {
         });
         level.setOnKeyReleased( e -> {
             String code = e.getCode().toString();
-            if (!input.contains(code)) {
-                input.remove(code);
-            }
+            input.remove(code);
         });
         GraphicsContext gc = layout.getGraphicsContext2D();
         Image leveldesign = new Image(Game.class.getResourceAsStream("fightbackground.png"));
@@ -68,7 +68,7 @@ public class Game {
                     Sprite villain = enemyIter.next();
                     if (Adin.intersects(villain)) {
                         enemyIter.remove();
-                        if(Adin.checkSwordPos() == false) {
+                        if(!Adin.checkSwordPos()) {
                             Adin.removeLife(1);
                         }
                     }
