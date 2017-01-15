@@ -31,14 +31,13 @@ public class Game extends maincrawl {
         });
         GraphicsContext gc = layout.getGraphicsContext2D();
         Image leveldesign = new Image(Game.class.getResourceAsStream("fightbackground.png"));
-        gc.drawImage(leveldesign,0,0);
         Hero Adin = new Hero(initialAdinX, initialAdinY);
         Adin.setImage("adin.png");
         Adin.setPosition(initialAdinX, initialAdinY);
         ArrayList<Enemy> enemies = new ArrayList<>();
         for (int i = 0; i < 15; i++) {
-            double px = 1000 * Math.random();
-            double py = 500 * Math.random();
+            double px = 955 * Math.random();
+            double py = 425 * Math.random();
             Enemy villain = new Enemy(px, py);
             villain.setImage("enemy.png");
             villain.setPosition(px, py);
@@ -73,6 +72,8 @@ public class Game extends maincrawl {
                         }
                     }
                 }
+                gc.clearRect(0, 0, 1000, 500);
+                gc.drawImage(leveldesign,0,0);
                 Adin.render(gc);
                 for (Enemy villain : enemies) {
                     villain.render(gc);
