@@ -2,6 +2,9 @@ import javafx.animation.*;
 import javafx.scene.*;
 import javafx.scene.canvas.*;
 import javafx.scene.image.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.*;
 import java.util.*;
 import static javafx.scene.media.AudioClip.INDEFINITE;
@@ -30,6 +33,11 @@ public class Game extends maincrawl {
             input.remove(code);
         });
         GraphicsContext gc = layout.getGraphicsContext2D();
+        Font theFont = Font.font("Helvetica", FontWeight.BOLD, 24);
+        gc.setFont(theFont);
+        gc.setFill(Color.WHITE);
+        gc.setStroke( Color.BLACK);
+        gc.setLineWidth(1);
         Image leveldesign = new Image(Game.class.getResourceAsStream("fightbackground.png"));
         Hero Adin = new Hero(initialAdinX, initialAdinY);
         Adin.setImage("adinright.png");
@@ -50,45 +58,61 @@ public class Game extends maincrawl {
                 lastNanoTime.value = currentNanoTime;
                 Adin.setVelocity(0,0);
                 if(input.contains("LEFT") || input.contains("A")) {
-                    Adin.addVelocity(-75, 0);
+                    Adin.addVelocity(-100, 0);
                     Adin.setImage("adinleft.png");
                     if(Adin.getX() == 0) {
-                        Adin.setVelocity(75,0);
+                        Adin.setVelocity(0,0);
                     }
                 }
                 if(input.contains("RIGHT") || input.contains("D")) {
-                    Adin.addVelocity(75, 0);
+                    Adin.addVelocity(100, 0);
                     Adin.setImage("adinright.png");
                     if(Adin.getX() == 1000 - Adin.getWidth()) {
-                        Adin.setVelocity(-75,0);
+                        Adin.setVelocity(0,0);
                     }
                 }
                 if(input.contains("UP") || input.contains("W")) {
-                    Adin.addVelocity(0, -75);
-                    if(Adin.getY() == 0) {
-                        Adin.setVelocity(0,75);
+                    Adin.addVelocity(0, -100);
+                    if(Adin.getY() == Adin.getHeight()) {
+                        Adin.setVy(0);
                     }
                 }
                 if(input.contains("DOWN") || input.contains("S")) {
-                    Adin.addVelocity(0, 75);
+                    Adin.addVelocity(0, 100);
                     if(Adin.getY() == 500 - Adin.getHeight()) {
-                        Adin.setVelocity(0,-75);
+                        Adin.setVy(0);
                     }
                 }
                 if(input.contains("X")) {
                     if(input.contains("RIGHT") || input.contains("D")) {
                         Adin.swingSword(true, true);
                     }
-                    else {
+                    else if(input.contains("LEFT") || input.contains("A")){
                         Adin.swingSword(true, false);
+                    }
+                    else {
+                        if(Adin.getImageName().equals("adin_swordleft.png") || Adin.getImageName().equals("adinleft.png")) {
+                            Adin.setImage("adin_swordleft.png");
+                        }
+                        else {
+                            Adin.setImage("adin_swordright.png");
+                        }
                     }
                 }
                 if(!input.contains("X")) {
                     if(input.contains("RIGHT") || input.contains("D")) {
                         Adin.swingSword(false, true);
                     }
-                    else {
+                    else if(input.contains("LEFT") || input.contains("A")) {
                         Adin.swingSword(false, false);
+                    }
+                    else {
+                        if(Adin.getImageName().equals("adin_swordleft.png") || Adin.getImageName().equals("adinleft.png")) {
+                            Adin.setImage("adinleft.png");
+                        }
+                        else {
+                            Adin.setImage("adinright.png");
+                        }
                     }
                 }
                 Adin.update(elapsedTime);
@@ -114,6 +138,12 @@ public class Game extends maincrawl {
                     for (Enemy villain : enemies) {
                         villain.render(gc);
                     }
+                    String lives = "Lives: " + Adin.getLives();
+                    gc.fillText(lives, 10, 30);
+                    gc.strokeText(lives, 10, 30);
+                }
+                else {
+
                 }
             }
         }.start();

@@ -4,6 +4,7 @@ import javafx.geometry.Rectangle2D;
 public class Sprite {
     private Image i;
     private double posX, posY, velocityX, velocityY, width, height;
+    private String imagefile;
     public Sprite(double x, double y) {
         this.posX = x;
         this.posY = y;
@@ -12,8 +13,12 @@ public class Sprite {
     }
     public void setImage(String filename) {
         i = new Image(Sprite.class.getResourceAsStream(filename));
+        this.imagefile = filename;
         width = i.getWidth();
         height = i.getHeight();
+    }
+    public String getImageName() {
+        return imagefile;
     }
     public void setPosition(double x, double y) {
         this.posX = x;
@@ -33,6 +38,12 @@ public class Sprite {
     }
     public void setVelocity(double x, double y) {
         velocityX = x;
+        velocityY = y;
+    }
+    public void setVx(double x) {
+        velocityX = x;
+    }
+    public void setVy(double y) {
         velocityY = y;
     }
     public void addVelocity(double x, double y) {
