@@ -1,9 +1,13 @@
 import javafx.scene.image.Image;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.shape.Rectangle;
 public class Sprite {
     private Image i;
     private double posX, posY, velocityX, velocityY, width, height;
+    protected boolean falling = false, jumping = false;
+    private double gravity = 5;
+    private double maxSpeed = 50;
     private String imagefile;
     public Sprite(double x, double y) {
         this.posX = x;
@@ -49,6 +53,24 @@ public class Sprite {
     public void addVelocity(double x, double y) {
         velocityX += x;
         velocityY += y;
+        /*if(getFalling() || getJumping()) {
+            velocityY += gravity;
+        }
+        if(velocityY > maxSpeed) {
+            velocityY = maxSpeed;
+        }*/
+    }
+    void setFalling(boolean toggle) {
+        this.falling = toggle;
+    }
+    void setJumping(boolean toggle) {
+        this.jumping = toggle;
+    }
+    boolean getFalling() {
+        return falling;
+    }
+    boolean getJumping() {
+        return jumping;
     }
     public void update(double time) {
         posX += velocityX * time;

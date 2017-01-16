@@ -2,9 +2,8 @@ import javafx.animation.*;
 import javafx.scene.*;
 import javafx.scene.canvas.*;
 import javafx.scene.image.*;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
+import javafx.scene.paint.*;
+import javafx.scene.text.*;
 import javafx.stage.*;
 import java.util.*;
 import static javafx.scene.media.AudioClip.INDEFINITE;
@@ -35,8 +34,8 @@ public class Game extends maincrawl {
         GraphicsContext gc = layout.getGraphicsContext2D();
         Font theFont = Font.font("Helvetica", FontWeight.BOLD, 24);
         gc.setFont(theFont);
-        gc.setFill(Color.WHITE);
-        gc.setStroke( Color.BLACK);
+        gc.setFill(Color.YELLOW);
+        gc.setStroke(Color.YELLOW);
         gc.setLineWidth(1);
         Image leveldesign = new Image(Game.class.getResourceAsStream("fightbackground.png"));
         Hero Adin = new Hero(initialAdinX, initialAdinY);
@@ -61,24 +60,33 @@ public class Game extends maincrawl {
                     Adin.addVelocity(-100, 0);
                     Adin.setImage("adinleft.png");
                     if(Adin.getX() == 0) {
-                        Adin.setVelocity(0,0);
+                        Adin.setVx(0);
                     }
                 }
                 if(input.contains("RIGHT") || input.contains("D")) {
                     Adin.addVelocity(100, 0);
                     Adin.setImage("adinright.png");
                     if(Adin.getX() == 1000 - Adin.getWidth()) {
-                        Adin.setVelocity(0,0);
+                        Adin.setVx(0);
                     }
                 }
                 if(input.contains("UP") || input.contains("W")) {
-                    Adin.addVelocity(0, -100);
+                    Adin.setJumping(true);
+                    Adin.addVelocity(0, -50);
                     if(Adin.getY() == Adin.getHeight()) {
                         Adin.setVy(0);
                     }
                 }
+                if(!input.contains("UP") || !input.contains("W")) {
+                    Adin.setJumping(false);
+                    Adin.setFalling(true);
+                    Adin.addVelocity(0,0);
+                    if(Adin.getY() == 500 - Adin.getHeight()) {
+                        Adin.setFalling(false);
+                    }
+                }
                 if(input.contains("DOWN") || input.contains("S")) {
-                    Adin.addVelocity(0, 100);
+                    Adin.addVelocity(0, 50);
                     if(Adin.getY() == 500 - Adin.getHeight()) {
                         Adin.setVy(0);
                     }
@@ -135,19 +143,29 @@ public class Game extends maincrawl {
                 if(Adin.isVisible()) {
                     gc.drawImage(leveldesign, 0, 0);
                     Adin.render(gc);
-                    for (Enemy villain : enemies) {
-                        villain.render(gc);
+                    Adin.renderCollisionBounds(gc);
+                    if(enemies.size() > 0) {
+                        for (Enemy villain : enemies) {
+                            villain.render(gc);
+                        }
+                    }
+                    else {
+                        //Boss render
                     }
                     String lives = "Lives: " + Adin.getLives();
                     gc.fillText(lives, 10, 30);
                     gc.strokeText(lives, 10, 30);
                 }
                 else {
-
+                    String endofgame = "Game Over";
+                    gc.fillText(endofgame, 440, 250);
+                    gc.strokeText(endofgame, 440, 250);
                 }
             }
         }.start();
     }
+    //Needs to be modified, may not prevent an enemy from spawning
+    //immediately next to these points and still intersect the hero.
     public double spawnCoord(double limit, String axis) {
         double ret = Math.random() * limit;
         if (axis.equals("X") && ret == initialAdinX) {
