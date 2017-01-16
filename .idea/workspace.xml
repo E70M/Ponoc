@@ -25,12 +25,11 @@
       <file leaf-file-name="maincrawl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/maincrawl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="32" column="58" lean-forward="false" selection-start-line="32" selection-start-column="58" selection-end-line="32" selection-end-column="58" />
+            <state relative-caret-position="15">
+              <caret line="1" column="26" lean-forward="false" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#993#1332#0" expanded="true" />
-                <element signature="e#1331#1332#0" expanded="true" />
+                <element signature="e#990#1329#0" expanded="true" />
+                <element signature="e#1328#1329#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -39,14 +38,14 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="107" column="21" lean-forward="true" selection-start-line="107" selection-start-column="21" selection-end-line="107" selection-end-column="21" />
+            <state relative-caret-position="352">
+              <caret line="131" column="25" lean-forward="true" selection-start-line="131" selection-start-column="25" selection-end-line="131" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#467#468#0" expanded="true" />
-                <element signature="e#509#510#0" expanded="true" />
-                <element signature="e#2105#6245#0" expanded="true" />
-                <element signature="e#6244#6245#0" expanded="true" />
+                <element signature="e#535#536#0" expanded="true" />
+                <element signature="e#577#578#0" expanded="true" />
+                <element signature="e#2173#6313#0" expanded="true" />
+                <element signature="e#6312#6313#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -104,18 +103,15 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="45" column="20" lean-forward="false" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
+            <state relative-caret-position="255">
+              <caret line="17" column="30" lean-forward="false" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#playSoundFX#0;class#Controller#0" expanded="false" />
-                <element signature="e#554#893#0" expanded="true" />
-                <element signature="e#892#893#0" expanded="true" />
-                <element signature="method#backToMain#0;class#Controller#0" expanded="false" />
-                <element signature="method#gotoIntro#0;class#Controller#0" expanded="false" />
-                <element signature="method#startGame#0;class#Controller#0" expanded="false" />
-                <element signature="method#gotoSettings#0;class#Controller#0" expanded="false" />
-                <element signature="method#exitApp#0;class#Controller#0" expanded="false" />
+                <element signature="method#closeAll#0;class#Controller#0" expanded="false" />
+                <element signature="method#closeExit#0;class#Controller#0" expanded="false" />
+                <element signature="method#playFX#0;class#Controller#0" expanded="false" />
+                <element signature="e#2391#2736#0" expanded="true" />
+                <element signature="e#2735#2736#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -145,6 +141,7 @@
       <find>direction</find>
       <find>briefcase</find>
       <find>playSound</find>
+      <find>playsound</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -182,12 +179,12 @@
         <option value="$PROJECT_DIR$/src/Gametest.java" />
         <option value="$PROJECT_DIR$/src/intro.fxml" />
         <option value="$PROJECT_DIR$/src/exit.fxml" />
-        <option value="$PROJECT_DIR$/src/Controller.java" />
-        <option value="$PROJECT_DIR$/src/maincrawl.java" />
-        <option value="$PROJECT_DIR$/src/maincrawl.java" />
         <option value="$PROJECT_DIR$/src/Hero.java" />
         <option value="$PROJECT_DIR$/src/Sprite.java" />
         <option value="$PROJECT_DIR$/src/Game.java" />
+        <option value="$PROJECT_DIR$/src/maincrawl.java" />
+        <option value="$PROJECT_DIR$/src/maincrawl.java" />
+        <option value="$PROJECT_DIR$/src/Controller.java" />
       </list>
     </option>
   </component>
@@ -753,12 +750,12 @@
       <workItem from="1481571420908" duration="295000" />
       <workItem from="1483559770402" duration="160000" />
       <workItem from="1484075705862" duration="4902000" />
-      <workItem from="1484153571545" duration="24670000" />
+      <workItem from="1484153571545" duration="25413000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34350000" />
+    <option name="totallyTimeSpent" value="35093000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -838,7 +835,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="7" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -859,9 +856,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#993#1332#0" expanded="true" />
-            <element signature="e#1331#1332#0" expanded="true" />
+            <element signature="e#990#1329#0" expanded="true" />
+            <element signature="e#1328#1329#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -885,9 +881,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#993#1332#0" expanded="true" />
-            <element signature="e#1331#1332#0" expanded="true" />
+            <element signature="e#990#1329#0" expanded="true" />
+            <element signature="e#1328#1329#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1065,36 +1060,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="45" column="20" lean-forward="false" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#playSoundFX#0;class#Controller#0" expanded="false" />
-            <element signature="e#554#893#0" expanded="true" />
-            <element signature="e#892#893#0" expanded="true" />
-            <element signature="method#backToMain#0;class#Controller#0" expanded="false" />
-            <element signature="method#gotoIntro#0;class#Controller#0" expanded="false" />
-            <element signature="method#startGame#0;class#Controller#0" expanded="false" />
-            <element signature="method#gotoSettings#0;class#Controller#0" expanded="false" />
-            <element signature="method#exitApp#0;class#Controller#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maincrawl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="32" column="58" lean-forward="false" selection-start-line="32" selection-start-column="58" selection-end-line="32" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#993#1332#0" expanded="true" />
-            <element signature="e#1331#1332#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Hero.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1140,16 +1105,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.java">
+    <entry file="file://$PROJECT_DIR$/src/maincrawl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="107" column="21" lean-forward="true" selection-start-line="107" selection-start-column="21" selection-end-line="107" selection-end-column="21" />
+        <state relative-caret-position="15">
+          <caret line="1" column="26" lean-forward="false" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+          <folding>
+            <element signature="e#990#1329#0" expanded="true" />
+            <element signature="e#1328#1329#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="30" lean-forward="false" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#467#468#0" expanded="true" />
-            <element signature="e#509#510#0" expanded="true" />
-            <element signature="e#2105#6245#0" expanded="true" />
-            <element signature="e#6244#6245#0" expanded="true" />
+            <element signature="method#closeAll#0;class#Controller#0" expanded="false" />
+            <element signature="method#closeExit#0;class#Controller#0" expanded="false" />
+            <element signature="method#playFX#0;class#Controller#0" expanded="false" />
+            <element signature="e#2391#2736#0" expanded="true" />
+            <element signature="e#2735#2736#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="131" column="25" lean-forward="true" selection-start-line="131" selection-start-column="25" selection-end-line="131" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#535#536#0" expanded="true" />
+            <element signature="e#577#578#0" expanded="true" />
+            <element signature="e#2173#6313#0" expanded="true" />
+            <element signature="e#6312#6313#0" expanded="true" />
           </folding>
         </state>
       </provider>

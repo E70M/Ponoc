@@ -1,7 +1,9 @@
 import javafx.animation.*;
+import javafx.concurrent.Task;
 import javafx.scene.*;
 import javafx.scene.canvas.*;
 import javafx.scene.image.*;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
