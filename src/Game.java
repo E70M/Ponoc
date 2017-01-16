@@ -32,7 +32,7 @@ public class Game extends maincrawl {
         GraphicsContext gc = layout.getGraphicsContext2D();
         Image leveldesign = new Image(Game.class.getResourceAsStream("fightbackground.png"));
         Hero Adin = new Hero(initialAdinX, initialAdinY);
-        Adin.setImage("adin.png");
+        Adin.setImage("adinright.png");
         Adin.setPosition(initialAdinX, initialAdinY);
         ArrayList<Enemy> enemies = new ArrayList<>();
         for (int i = 0; i < 15; i++) {
@@ -51,12 +51,14 @@ public class Game extends maincrawl {
                 Adin.setVelocity(0,0);
                 if(input.contains("LEFT") || input.contains("A")) {
                     Adin.addVelocity(-75, 0);
+                    Adin.setImage("adinleft.png");
                     if(Adin.getX() == 0) {
                         Adin.setVelocity(75,0);
                     }
                 }
                 if(input.contains("RIGHT") || input.contains("D")) {
                     Adin.addVelocity(75, 0);
+                    Adin.setImage("adinright.png");
                     if(Adin.getX() == 1000 - Adin.getWidth()) {
                         Adin.setVelocity(-75,0);
                     }
@@ -74,10 +76,20 @@ public class Game extends maincrawl {
                     }
                 }
                 if(input.contains("X")) {
-                    Adin.swingSword(true);
+                    if(input.contains("RIGHT") || input.contains("D")) {
+                        Adin.swingSword(true, true);
+                    }
+                    else {
+                        Adin.swingSword(true, false);
+                    }
                 }
                 if(!input.contains("X")) {
-                    Adin.swingSword(false);
+                    if(input.contains("RIGHT") || input.contains("D")) {
+                        Adin.swingSword(false, true);
+                    }
+                    else {
+                        Adin.swingSword(false, false);
+                    }
                 }
                 Adin.update(elapsedTime);
                 Iterator<Enemy> enemyIter = enemies.iterator();

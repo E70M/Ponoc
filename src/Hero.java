@@ -10,14 +10,24 @@ public class Hero extends Sprite {
         /*x += dx;
         y += dy;*/
     }
-    public void swingSword(boolean toggle) {
+    public void swingSword(boolean toggle, boolean right) {
         if(toggle == true) {
             swordpos = true;
-            setImage("adin_swordswing.png");
+            if(right == true) {
+                setImage("adin_swordright.png");
+            }
+            else {
+                setImage("adin_swordleft.png");
+            }
         }
         else {
             swordpos = false;
-            setImage("adin.png");
+            if(right == true) {
+                setImage("adinright.png");
+            }
+            else {
+                setImage("adinleft.png");
+            }
         }
     }
     public boolean checkSwordPos() {
