@@ -42,6 +42,10 @@ public class Game extends maincrawl {
         Adin.setImage("adinright.png");
         Adin.setPosition(initialAdinX, initialAdinY);
         ArrayList<Enemy> enemies = new ArrayList<>();
+        collisionBound floor = new collisionBound(0, 500);
+        collisionBound ceiling = new collisionBound(0,0);
+        collisionBound leftWall = new collisionBound(0,0);
+        collisionBound rightWall = new collisionBound(1000,0);
         for (int i = 0; i < 15; i++) {
             double px = spawnCoord(1000, "X");
             double py = spawnCoord(425,"Y");
@@ -72,7 +76,7 @@ public class Game extends maincrawl {
                 }
                 if(input.contains("UP") || input.contains("W")) {
                     Adin.setJumping(true);
-                    Adin.addVelocity(0, -50);
+                    Adin.addVelocity(0, -100);
                     if(Adin.getY() == Adin.getHeight()) {
                         Adin.setVy(0);
                     }
@@ -86,8 +90,8 @@ public class Game extends maincrawl {
                     }
                 }
                 if(input.contains("DOWN") || input.contains("S")) {
-                    Adin.addVelocity(0, 50);
-                    if(Adin.getY() == 500 - Adin.getHeight()) {
+                    Adin.addVelocity(0, 100);
+                    if(Adin.intersects(floor)) {
                         Adin.setVy(0);
                     }
                 }
@@ -123,10 +127,74 @@ public class Game extends maincrawl {
                         }
                     }
                 }
+                if(Adin.intersects(leftWall) || Adin.intersects(rightWall)) {
+                    Adin.setVx(0);
+                }
+                if(Adin.intersects(ceiling) || Adin.intersects(floor)) {
+                    Adin.setVy(0);
+                }
+                for (Enemy villain : enemies) {
+                    int direction = (int)(Math.random() * 4) + 1;
+                    if(direction == 1) { //Left
+                        int dir2 = (int)(Math.random() * 3) + 1;
+                        if(dir2 == 1) { //left only
+                            villain.addVelocity(-10, 0);
+                        }
+                        else if(dir2 == 2) { //left and up
+                            villain.addVelocity(-10,-10);
+                        }
+                        else { //left and down
+                            villain.addVelocity(-10, 10);
+                        }
+                    }
+                    else if(direction == 2) { //Right
+                        int dir2 = (int)(Math.random() * 3) + 1;
+                        if(dir2 == 1) { //right only
+                            villain.addVelocity(10, 0);
+                        }
+                        else if(dir2 == 2) { //right and up
+                            villain.addVelocity(10,-10);
+                        }
+                        else { //right and down
+                            villain.addVelocity(10, 10);
+                        }
+                    }
+                    else if(direction == 3) { //Up
+                        int dir2 = (int)(Math.random() * 3) + 1;
+                        if(dir2 == 1) { //up only
+                            villain.addVelocity(0, -10);
+                        }
+                        else if(dir2 == 2) { //up and left
+                            villain.addVelocity(-10,-10);
+                        }
+                        else { //up and right
+                            villain.addVelocity(10, -10);
+                        }
+                    }
+                    else { //Down
+                        int dir2 = (int)(Math.random() * 3) + 1;
+                        if(dir2 == 1) { //down only
+                            villain.addVelocity(0, 10);
+                        }
+                        else if(dir2 == 2) { //down and left
+                            villain.addVelocity(-10,10);
+                        }
+                        else { //down and right
+                            villain.addVelocity(10, 10);
+                        }
+                    }
+                    if(villain.intersects(leftWall) || villain.intersects(rightWall)) {
+                        villain.setVx(0);
+                    }
+                    if(villain.intersects(ceiling) || villain.intersects(floor)) {
+                        villain.setVy(0);
+                    }
+                    villain.update(elapsedTime);
+                }
                 Adin.update(elapsedTime);
                 Iterator<Enemy> enemyIter = enemies.iterator();
                 while (enemyIter.hasNext()) {
-                    Sprite villain = enemyIter.next();
+                    Enemy villain = enemyIter.next();
                     if (Adin.intersects(villain)) {
                         enemyIter.remove();
                         playSound("enemydeath.wav", 1);

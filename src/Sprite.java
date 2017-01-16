@@ -1,7 +1,6 @@
 import javafx.scene.image.Image;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.shape.Rectangle;
 public class Sprite {
     private Image i;
     private double posX, posY, velocityX, velocityY, width, height;
