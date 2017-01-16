@@ -1,9 +1,7 @@
 import javafx.animation.*;
-import javafx.concurrent.Task;
 import javafx.scene.*;
 import javafx.scene.canvas.*;
 import javafx.scene.image.*;
-import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -46,8 +44,8 @@ public class Game extends maincrawl {
         Adin.setPosition(initialAdinX, initialAdinY);
         ArrayList<Enemy> enemies = new ArrayList<>();
         for (int i = 0; i < 15; i++) {
-            double px = 955 * Math.random();
-            double py = 425 * Math.random();
+            double px = spawnCoord(1000, "X");
+            double py = spawnCoord(425,"Y");
             Enemy villain = new Enemy(px, py);
             villain.setImage("enemy.png");
             villain.setPosition(px, py);
@@ -149,5 +147,15 @@ public class Game extends maincrawl {
                 }
             }
         }.start();
+    }
+    public double spawnCoord(double limit, String axis) {
+        double ret = Math.random() * limit;
+        if (axis.equals("X") && ret == initialAdinX) {
+            spawnCoord(limit, axis);
+        }
+        else if(axis.equals("Y") && ret == initialAdinY) {
+            spawnCoord(limit, axis);
+        }
+        return ret;
     }
 }
