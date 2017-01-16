@@ -1,19 +1,18 @@
-import java.awt.event.*;
 public class Hero extends Sprite {
     static boolean swordpos = false;
     private int lives = 5;
     private boolean vis = true;
-    public Hero(double x, double y) {
+    Hero(double x, double y) {
         super(x,y);
     }
     public void move() {
         /*x += dx;
         y += dy;*/
     }
-    public void swingSword(boolean toggle, boolean right) {
-        if(toggle == true) {
+    void swingSword(boolean toggle, boolean right) {
+        if(toggle) {
             swordpos = true;
-            if(right == true) {
+            if(right) {
                 setImage("adin_swordright.png");
             }
             else {
@@ -22,7 +21,7 @@ public class Hero extends Sprite {
         }
         else {
             swordpos = false;
-            if(right == true) {
+            if(right) {
                 setImage("adinright.png");
             }
             else {
@@ -30,18 +29,18 @@ public class Hero extends Sprite {
             }
         }
     }
-    public boolean checkSwordPos() {
-        if(swordpos == true) {
+    boolean checkSwordPos() {
+        if(swordpos) {
             return true;
         }
         else {
             return false;
         }
     }
-    public void removeLife(int factor) {
+    void removeLife(int factor) {
         lives -= factor;
     }
-    public int getLives() {
+    int getLives() {
         return lives;
     }
     public void jump() {
@@ -55,10 +54,10 @@ public class Hero extends Sprite {
             loadImage("Adin.png");
         }*/
     }
-    public boolean isVisible() {
+    boolean isVisible() {
         return vis;
     }
-    public void setVisible(Boolean visible) {
+    void setVisible(Boolean visible) {
         vis = visible;
     }
 }

@@ -108,7 +108,7 @@ public class Game extends maincrawl {
                     }
                 }
                 gc.clearRect(0, 0, 1000, 500);
-                if(Adin.isVisible() == true) {
+                if(Adin.isVisible()) {
                     gc.drawImage(leveldesign, 0, 0);
                     Adin.render(gc);
                     for (Enemy villain : enemies) {
