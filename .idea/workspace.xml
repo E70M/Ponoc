@@ -38,14 +38,14 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1380">
-              <caret line="132" column="32" lean-forward="false" selection-start-line="132" selection-start-column="32" selection-end-line="132" selection-end-column="32" />
+            <state relative-caret-position="90">
+              <caret line="121" column="31" lean-forward="false" selection-start-line="121" selection-start-column="31" selection-end-line="121" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#452#453#0" expanded="true" />
                 <element signature="e#494#495#0" expanded="true" />
-                <element signature="e#2337#10773#0" expanded="true" />
-                <element signature="e#10772#10773#0" expanded="true" />
+                <element signature="e#2337#10763#0" expanded="true" />
+                <element signature="e#10762#10763#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -202,8 +202,8 @@
         <option value="$PROJECT_DIR$/src/rightwall.java" />
         <option value="$PROJECT_DIR$/src/floor.java" />
         <option value="$PROJECT_DIR$/src/Hero.java" />
-        <option value="$PROJECT_DIR$/src/Game.java" />
         <option value="$PROJECT_DIR$/src/Sprite.java" />
+        <option value="$PROJECT_DIR$/src/Game.java" />
       </list>
     </option>
   </component>
@@ -769,12 +769,12 @@
       <workItem from="1481571420908" duration="295000" />
       <workItem from="1483559770402" duration="160000" />
       <workItem from="1484075705862" duration="4902000" />
-      <workItem from="1484153571545" duration="39882000" />
+      <workItem from="1484153571545" duration="40029000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49562000" />
+    <option name="totallyTimeSpent" value="49709000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -1164,14 +1164,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1380">
-          <caret line="132" column="32" lean-forward="false" selection-start-line="132" selection-start-column="32" selection-end-line="132" selection-end-column="32" />
+        <state relative-caret-position="90">
+          <caret line="121" column="31" lean-forward="false" selection-start-line="121" selection-start-column="31" selection-end-line="121" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#452#453#0" expanded="true" />
             <element signature="e#494#495#0" expanded="true" />
-            <element signature="e#2337#10773#0" expanded="true" />
-            <element signature="e#10772#10773#0" expanded="true" />
+            <element signature="e#2337#10763#0" expanded="true" />
+            <element signature="e#10762#10763#0" expanded="true" />
           </folding>
         </state>
       </provider>

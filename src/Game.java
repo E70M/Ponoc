@@ -119,7 +119,7 @@ public class Game extends maincrawl {
                 // fix ceiling
                 if(ceiling.intersects(Adin.getX()+(Adin.getWidth()/2)-((Adin.getWidth()/2)/2), Adin.getY(),
                         Adin.getWidth()/2, Adin.getHeight()/2)) {
-                    Adin.addVy(-1 * Adin.getY());
+                    Adin.addVy(Adin.getY());
                 }
                 if(floor.intersects(Adin.getX()+(Adin.getWidth()/2)-((Adin.getWidth()/2)/2),
                         Adin.getY()+(Adin.getHeight()/2), Adin.getWidth()/2, Adin.getHeight()/2)) {
@@ -127,7 +127,7 @@ public class Game extends maincrawl {
                 }
                 // fix left wall
                 if(leftWall.intersects(Adin.getX(), Adin.getY()+5, 5, Adin.getHeight()-10)) {
-                    Adin.addVx(-1 * Adin.getX());
+                    Adin.addVx(Adin.getX());
                 }
                 if(rightWall.intersects(Adin.getX()+(Adin.getWidth()-5), Adin.getY()+5,
                         5, Adin.getHeight()-10)) {
