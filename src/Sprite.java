@@ -65,12 +65,6 @@ public class Sprite {
     public void addVy(double y) {
         velocityY += y;
     }
-    public void subtractVx(double x) {
-        velocityX -= x;
-    }
-    public void subtractVy(double y) {
-        velocityY -= y;
-    }
     void setFalling(boolean toggle) {
         this.falling = toggle;
     }

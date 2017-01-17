@@ -45,8 +45,8 @@ public class Game extends maincrawl {
         ArrayList<Enemy> enemies = new ArrayList<>();
         Rectangle floor = new Rectangle(0,500,1000, 0);
         Rectangle ceiling = new Rectangle(0,0,1000,0);
-        Rectangle leftWall = new Rectangle(0,0,0,500);
-        Rectangle rightWall = new Rectangle(1000,0,0,500);
+        Rectangle leftWall = new Rectangle(0,0.1,0,499.9);
+        Rectangle rightWall = new Rectangle(1000,0.1,0,499.9);
         for (int i = 0; i < 15; i++) {
             double px = spawnCoord(1000, "X", Adin);
             double py = spawnCoord(425,"Y", Adin);
@@ -119,7 +119,7 @@ public class Game extends maincrawl {
                 // fix ceiling
                 if(ceiling.intersects(Adin.getX()+(Adin.getWidth()/2)-((Adin.getWidth()/2)/2), Adin.getY(),
                         Adin.getWidth()/2, Adin.getHeight()/2)) {
-                    Adin.subtractVy(Adin.getY());
+                    Adin.addVy(-1 * Adin.getY());
                 }
                 if(floor.intersects(Adin.getX()+(Adin.getWidth()/2)-((Adin.getWidth()/2)/2),
                         Adin.getY()+(Adin.getHeight()/2), Adin.getWidth()/2, Adin.getHeight()/2)) {
@@ -127,7 +127,7 @@ public class Game extends maincrawl {
                 }
                 // fix left wall
                 if(leftWall.intersects(Adin.getX(), Adin.getY()+5, 5, Adin.getHeight()-10)) {
-                    Adin.subtractVx(Adin.getX());
+                    Adin.addVx(-1 * Adin.getX());
                 }
                 if(rightWall.intersects(Adin.getX()+(Adin.getWidth()-5), Adin.getY()+5,
                         5, Adin.getHeight()-10)) {
