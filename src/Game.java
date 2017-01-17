@@ -116,22 +116,32 @@ public class Game extends maincrawl {
                         }
                     }
                 }
-                // fix ceiling
                 if(ceiling.intersects(Adin.getX()+(Adin.getWidth()/2)-((Adin.getWidth()/2)/2), Adin.getY(),
-                        Adin.getWidth()/2, Adin.getHeight()/2)) {
-                    Adin.addVy(Adin.getY());
+                        Adin.getWidth()/2,Adin.getHeight()/2)) {
+                    Adin.setVy(0);
+                    if(input.contains("DOWN") || input.contains("S")) {
+                        Adin.addVelocity(0, 100);
+                    }
                 }
                 if(floor.intersects(Adin.getX()+(Adin.getWidth()/2)-((Adin.getWidth()/2)/2),
                         Adin.getY()+(Adin.getHeight()/2), Adin.getWidth()/2, Adin.getHeight()/2)) {
-                    Adin.addVy(-1 * Adin.getY());
+                    Adin.setVy(0);
+                    if(input.contains("UP") || input.contains("W")) {
+                        Adin.addVelocity(0, -100);
+                    }
                 }
-                // fix left wall
                 if(leftWall.intersects(Adin.getX(), Adin.getY()+5, 5, Adin.getHeight()-10)) {
-                    Adin.addVx(Adin.getX());
+                    Adin.setVx(0);
+                    if(input.contains("RIGHT") || input.contains("D")) {
+                        Adin.addVelocity(100, 0);
+                    }
                 }
                 if(rightWall.intersects(Adin.getX()+(Adin.getWidth()-5), Adin.getY()+5,
                         5, Adin.getHeight()-10)) {
-                    Adin.addVx(-1 * Adin.getX());
+                    Adin.setVx(0);
+                    if(input.contains("LEFT") || input.contains("A")) {
+                        Adin.addVelocity(-100, 0);
+                    }
                 }
                 for (Enemy villain : enemies) {
                     int direction = (int)(Math.random() * 4) + 1;
