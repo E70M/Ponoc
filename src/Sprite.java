@@ -59,12 +59,6 @@ public class Sprite {
             velocityY = maxSpeed;
         }*/
     }
-    public void addVx(double x) {
-        velocityX += x;
-    }
-    public void addVy(double y) {
-        velocityY += y;
-    }
     void setFalling(boolean toggle) {
         this.falling = toggle;
     }

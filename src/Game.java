@@ -195,15 +195,31 @@ public class Game extends maincrawl {
                     }
                     if(ceiling.intersects(villain.getX(), villain.getY(), villain.getWidth(), villain.getHeight())) {
                         villain.setVy(0);
+                        int moveOff = (int)(Math.random() * 2);
+                        if(moveOff == 1) {
+                            villain.addVelocity(0,10);
+                        }
                     }
                     if(floor.intersects(villain.getX(), villain.getY(), villain.getWidth(), villain.getHeight())) {
                         villain.setVy(0);
+                        int moveOff = (int)(Math.random() * 2);
+                        if(moveOff == 1) {
+                            villain.addVelocity(0,-10);
+                        }
                     }
                     if(leftWall.intersects(villain.getX(), villain.getY(), villain.getWidth(), villain.getHeight())) {
                         villain.setVx(0);
+                        int moveOff = (int)(Math.random() * 2);
+                        if(moveOff == 1) {
+                            villain.addVelocity(10,0);
+                        }
                     }
                     if(rightWall.intersects(villain.getX(), villain.getY(), villain.getWidth(), villain.getHeight())) {
                         villain.setVx(0);
+                        int moveOff = (int)(Math.random() * 2);
+                        if(moveOff == 1) {
+                            villain.addVelocity(-10,0);
+                        }
                     }
                     villain.update(elapsedTime);
                 }
@@ -227,7 +243,6 @@ public class Game extends maincrawl {
                 if(Adin.isVisible()) {
                     gc.drawImage(leveldesign, 0, 0);
                     Adin.render(gc);
-                    Adin.renderCollisionBounds(gc);
                     if(enemies.size() > 0) {
                         for (Enemy villain : enemies) {
                             villain.render(gc);
@@ -248,12 +263,13 @@ public class Game extends maincrawl {
             }
         }.start();
     }
+    // Fix?
     public double spawnCoord(double limit, String axis, Hero hero) {
         double ret = Math.random() * limit;
-        if (axis.equals("X") && (ret >= (initialAdinX-(hero.getWidth()/2)) && ret <= initialAdinX +(hero.getWidth()/2))) {
+        if (axis.equals("X") && (ret >= (initialAdinX-(hero.getWidth()/2)) && ret <= initialAdinX + (hero.getWidth()/2))) {
             spawnCoord(limit, axis, hero);
         }
-        else if(axis.equals("Y") && (ret >= (initialAdinY-(hero.getHeight()/2)) && ret <= initialAdinY +(hero.getHeight()/2))) {
+        else if(axis.equals("Y") && (ret >= (initialAdinY-(hero.getHeight()/2)) && ret <= initialAdinY + (hero.getHeight()/2))) {
             spawnCoord(limit, axis, hero);
         }
         return ret;
