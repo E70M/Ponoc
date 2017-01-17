@@ -3,6 +3,7 @@ import javafx.scene.*;
 import javafx.scene.canvas.*;
 import javafx.scene.image.*;
 import javafx.scene.paint.*;
+import javafx.scene.shape.*;
 import javafx.scene.text.*;
 import javafx.stage.*;
 import java.util.*;
@@ -35,20 +36,20 @@ public class Game extends maincrawl {
         Font theFont = Font.font("Helvetica", FontWeight.BOLD, 24);
         gc.setFont(theFont);
         gc.setFill(Color.YELLOW);
-        gc.setStroke(Color.YELLOW);
+        gc.setStroke(Color.WHITE);
         gc.setLineWidth(1);
         Image leveldesign = new Image(Game.class.getResourceAsStream("fightbackground.png"));
         Hero Adin = new Hero(initialAdinX, initialAdinY);
         Adin.setImage("adinright.png");
         Adin.setPosition(initialAdinX, initialAdinY);
         ArrayList<Enemy> enemies = new ArrayList<>();
-        collisionBound floor = new collisionBound(0, 500);
-        collisionBound ceiling = new collisionBound(0,0);
-        collisionBound leftWall = new collisionBound(0,0);
-        collisionBound rightWall = new collisionBound(1000,0);
+        Rectangle floor = new Rectangle(0,500,1000, 0);
+        Rectangle ceiling = new Rectangle(0,0,1000,0);
+        Rectangle leftWall = new Rectangle(0,0,0,500);
+        Rectangle rightWall = new Rectangle(1000,0,0,500);
         for (int i = 0; i < 15; i++) {
-            double px = spawnCoord(1000, "X");
-            double py = spawnCoord(425,"Y");
+            double px = spawnCoord(1000, "X", Adin);
+            double py = spawnCoord(425,"Y", Adin);
             Enemy villain = new Enemy(px, py);
             villain.setImage("enemy.png");
             villain.setPosition(px, py);
@@ -63,23 +64,14 @@ public class Game extends maincrawl {
                 if(input.contains("LEFT") || input.contains("A")) {
                     Adin.addVelocity(-100, 0);
                     Adin.setImage("adinleft.png");
-                    if(Adin.getX() == 0) {
-                        Adin.setVx(0);
-                    }
                 }
                 if(input.contains("RIGHT") || input.contains("D")) {
                     Adin.addVelocity(100, 0);
                     Adin.setImage("adinright.png");
-                    if(Adin.getX() == 1000 - Adin.getWidth()) {
-                        Adin.setVx(0);
-                    }
                 }
                 if(input.contains("UP") || input.contains("W")) {
                     Adin.setJumping(true);
                     Adin.addVelocity(0, -100);
-                    if(Adin.getY() == Adin.getHeight()) {
-                        Adin.setVy(0);
-                    }
                 }
                 if(!input.contains("UP") || !input.contains("W")) {
                     Adin.setJumping(false);
@@ -91,9 +83,6 @@ public class Game extends maincrawl {
                 }
                 if(input.contains("DOWN") || input.contains("S")) {
                     Adin.addVelocity(0, 100);
-                    if(Adin.intersects(floor)) {
-                        Adin.setVy(0);
-                    }
                 }
                 if(input.contains("X")) {
                     if(input.contains("RIGHT") || input.contains("D")) {
@@ -127,11 +116,22 @@ public class Game extends maincrawl {
                         }
                     }
                 }
-                if(Adin.intersects(leftWall) || Adin.intersects(rightWall)) {
-                    Adin.setVx(0);
+                // fix ceiling
+                if(ceiling.intersects(Adin.getX()+(Adin.getWidth()/2)-((Adin.getWidth()/2)/2), Adin.getY(),
+                        Adin.getWidth()/2, Adin.getHeight()/2)) {
+                    Adin.subtractVy(Adin.getY());
                 }
-                if(Adin.intersects(ceiling) || Adin.intersects(floor)) {
-                    Adin.setVy(0);
+                if(floor.intersects(Adin.getX()+(Adin.getWidth()/2)-((Adin.getWidth()/2)/2),
+                        Adin.getY()+(Adin.getHeight()/2), Adin.getWidth()/2, Adin.getHeight()/2)) {
+                    Adin.addVy(-1 * Adin.getY());
+                }
+                // fix left wall
+                if(leftWall.intersects(Adin.getX(), Adin.getY()+5, 5, Adin.getHeight()-10)) {
+                    Adin.subtractVx(Adin.getX());
+                }
+                if(rightWall.intersects(Adin.getX()+(Adin.getWidth()-5), Adin.getY()+5,
+                        5, Adin.getHeight()-10)) {
+                    Adin.addVx(-1 * Adin.getX());
                 }
                 for (Enemy villain : enemies) {
                     int direction = (int)(Math.random() * 4) + 1;
@@ -183,11 +183,17 @@ public class Game extends maincrawl {
                             villain.addVelocity(10, 10);
                         }
                     }
-                    if(villain.intersects(leftWall) || villain.intersects(rightWall)) {
+                    if(ceiling.intersects(villain.getX(), villain.getY(), villain.getWidth(), villain.getHeight())) {
+                        villain.setVy(0);
+                    }
+                    if(floor.intersects(villain.getX(), villain.getY(), villain.getWidth(), villain.getHeight())) {
+                        villain.setVy(0);
+                    }
+                    if(leftWall.intersects(villain.getX(), villain.getY(), villain.getWidth(), villain.getHeight())) {
                         villain.setVx(0);
                     }
-                    if(villain.intersects(ceiling) || villain.intersects(floor)) {
-                        villain.setVy(0);
+                    if(rightWall.intersects(villain.getX(), villain.getY(), villain.getWidth(), villain.getHeight())) {
+                        villain.setVx(0);
                     }
                     villain.update(elapsedTime);
                 }
@@ -232,15 +238,13 @@ public class Game extends maincrawl {
             }
         }.start();
     }
-    //Needs to be modified, may not prevent an enemy from spawning
-    //immediately next to these points and still intersect the hero.
-    public double spawnCoord(double limit, String axis) {
+    public double spawnCoord(double limit, String axis, Hero hero) {
         double ret = Math.random() * limit;
-        if (axis.equals("X") && ret == initialAdinX) {
-            spawnCoord(limit, axis);
+        if (axis.equals("X") && (ret >= (initialAdinX-(hero.getWidth()/2)) && ret <= initialAdinX +(hero.getWidth()/2))) {
+            spawnCoord(limit, axis, hero);
         }
-        else if(axis.equals("Y") && ret == initialAdinY) {
-            spawnCoord(limit, axis);
+        else if(axis.equals("Y") && (ret >= (initialAdinY-(hero.getHeight()/2)) && ret <= initialAdinY +(hero.getHeight()/2))) {
+            spawnCoord(limit, axis, hero);
         }
         return ret;
     }
