@@ -51,7 +51,7 @@ public class Game extends maincrawl {
             double px = spawnCoord(1000, "X", Adin);
             double py = spawnCoord(425,"Y", Adin);
             Enemy villain = new Enemy(px, py);
-            villain.setImage("enemy.png");
+            villain.setImage("enemyleft.png");
             villain.setPosition(px, py);
             enemies.add(villain);
         }
@@ -143,9 +143,11 @@ public class Game extends maincrawl {
                         Adin.addVelocity(-100, 0);
                     }
                 }
+                //Temporary until enemy movement paths are established
                 for (Enemy villain : enemies) {
                     int direction = (int)(Math.random() * 4) + 1;
                     if(direction == 1) { //Left
+                        villain.setImage("enemyleft.png");
                         int dir2 = (int)(Math.random() * 3) + 1;
                         if(dir2 == 1) { //left only
                             villain.addVelocity(-10, 0);
@@ -158,6 +160,7 @@ public class Game extends maincrawl {
                         }
                     }
                     else if(direction == 2) { //Right
+                        villain.setImage("enemyright.png");
                         int dir2 = (int)(Math.random() * 3) + 1;
                         if(dir2 == 1) { //right only
                             villain.addVelocity(10, 0);
@@ -238,6 +241,9 @@ public class Game extends maincrawl {
                             }
                         }
                     }
+                }
+                if(enemies.size() == 0) {
+                    Adin.setVisible(false);
                 }
                 gc.clearRect(0, 0, 1000, 500);
                 if(Adin.isVisible()) {
