@@ -8,6 +8,7 @@ public class Sprite {
     private double gravity = 5;
     private double maxSpeed = 50;
     private String imagefile;
+    private boolean vis = true;
     public Sprite(double x, double y) {
         this.posX = x;
         this.posY = y;
@@ -83,5 +84,11 @@ public class Sprite {
     }
     public boolean intersects(Sprite s) {
         return s.getBoundary().intersects(this.getBoundary());
+    }
+    public boolean isVisible() {
+        return vis;
+    }
+    public void setVisible(Boolean visible) {
+        vis = visible;
     }
 }

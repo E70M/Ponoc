@@ -244,7 +244,7 @@ public class Game extends maincrawl {
                     gc.drawImage(leveldesign, 0, 0);
                     Adin.render(gc);
                     if(enemies.size() > 0) {
-                        for (Enemy villain : enemies) {
+                        for(Enemy villain : enemies) {
                             villain.render(gc);
                         }
                     }
@@ -256,9 +256,22 @@ public class Game extends maincrawl {
                     gc.strokeText(lives, 10, 30);
                 }
                 else {
-                    String endofgame = "Game Over";
-                    gc.fillText(endofgame, 440, 250);
-                    gc.strokeText(endofgame, 440, 250);
+                    gc.setFill(Color.web("0x000033"));
+                    gc.fillRect(0,0,1000,500);
+                    gc.setFill(Color.YELLOW);
+                    if(Adin.getLives() == 0) {
+                        for(int i=0; i<enemies.size(); i++) {
+                            enemies.remove(i);
+                        }
+                        String endofgame = "Game Over";
+                        gc.fillText(endofgame, 440, 250);
+                        gc.strokeText(endofgame, 440, 250);
+                    }
+                    else {
+                        String youWin = "You Win!";
+                        gc.fillText(youWin, 440, 250);
+                        gc.strokeText(youWin, 440, 250);
+                    }
                 }
             }
         }.start();

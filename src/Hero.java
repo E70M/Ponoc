@@ -1,7 +1,6 @@
 public class Hero extends Sprite {
     static boolean swordpos = false;
     private int lives = 5;
-    private boolean vis = true;
     Hero(double x, double y) {
         super(x,y);
     }
@@ -49,11 +48,5 @@ public class Hero extends Sprite {
         else {
             loadImage("Adin.png");
         }*/
-    }
-    boolean isVisible() {
-        return vis;
-    }
-    void setVisible(Boolean visible) {
-        vis = visible;
     }
 }
