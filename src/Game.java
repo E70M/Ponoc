@@ -11,6 +11,7 @@ import static javafx.scene.media.AudioClip.INDEFINITE;
 public class Game extends maincrawl {
     private Stage window;
     private double initialAdinX = 500, initialAdinY = 425;
+    static int remainingWaves = 4;
     public Game(Stage primaryStage) {
         this.window = primaryStage;
     }
@@ -47,14 +48,21 @@ public class Game extends maincrawl {
         Rectangle ceiling = new Rectangle(0,0,1000,0);
         Rectangle leftWall = new Rectangle(0,0.1,0,499.9);
         Rectangle rightWall = new Rectangle(1000,0.1,0,499.9);
-        for (int i = 0; i < 15; i++) {
+        Rectangle[] platforms = new Rectangle[5];
+        platforms[0] = new Rectangle();
+        platforms[1] = new Rectangle();
+        platforms[2] = new Rectangle();
+        platforms[3] = new Rectangle();
+        platforms[4] = new Rectangle();
+        for (int i = 0; i < 30; i++) {
             double px = spawnCoord(1000, "X", Adin);
             double py = spawnCoord(425,"Y", Adin);
             Enemy villain = new Enemy(px, py);
             villain.setImage("enemyleft.png");
             villain.setPosition(px, py);
             enemies.add(villain);
-        }
+        } //Wave 1
+        remainingWaves--;
         LongValue lastNanoTime = new LongValue(System.nanoTime());
         new AnimationTimer() {
             public void handle(long currentNanoTime) {
@@ -228,9 +236,9 @@ public class Game extends maincrawl {
                 }
                 Adin.update(elapsedTime);
                 Iterator<Enemy> enemyIter = enemies.iterator();
-                while (enemyIter.hasNext()) {
+                while(enemyIter.hasNext()) {
                     Enemy villain = enemyIter.next();
-                    if (Adin.intersects(villain)) {
+                    if(Adin.intersects(villain)) {
                         enemyIter.remove();
                         playSound("enemydeath.wav", 1);
                         if(!Adin.checkSwordPos()) {
@@ -243,7 +251,20 @@ public class Game extends maincrawl {
                     }
                 }
                 if(enemies.size() == 0) {
-                    Adin.setVisible(false);
+                    if(remainingWaves > 0) {
+                        for (int i = 0; i < 30; i++) {
+                            double px = spawnCoord(1000, "X", Adin);
+                            double py = spawnCoord(425,"Y", Adin);
+                            Enemy villain = new Enemy(px, py);
+                            villain.setImage("enemyleft.png");
+                            villain.setPosition(px, py);
+                            enemies.add(villain);
+                        } //Waves 2,3,4
+                        remainingWaves--;
+                    }
+                    else {
+                        Adin.setVisible(false);
+                    }
                 }
                 gc.clearRect(0, 0, 1000, 500);
                 if(Adin.isVisible()) {
