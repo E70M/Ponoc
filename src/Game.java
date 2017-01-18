@@ -270,8 +270,8 @@ public class Game extends maincrawl {
                             enemies.remove(i);
                         }
                         String endofgame = "Game Over";
-                        gc.fillText(endofgame, 440, 250);
-                        gc.strokeText(endofgame, 440, 250);
+                        gc.fillText(endofgame, 435, 250);
+                        gc.strokeText(endofgame, 435, 250);
                     }
                     else {
                         String youWin = "You Win!";
