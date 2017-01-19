@@ -7,7 +7,7 @@ public class Sprite {
     private double posX, posY, velocityX, velocityY, width, height;
     protected boolean falling = false, jumping = false;
     private double gravity = 5;
-    private double maxSpeed = 50;
+    private double maxSpeed = -200;
     private String imagefile;
     private boolean vis = true;
     public Sprite(double x, double y) {
@@ -57,7 +57,7 @@ public class Sprite {
         /*if(getFalling() || getJumping()) {
             velocityY += gravity;
         }
-        if(velocityY >= maxSpeed) {
+        if(velocityY <= maxSpeed) {
             velocityY = maxSpeed;
         }*/
     }
