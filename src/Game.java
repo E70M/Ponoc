@@ -50,7 +50,7 @@ public class Game extends maincrawl {
         Rectangle rightWall = new Rectangle(1000,0.1,0,499.9);
         Rectangle[] platforms = new Rectangle[5];
         platforms[0] = new Rectangle();
-        platforms[1] = new Rectangle();
+        platforms[1] = new Rectangle(822,295,178,5);
         platforms[2] = new Rectangle();
         platforms[3] = new Rectangle();
         platforms[4] = new Rectangle();
@@ -149,6 +149,41 @@ public class Game extends maincrawl {
                     Adin.setVx(0);
                     if(input.contains("LEFT") || input.contains("A")) {
                         Adin.addVelocity(-100, 0);
+                    }
+                }
+                if(platforms[0].intersects(Adin.getX()+(Adin.getWidth()-5), Adin.getY()+5,
+                        5, Adin.getHeight()-10)) {
+                    Adin.setVy(0);
+                    if(input.contains("UP") && Adin.getY() <= platforms[0].getHeight()) { //Find height
+                        Adin.addVelocity(0, -100);
+                    }
+                }
+                if(platforms[1].intersects(Adin.getX()+(Adin.getWidth()-5), Adin.getY()+5,
+                        5, Adin.getHeight()-10)) {
+                    Adin.setVy(0);
+                    if(input.contains("UP") && Adin.getY() <= 295) {
+                        Adin.addVelocity(0, -100);
+                    }
+                }
+                if(platforms[2].intersects(Adin.getX()+(Adin.getWidth()-5), Adin.getY()+5,
+                        5, Adin.getHeight()-10)) {
+                    Adin.setVy(0);
+                    if(input.contains("UP") && Adin.getY() <= platforms[2].getHeight()) { //Find height
+                        Adin.addVelocity(0, -100);
+                    }
+                }
+                if(platforms[3].intersects(Adin.getX()+(Adin.getWidth()-5), Adin.getY()+5,
+                        5, Adin.getHeight()-10)) {
+                    Adin.setVy(0);
+                    if(input.contains("UP") && Adin.getY() <= platforms[3].getHeight()) { //Find height
+                        Adin.addVelocity(0, -100);
+                    }
+                }
+                if(platforms[4].intersects(Adin.getX()+(Adin.getWidth()-5), Adin.getY()+5,
+                        5, Adin.getHeight()-10)) {
+                    Adin.setVy(0);
+                    if(input.contains("UP") && Adin.getY() <= platforms[4].getHeight()) { //Find height
+                        Adin.addVelocity(0, -100);
                     }
                 }
                 //Temporary until enemy movement paths are established
