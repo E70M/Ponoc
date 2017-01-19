@@ -1,6 +1,7 @@
 import javafx.scene.image.Image;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.geometry.Rectangle2D;
+import java.util.*;
 public class Sprite {
     private Image i;
     private double posX, posY, velocityX, velocityY, width, height;
@@ -56,7 +57,7 @@ public class Sprite {
         /*if(getFalling() || getJumping()) {
             velocityY += gravity;
         }
-        if(velocityY > maxSpeed) {
+        if(velocityY >= maxSpeed) {
             velocityY = maxSpeed;
         }*/
     }
@@ -90,5 +91,9 @@ public class Sprite {
     }
     public void setVisible(Boolean visible) {
         vis = visible;
+    }
+    public void cycleSpriteFrames(ArrayList<Image> frameBook) {
+        //Cycle through array list with for loop?
+        //setImage(framebook[i]);
     }
 }
