@@ -54,20 +54,27 @@ public class Game extends maincrawl {
         platforms[2] = new Rectangle(0,271,250,5);
         platforms[3] = new Rectangle(309,188,377,5);
         platforms[4] = new Rectangle(786,111,214,5);
-        for (int i = 0; i < 30; i++) {
-            double px = spawnCoord(1000, "X", Adin);
-            double py = spawnCoord(425,"Y", Adin);
-            Enemy villain = new Enemy(px, py);
-            villain.setImage("enemyleft.png");
-            villain.setPosition(px, py);
-            enemies.add(villain);
-        } //Wave 1
-        remainingWaves--;
         LongValue lastNanoTime = new LongValue(System.nanoTime());
         new AnimationTimer() {
             public void handle(long currentNanoTime) {
                 double elapsedTime = (currentNanoTime - lastNanoTime.value) / 1000000000.0;
                 lastNanoTime.value = currentNanoTime;
+                if(enemies.size() == 0) {
+                    if(remainingWaves > 0) {
+                        for (int i = 0; i < 30; i++) {
+                            double px = spawnCoord(1000, "X", Adin);
+                            double py = spawnCoord(425,"Y", Adin);
+                            Enemy villain = new Enemy(px, py);
+                            villain.setImage("enemyleft.png");
+                            villain.setPosition(px, py);
+                            enemies.add(villain);
+                        } //Waves 2,3,4
+                        remainingWaves--;
+                    }
+                    else {
+                        Adin.setVisible(false);
+                    }
+                }
                 Adin.setVelocity(0,0);
                 if(input.contains("LEFT") || input.contains("A")) {
                     Adin.addVelocity(-100, 0);
@@ -79,19 +86,27 @@ public class Game extends maincrawl {
                 }
                 if(input.contains("UP") || input.contains("W")) {
                     Adin.setJumping(true);
-                    Adin.addVelocity(0, -100);
+                    Adin.setFalling(false);
+                    if(ceiling.intersects(Adin.getX()+(Adin.getWidth()/2)-((Adin.getWidth()/2)/2),
+                            Adin.getY(),Adin.getWidth()/2,Adin.getHeight()/2)
+                            || Adin.getVy() == Adin.getMaxSpeed()) {
+                        Adin.setFalling(true);
+                        Adin.setJumping(false);
+                        Adin.setVy(0);
+                        Adin.addVelocity(0,0);
+                    }
+                    else {
+                        Adin.addVelocity(0, -200);
+                    }
                 }
                 if(!input.contains("UP") || !input.contains("W")) {
                     Adin.setJumping(false);
                     Adin.setFalling(true);
                     Adin.addVelocity(0,0);
-                    if(Adin.getY() == 500 - Adin.getHeight()) {
-                        Adin.setFalling(false);
-                    }
                 }
-                if(input.contains("DOWN") || input.contains("S")) {
+                /*if(input.contains("DOWN") || input.contains("S")) {
                     Adin.addVelocity(0, 100);
-                }
+                }*/
                 if(input.contains("X")) {
                     if(input.contains("RIGHT") || input.contains("D")) {
                         Adin.swingSword(true, true);
@@ -127,8 +142,8 @@ public class Game extends maincrawl {
                 if(ceiling.intersects(Adin.getX()+(Adin.getWidth()/2)-((Adin.getWidth()/2)/2), Adin.getY(),
                         Adin.getWidth()/2,Adin.getHeight()/2)) {
                     Adin.setVy(0);
-                    if(input.contains("DOWN") || input.contains("S")) {
-                        Adin.addVelocity(0, 100);
+                    if(Adin.getFalling()) {
+                        Adin.addVelocity(0, 0);
                     }
                 }
                 if(floor.intersects(Adin.getX()+(Adin.getWidth()/2)-((Adin.getWidth()/2)/2),
@@ -283,22 +298,6 @@ public class Game extends maincrawl {
                                 Adin.setVisible(false);
                             }
                         }
-                    }
-                }
-                if(enemies.size() == 0) {
-                    if(remainingWaves > 0) {
-                        for (int i = 0; i < 30; i++) {
-                            double px = spawnCoord(1000, "X", Adin);
-                            double py = spawnCoord(425,"Y", Adin);
-                            Enemy villain = new Enemy(px, py);
-                            villain.setImage("enemyleft.png");
-                            villain.setPosition(px, py);
-                            enemies.add(villain);
-                        } //Waves 2,3,4
-                        remainingWaves--;
-                    }
-                    else {
-                        Adin.setVisible(false);
                     }
                 }
                 gc.clearRect(0, 0, 1000, 500);

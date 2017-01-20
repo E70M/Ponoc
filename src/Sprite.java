@@ -6,8 +6,7 @@ public class Sprite {
     private Image i;
     private double posX, posY, velocityX, velocityY, width, height;
     protected boolean falling = false, jumping = false;
-    private double gravity = 5;
-    private double maxSpeed = -200;
+    private double gravity = 50, maxSpeed = -500;
     private String imagefile;
     private boolean vis = true;
     public Sprite(double x, double y) {
@@ -54,12 +53,18 @@ public class Sprite {
     public void addVelocity(double x, double y) {
         velocityX += x;
         velocityY += y;
-        /*if(getFalling() || getJumping()) {
+        if(getFalling() || getJumping()) {
             velocityY += gravity;
+            if(velocityY < maxSpeed) {
+                velocityY = maxSpeed;
+                if(getFalling()) {
+                    velocityY *= -1;
+                }
+            }
         }
-        if(velocityY <= maxSpeed) {
-            velocityY = maxSpeed;
-        }*/
+    }
+    public double getVy() {
+        return velocityY;
     }
     void setFalling(boolean toggle) {
         this.falling = toggle;
@@ -72,6 +77,9 @@ public class Sprite {
     }
     boolean getJumping() {
         return jumping;
+    }
+    double getMaxSpeed() {
+        return maxSpeed;
     }
     public void update(double time) {
         posX += velocityX * time;
