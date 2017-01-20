@@ -320,19 +320,18 @@ public class Game extends maincrawl {
                     gc.setFill(Color.web("0x000033"));
                     gc.fillRect(0,0,1000,500);
                     gc.setFill(Color.YELLOW);
+                    String endText;
                     if(Adin.getLives() == 0) {
                         for(int i=0; i<enemies.size(); i++) {
                             enemies.remove(i);
                         }
-                        String endofgame = "Game Over";
-                        gc.fillText(endofgame, 435, 250);
-                        gc.strokeText(endofgame, 435, 250);
+                        endText = "Game Over";
                     }
                     else {
-                        String youWin = "You Win!";
-                        gc.fillText(youWin, 440, 250);
-                        gc.strokeText(youWin, 440, 250);
+                        endText = "You Win!";
                     }
+                    gc.fillText(endText, 440, 250);
+                    gc.strokeText(endText, 440, 250);
                 }
             }
         }.start();
