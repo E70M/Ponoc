@@ -106,6 +106,10 @@ public class Game extends maincrawl {
                     Adin.setJumping(false);
                     Adin.setFalling(true);
                     Adin.addVelocity(0,0);
+                    if(floor.intersects(Adin.getX() + (Adin.getWidth() / 2) - ((Adin.getWidth() / 2) / 2),
+                            Adin.getY(), Adin.getWidth() / 2, Adin.getHeight() / 2)) {
+                        Adin.setFalling(false);
+                    }
                 }
                 if(input.contains("X")) {
                     if(input.contains("RIGHT") || input.contains("D")) {
@@ -327,7 +331,7 @@ public class Game extends maincrawl {
                     for(int i=0; i<enemies.size(); i++) {
                         enemies.remove(i);
                     }
-                    if(Adin.getLives() < 0) {
+                    if(Adin.getLives() < 1) {
                         endText = "Game Over";
                     }
                     else {
