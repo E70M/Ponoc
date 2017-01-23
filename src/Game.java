@@ -321,10 +321,10 @@ public class Game extends maincrawl {
                     gc.fillRect(0,0,1000,500);
                     gc.setFill(Color.YELLOW);
                     String endText;
-                    if(Adin.getLives() == 0) {
-                        for(int i=0; i<enemies.size(); i++) {
-                            enemies.remove(i);
-                        }
+                    for(int i=0; i<enemies.size(); i++) {
+                        enemies.remove(i);
+                    }
+                    if(Adin.getLives() <= 1) {
                         endText = "Game Over";
                     }
                     else {
