@@ -300,6 +300,9 @@ public class Game extends maincrawl {
                         }
                     }
                 }
+                if(enemies.size() == 0 && remainingWaves == 0) {
+                    Adin.setVisible(false);
+                }
                 gc.clearRect(0, 0, 1000, 500);
                 if(Adin.isVisible()) {
                     gc.drawImage(leveldesign, 0, 0);
@@ -324,7 +327,7 @@ public class Game extends maincrawl {
                     for(int i=0; i<enemies.size(); i++) {
                         enemies.remove(i);
                     }
-                    if(Adin.getLives() <= 1) {
+                    if(Adin.getLives() < 0) {
                         endText = "Game Over";
                     }
                     else {
