@@ -3,8 +3,8 @@ import java.util.*;
 public class Hero extends Sprite {
     static boolean swordpos = false;
     private int lives = 5, maxFrameCount = 6;
-    private ArrayList<Image> runLeft_frames, runRight_frames, swordLeft_frames, swordRight_frames;
-    private ArrayList<Image> jumpLeft_frames, jumpRight_frames, jumpSwordLeft_frames, jumpSwordRight_frames;
+    private ArrayList<Image> runLeft_frames, runRight_frames, swordLeft_frames, swordRight_frames,
+            jumpLeft_frames, jumpRight_frames, jumpSwordLeft_frames, jumpSwordRight_frames;
     private String[][] filename = new String[8][maxFrameCount];
     Hero(double x, double y) {
         super(x,y);
@@ -150,4 +150,13 @@ public class Hero extends Sprite {
     int getLives() {
         return lives;
     }
+    /*int getDirection() {
+        if(getImageName().equals("adinright.png") || getImageName().equals("adin_swordright.png")
+                || getImageName().equals("adin_jumpright.png") || getImageName().equals("adin_jumpswordright.png")) {
+            return 1;
+        }
+        else {
+            return 2;
+        }
+    }*/
 }

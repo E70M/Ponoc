@@ -85,28 +85,28 @@ public class Game extends maincrawl {
                     Adin.setImage("adinright.png");
                 }
                 if(input.contains("UP") || input.contains("W")) {
-                    Adin.setJumping(true);
-                    Adin.setFalling(false);
-                    if(ceiling.intersects(Adin.getX()+(Adin.getWidth()/2)-((Adin.getWidth()/2)/2),
-                            Adin.getY(),Adin.getWidth()/2,Adin.getHeight()/2)
-                            || Adin.getVy() == Adin.getMaxSpeed()) {
-                        Adin.setFalling(true);
-                        Adin.setJumping(false);
-                        Adin.setVy(0);
+                    /*if(Adin.getFalling()) {
                         Adin.addVelocity(0,0);
                     }
-                    else {
-                        Adin.addVelocity(0, -200);
-                    }
+                    else {*/
+                        Adin.setJumping(true);
+                        Adin.setFalling(false);
+                        if (ceiling.intersects(Adin.getX() + (Adin.getWidth() / 2) - ((Adin.getWidth() / 2) / 2),
+                                Adin.getY(), Adin.getWidth() / 2, Adin.getHeight() / 2)
+                                || Adin.getVy() == Adin.getMaxSpeedUp()) {
+                            Adin.setFalling(true);
+                            Adin.setJumping(false);
+                            Adin.addVelocity(0, 0);
+                        } else {
+                            Adin.addVelocity(0, -300);
+                        }
+                    //}
                 }
                 if(!input.contains("UP") || !input.contains("W")) {
                     Adin.setJumping(false);
                     Adin.setFalling(true);
                     Adin.addVelocity(0,0);
                 }
-                /*if(input.contains("DOWN") || input.contains("S")) {
-                    Adin.addVelocity(0, 100);
-                }*/
                 if(input.contains("X")) {
                     if(input.contains("RIGHT") || input.contains("D")) {
                         Adin.swingSword(true, true);

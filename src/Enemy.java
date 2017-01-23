@@ -41,4 +41,12 @@ public class Enemy extends Sprite {
         }
         move();*/
     }
+    /*int getDirection() {
+        if(getImageName().equals("enemyright.png") || getImageName().equals("enemy_jumpright.png")) {
+            return 1;
+        }
+        else {
+            return 2;
+        }
+    }*/
 }

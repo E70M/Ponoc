@@ -6,7 +6,7 @@ public class Sprite {
     private Image i;
     private double posX, posY, velocityX, velocityY, width, height;
     protected boolean falling = false, jumping = false;
-    private double gravity = 50, maxSpeed = -500;
+    private double gravity = 50, maxSpeedUp = -500, maxSpeedDown = 500;
     private String imagefile;
     private boolean vis = true;
     public Sprite(double x, double y) {
@@ -55,11 +55,14 @@ public class Sprite {
         velocityY += y;
         if(getFalling() || getJumping()) {
             velocityY += gravity;
-            if(velocityY < maxSpeed) {
-                velocityY = maxSpeed;
+            if(velocityY < maxSpeedUp) {
+                velocityY = maxSpeedUp;
                 if(getFalling()) {
                     velocityY *= -1;
                 }
+            }
+            if(velocityY > maxSpeedDown) {
+                velocityY = maxSpeedDown;
             }
         }
     }
@@ -78,8 +81,11 @@ public class Sprite {
     boolean getJumping() {
         return jumping;
     }
-    double getMaxSpeed() {
-        return maxSpeed;
+    double getMaxSpeedUp() {
+        return maxSpeedUp;
+    }
+    double getMaxSpeedDown() {
+        return maxSpeedDown;
     }
     public void update(double time) {
         posX += velocityX * time;
