@@ -71,7 +71,7 @@ public class Hero extends Sprite {
     void initRunLeft() {
         runLeft_frames = new ArrayList<>(maxFrameCount);
         for(int i=0; i<runLeft_frames.size(); i++) {
-            runLeft_frames.add(new Image(Hero.class.getResourceAsStream(filename[1][i])));
+            runLeft_frames.add(new Image(Hero.class.getResourceAsStream(filename[0][i])));
         }
     }
     void initRunRight() {
@@ -81,39 +81,39 @@ public class Hero extends Sprite {
         }
     }
     void initSwordLeft() {
-        swordRight_frames = new ArrayList<>(maxFrameCount);
+        swordLeft_frames = new ArrayList<>(maxFrameCount);
         for(int i=0; i<runLeft_frames.size(); i++) {
-            swordRight_frames.add(new Image(Hero.class.getResourceAsStream(filename[1][i])));
+            swordLeft_frames.add(new Image(Hero.class.getResourceAsStream(filename[2][i])));
         }
     }
     void initSwordRight() {
-        jumpRight_frames = new ArrayList<>(maxFrameCount);
+        swordRight_frames = new ArrayList<>(maxFrameCount);
         for(int i=0; i<runLeft_frames.size(); i++) {
-            jumpRight_frames.add(new Image(Hero.class.getResourceAsStream(filename[1][i])));
+            swordRight_frames.add(new Image(Hero.class.getResourceAsStream(filename[3][i])));
         }
     }
     void initJumpLeft() {
-        runLeft_frames = new ArrayList<>(maxFrameCount);
+        jumpLeft_frames = new ArrayList<>(maxFrameCount);
         for(int i=0; i<runLeft_frames.size(); i++) {
-            runLeft_frames.add(new Image(Hero.class.getResourceAsStream(filename[1][i])));
+            jumpLeft_frames.add(new Image(Hero.class.getResourceAsStream(filename[4][i])));
         }
     }
     void initJumpRight() {
         jumpRight_frames = new ArrayList<>(maxFrameCount);
         for(int i=0; i<runLeft_frames.size(); i++) {
-            jumpRight_frames.add(new Image(Hero.class.getResourceAsStream(filename[1][i])));
+            jumpRight_frames.add(new Image(Hero.class.getResourceAsStream(filename[5][i])));
         }
     }
     void initJumpSwordLeft() {
         jumpSwordLeft_frames = new ArrayList<>(maxFrameCount);
         for(int i=0; i<runLeft_frames.size(); i++) {
-            jumpSwordLeft_frames.add(new Image(Hero.class.getResourceAsStream(filename[1][i])));
+            jumpSwordLeft_frames.add(new Image(Hero.class.getResourceAsStream(filename[6][i])));
         }
     }
     void initJumpSwordRight() {
         jumpSwordRight_frames = new ArrayList<>(maxFrameCount);
         for(int i=0; i<runLeft_frames.size(); i++) {
-            jumpSwordRight_frames.add(new Image(Hero.class.getResourceAsStream(filename[1][i])));
+            jumpSwordRight_frames.add(new Image(Hero.class.getResourceAsStream(filename[7][i])));
         }
     }
     void swingSword(boolean toggle, boolean right) {
