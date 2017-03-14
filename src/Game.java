@@ -11,7 +11,7 @@ import static javafx.scene.media.AudioClip.INDEFINITE;
 public class Game extends maincrawl {
     private Stage window;
     private double initialAdinX = 500, initialAdinY = 425;
-    static int remainingWaves = 4;
+    static int remainingWaves = 4, jumpTimer = 0;
     public Game(Stage primaryStage) {
         this.window = primaryStage;
     }
