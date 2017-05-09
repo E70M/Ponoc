@@ -24,7 +24,7 @@ public class maincrawl extends Application {
                 e1.printStackTrace();
             }
         });
-        window.getIcons().add(loader.appIcon());
+        window.getIcons().add(loader.getAppIcon());
         window.show();
     }
     public static void playSound(String soundfile, int cycleCount) {

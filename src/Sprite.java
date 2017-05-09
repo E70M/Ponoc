@@ -14,11 +14,13 @@ public class Sprite {
         velocityX = 0;
         velocityY = 0;
     }
-    public void setImage(String filename) {
-        i = new Image(Sprite.class.getResourceAsStream(filename));
-        this.imagefile = filename;
+    public void setImage(Image filename) {
+        i = filename;
         width = i.getWidth();
         height = i.getHeight();
+    }
+    public void setImageName(String imagefile) {
+        this.imagefile = imagefile;
     }
     public String getImageName() {
         return imagefile;

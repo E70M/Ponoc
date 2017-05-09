@@ -9,6 +9,7 @@ import javafx.stage.*;
 import java.util.*;
 import static javafx.scene.media.AudioClip.INDEFINITE;
 public class Game extends maincrawl {
+    ElementLoader loader = new ElementLoader();
     private Stage window;
     private double initialAdinX = 500, initialAdinY = 425;
     static int remainingWaves = 4, jumpTimer = 0;
@@ -39,9 +40,10 @@ public class Game extends maincrawl {
         gc.setFill(Color.YELLOW);
         gc.setStroke(Color.WHITE);
         gc.setLineWidth(1);
-        Image leveldesign = new Image(Game.class.getResourceAsStream("fightbackground.png"));
+        Image leveldesign = loader.getFightBackground();
         Hero Adin = new Hero(initialAdinX, initialAdinY);
-        Adin.setImage("adinright.png");
+        Adin.setImage(loader.getAdinRight());
+        Adin.setImageName("adinright.png");
         Adin.setPosition(initialAdinX, initialAdinY);
         ArrayList<Enemy> enemies = new ArrayList<>();
         Rectangle floor = new Rectangle(0,500,1000, 0);
@@ -65,7 +67,8 @@ public class Game extends maincrawl {
                             double px = spawnCoord(1000, "X", Adin);
                             double py = spawnCoord(425,"Y", Adin);
                             Enemy villain = new Enemy(px, py);
-                            villain.setImage("enemyleft.png");
+                            villain.setImage(loader.getEnemyLeft());
+                            villain.setImageName("enemyleft.png");
                             villain.setPosition(px, py);
                             enemies.add(villain);
                         } //Waves 2,3,4
@@ -78,11 +81,13 @@ public class Game extends maincrawl {
                 Adin.setVelocity(0,0);
                 if(input.contains("LEFT") || input.contains("A")) {
                     Adin.addVelocity(-100, 0);
-                    Adin.setImage("adinleft.png");
+                    Adin.setImage(loader.getAdinLeft());
+                    Adin.setImageName("adinleft.png");
                 }
                 if(input.contains("RIGHT") || input.contains("D")) {
                     Adin.addVelocity(100, 0);
-                    Adin.setImage("adinright.png");
+                    Adin.setImage(loader.getAdinRight());
+                    Adin.setImageName("adinright.png");
                 }
                 if(input.contains("UP") || input.contains("W")) {
                     /*if(Adin.getFalling()) {
@@ -120,10 +125,12 @@ public class Game extends maincrawl {
                     }
                     else {
                         if(Adin.getImageName().equals("adin_swordleft.png") || Adin.getImageName().equals("adinleft.png")) {
-                            Adin.setImage("adin_swordleft.png");
+                            Adin.setImage(loader.getAdinSwordLeft());
+                            Adin.setImageName("adin_swordleft.png");
                         }
                         else {
-                            Adin.setImage("adin_swordright.png");
+                            Adin.setImage(loader.getAdinSwordRight());
+                            Adin.setImageName("adin_swordright.png");
                         }
                     }
                 }
@@ -136,10 +143,12 @@ public class Game extends maincrawl {
                     }
                     else {
                         if(Adin.getImageName().equals("adin_swordleft.png") || Adin.getImageName().equals("adinleft.png")) {
-                            Adin.setImage("adinleft.png");
+                            Adin.setImage(loader.getAdinLeft());
+                            Adin.setImageName("adinleft.png");
                         }
                         else {
-                            Adin.setImage("adinright.png");
+                            Adin.setImage(loader.getAdinRight());
+                            Adin.setImageName("adinright.png");
                         }
                     }
                 }
@@ -209,7 +218,8 @@ public class Game extends maincrawl {
                 for (Enemy villain : enemies) {
                     int direction = (int)(Math.random() * 4) + 1;
                     if(direction == 1) { //Left
-                        villain.setImage("enemyleft.png");
+                        villain.setImage(loader.getEnemyLeft());
+                        villain.setImageName("enemyleft.png");
                         int dir2 = (int)(Math.random() * 3) + 1;
                         if(dir2 == 1) { //left only
                             villain.addVelocity(-10, 0);
@@ -222,7 +232,8 @@ public class Game extends maincrawl {
                         }
                     }
                     else if(direction == 2) { //Right
-                        villain.setImage("enemyright.png");
+                        villain.setImage(loader.getEnemyRight());
+                        villain.setImageName("enemyright.png");
                         int dir2 = (int)(Math.random() * 3) + 1;
                         if(dir2 == 1) { //right only
                             villain.addVelocity(10, 0);

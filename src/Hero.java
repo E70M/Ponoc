@@ -1,6 +1,7 @@
 public class Hero extends Sprite {
     static boolean swordpos = false;
     private int lives = 5;
+    ElementLoader loader = new ElementLoader();
     Hero(double x, double y) {
         super(x,y);
     }
@@ -8,19 +9,23 @@ public class Hero extends Sprite {
         if(toggle) {
             swordpos = true;
             if(right) {
-                setImage("adin_swordright.png");
+                setImage(loader.getAdinSwordRight());
+                setImageName("adin_swordright.png");
             }
             else {
-                setImage("adin_swordleft.png");
+                setImage(loader.getAdinSwordLeft());
+                setImageName("adin_swordleft.png");
             }
         }
         else {
             swordpos = false;
             if(right) {
-                setImage("adinright.png");
+                setImage(loader.getAdinRight());
+                setImageName("adinright.png");
             }
             else {
-                setImage("adinleft.png");
+                setImage(loader.getAdinLeft());
+                setImageName("adinleft.png");
             }
         }
     }
