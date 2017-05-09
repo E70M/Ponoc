@@ -2,7 +2,7 @@ import java.awt.event.*;
 public class MouseInput implements MouseListener{
 
     public void mouseClicked(MouseEvent arg0) {
-        input.add("x");
+        // input.add("x");
     }
     public void mouseExited(MouseEvent arg0) {
     }

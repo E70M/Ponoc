@@ -9,23 +9,19 @@ public class Hero extends Sprite {
         if(toggle) {
             swordpos = true;
             if(right) {
-                setImage(loader.getAdinSwordRight());
-                setImageName("adin_swordright.png");
+                setImage(loader.getAdinSwordRight(), "adin_swordright.png");
             }
             else {
-                setImage(loader.getAdinSwordLeft());
-                setImageName("adin_swordleft.png");
+                setImage(loader.getAdinSwordLeft(), "adin_swordleft.png");
             }
         }
         else {
             swordpos = false;
             if(right) {
-                setImage(loader.getAdinRight());
-                setImageName("adinright.png");
+                setImage(loader.getAdinRight(), "adinright.png");
             }
             else {
-                setImage(loader.getAdinLeft());
-                setImageName("adinleft.png");
+                setImage(loader.getAdinLeft(), "adinleft.png");
             }
         }
     }
