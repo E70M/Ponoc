@@ -68,54 +68,7 @@ public class Hero extends Sprite {
         filename[7][4] = "";
         filename[7][5] = "";
     }
-    void initRunLeft() {
-        runLeft_frames = new ArrayList<>(maxFrameCount);
-        for(int i=0; i<runLeft_frames.size(); i++) {
-            runLeft_frames.add(new Image(Hero.class.getResourceAsStream(filename[0][i])));
-        }
-    }
-    void initRunRight() {
-        runRight_frames = new ArrayList<>(maxFrameCount);
-        for(int i=0; i<runLeft_frames.size(); i++) {
-            runRight_frames.add(new Image(Hero.class.getResourceAsStream(filename[1][i])));
-        }
-    }
-    void initSwordLeft() {
-        swordLeft_frames = new ArrayList<>(maxFrameCount);
-        for(int i=0; i<runLeft_frames.size(); i++) {
-            swordLeft_frames.add(new Image(Hero.class.getResourceAsStream(filename[2][i])));
-        }
-    }
-    void initSwordRight() {
-        swordRight_frames = new ArrayList<>(maxFrameCount);
-        for(int i=0; i<runLeft_frames.size(); i++) {
-            swordRight_frames.add(new Image(Hero.class.getResourceAsStream(filename[3][i])));
-        }
-    }
-    void initJumpLeft() {
-        jumpLeft_frames = new ArrayList<>(maxFrameCount);
-        for(int i=0; i<runLeft_frames.size(); i++) {
-            jumpLeft_frames.add(new Image(Hero.class.getResourceAsStream(filename[4][i])));
-        }
-    }
-    void initJumpRight() {
-        jumpRight_frames = new ArrayList<>(maxFrameCount);
-        for(int i=0; i<runLeft_frames.size(); i++) {
-            jumpRight_frames.add(new Image(Hero.class.getResourceAsStream(filename[5][i])));
-        }
-    }
-    void initJumpSwordLeft() {
-        jumpSwordLeft_frames = new ArrayList<>(maxFrameCount);
-        for(int i=0; i<runLeft_frames.size(); i++) {
-            jumpSwordLeft_frames.add(new Image(Hero.class.getResourceAsStream(filename[6][i])));
-        }
-    }
-    void initJumpSwordRight() {
-        jumpSwordRight_frames = new ArrayList<>(maxFrameCount);
-        for(int i=0; i<runLeft_frames.size(); i++) {
-            jumpSwordRight_frames.add(new Image(Hero.class.getResourceAsStream(filename[7][i])));
-        }
-    }
+
     void swingSword(boolean toggle, boolean right) {
         if(toggle) {
             swordpos = true;

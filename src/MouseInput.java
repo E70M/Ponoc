@@ -1,8 +1,7 @@
 import java.awt.event.*;
-public class MouseInput {
-    //boolean attack = false;
-    public void mouseClicked(MouseEvent arg0) {
-        //attack(true);
+public class MouseInput implements MouseListener{
+
+    public void mouseClicked(MouseEvent arg0) {;
     }
     public void mouseExited(MouseEvent arg0) {
     }
