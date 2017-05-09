@@ -1,9 +1,6 @@
-import javafx.scene.image.*;
-import java.util.*;
 public class Hero extends Sprite {
     static boolean swordpos = false;
-    private int lives = 5, maxFrameCount = 6;
-    private String[][] filename = new String[8][maxFrameCount];
+    private int lives = 5;
     Hero(double x, double y) {
         super(x,y);
     }
