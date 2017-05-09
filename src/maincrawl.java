@@ -2,10 +2,10 @@ import javafx.application.Application;
 import javafx.concurrent.*;
 import javafx.scene.media.*;
 import javafx.stage.*;
-import javafx.scene.image.*;
 public class maincrawl extends Application {
     Stage window;
     Controller loadGrid = new Controller();
+    ElementLoader loader = new ElementLoader();
     public static void main(String[]args) {
         launch(args);
     }
@@ -24,7 +24,7 @@ public class maincrawl extends Application {
                 e1.printStackTrace();
             }
         });
-        window.getIcons().add(new Image("Ponoc_Icon.png"));
+        window.getIcons().add(loader.appIcon());
         window.show();
     }
     public static void playSound(String soundfile, int cycleCount) {
