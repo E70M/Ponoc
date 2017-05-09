@@ -8,7 +8,7 @@ public class Hero extends Sprite {
     private String[][] filename = new String[8][maxFrameCount];
     Hero(double x, double y) {
         super(x,y);
-    
+
     }
 
     void swingSword(boolean toggle, boolean right) {
