@@ -3,14 +3,10 @@ import java.util.*;
 public class Hero extends Sprite {
     static boolean swordpos = false;
     private int lives = 5, maxFrameCount = 6;
-    private ArrayList<Image> runLeft_frames, runRight_frames, swordLeft_frames, swordRight_frames,
-            jumpLeft_frames, jumpRight_frames, jumpSwordLeft_frames, jumpSwordRight_frames;
     private String[][] filename = new String[8][maxFrameCount];
     Hero(double x, double y) {
         super(x,y);
-
     }
-
     void swingSword(boolean toggle, boolean right) {
         if(toggle) {
             swordpos = true;
