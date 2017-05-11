@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4cc4d510-0d6a-42ff-86bc-0ab0cc95f7d4" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Game_Background.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ElementLoader.java" afterPath="$PROJECT_DIR$/src/ElementLoader.java" />
     </list>
     <ignored path="Ponoc.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,7 +34,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="352">
@@ -67,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ElementLoader.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ElementLoader.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ElementLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="23" column="43" lean-forward="false" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+            <state relative-caret-position="90">
+              <caret line="8" column="85" lean-forward="false" selection-start-line="8" selection-start-column="85" selection-end-line="8" selection-end-column="85" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1210#1211#0" expanded="true" />
@@ -135,6 +134,7 @@
       <find>public Image</find>
       <find>public static image</find>
       <find>input.contains</find>
+      <find>level</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -182,8 +182,8 @@
         <option value="$PROJECT_DIR$/src/Sprite.java" />
         <option value="$PROJECT_DIR$/src/Controller.java" />
         <option value="$PROJECT_DIR$/src/maincrawl.java" />
-        <option value="$PROJECT_DIR$/src/ElementLoader.java" />
         <option value="$PROJECT_DIR$/src/Game.java" />
+        <option value="$PROJECT_DIR$/src/ElementLoader.java" />
       </list>
     </option>
   </component>
@@ -713,12 +713,12 @@
       <workItem from="1494352200516" duration="123000" />
       <workItem from="1494353261784" duration="5394000" />
       <workItem from="1494525568520" duration="20000" />
-      <workItem from="1494525614082" duration="2383000" />
+      <workItem from="1494525614082" duration="2456000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84627000" />
+    <option name="totallyTimeSpent" value="84700000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -901,20 +901,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ElementLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="23" column="43" lean-forward="false" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1210#1211#0" expanded="true" />
-            <element signature="e#1241#1242#0" expanded="true" />
-            <element signature="e#1284#1285#0" expanded="true" />
-            <element signature="e#1318#1319#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Hero.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -946,6 +932,20 @@
         <state relative-caret-position="352">
           <caret line="308" column="17" lean-forward="true" selection-start-line="308" selection-start-column="17" selection-end-line="308" selection-end-column="17" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ElementLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="85" lean-forward="false" selection-start-line="8" selection-start-column="85" selection-end-line="8" selection-end-column="85" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1210#1211#0" expanded="true" />
+            <element signature="e#1241#1242#0" expanded="true" />
+            <element signature="e#1284#1285#0" expanded="true" />
+            <element signature="e#1318#1319#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
