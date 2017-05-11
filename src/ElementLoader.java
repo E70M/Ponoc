@@ -6,7 +6,7 @@ public class ElementLoader {
         return new Image(ElementLoader.class.getResourceAsStream("Ponoc_Icon.png"));
     }
     public Image getFightBackground() {
-        return new Image(ElementLoader.class.getResourceAsStream("fightbackground.png"));
+        return new Image(ElementLoader.class.getResourceAsStream("Game_Background.png"));
     }
     public Image getAdinLeft() {
         return new Image(ElementLoader.class.getResourceAsStream("adinleft.png"));
@@ -28,5 +28,8 @@ public class ElementLoader {
     }
     public void addToInput() {
         
+    }
+    public void removeInput() {
+
     }
 }
