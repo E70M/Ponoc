@@ -26,10 +26,18 @@ public class ElementLoader {
     public Image getEnemyRight() {
         return new Image(ElementLoader.class.getResourceAsStream("enemyright.png"));
     }
-    public void addToInput() {
-        
+    public void addToInput(String code) {
+        input.add(code);
     }
-    public void removeInput() {
-
+    public void removeInput(String code) {
+        input.remove(code);
+    }
+    public boolean isContaining(String test) {
+        if(input.contains(test)) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }

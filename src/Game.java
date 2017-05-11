@@ -23,16 +23,15 @@ public class Game extends maincrawl {
         window.setScene(level);
         Canvas layout = new Canvas(1000,500);
         root.getChildren().add(layout);
-        ArrayList<String> input = new ArrayList<>();
         level.setOnKeyPressed( e -> {
             String code = e.getCode().toString();
-            if (!input.contains(code)) {
-                input.add(code);
+            if (!loader.isContaining(code)) {
+                loader.addToInput(code);
             }
         });
         level.setOnKeyReleased( e -> {
             String code = e.getCode().toString();
-            input.remove(code);
+            loader.removeInput(code);
         });
         GraphicsContext gc = layout.getGraphicsContext2D();
         Font theFont = Font.font("Helvetica", FontWeight.BOLD, 24);
@@ -77,15 +76,15 @@ public class Game extends maincrawl {
                     }
                 }
                 Adin.setVelocity(0,0);
-                if(input.contains("LEFT") || input.contains("A")) {
+                if(loader.isContaining("LEFT") || loader.isContaining("A")) {
                     Adin.addVelocity(-100, 0);
                     Adin.setImage(loader.getAdinLeft(), "adinleft.png");
                 }
-                if(input.contains("RIGHT") || input.contains("D")) {
+                if(loader.isContaining("RIGHT") || loader.isContaining("D")) {
                     Adin.addVelocity(100, 0);
                     Adin.setImage(loader.getAdinRight(), "adinright.png");
                 }
-                if(input.contains("UP") || input.contains("W")) {
+                if(loader.isContaining("UP") || loader.isContaining("W")) {
                     /*if(Adin.getFalling()) {
                         Adin.addVelocity(0,0);
                     }
@@ -103,7 +102,7 @@ public class Game extends maincrawl {
                         }
                     //}
                 }
-                if(!input.contains("UP") || !input.contains("W")) {
+                if(!loader.isContaining("UP") || !loader.isContaining("W")) {
                     Adin.setJumping(false);
                     Adin.setFalling(true);
                     Adin.addVelocity(0,0);
@@ -112,11 +111,11 @@ public class Game extends maincrawl {
                         Adin.setFalling(false);
                     }
                 }
-                if(input.contains("X")) {
-                    if(input.contains("RIGHT") || input.contains("D")) {
+                if(loader.isContaining("X")) {
+                    if(loader.isContaining("RIGHT") || loader.isContaining("D")) {
                         Adin.swingSword(true, true);
                     }
-                    else if(input.contains("LEFT") || input.contains("A")){
+                    else if(loader.isContaining("LEFT") || loader.isContaining("A")){
                         Adin.swingSword(true, false);
                     }
                     else {
@@ -128,11 +127,11 @@ public class Game extends maincrawl {
                         }
                     }
                 }
-                if(!input.contains("X")) {
-                    if(input.contains("RIGHT") || input.contains("D")) {
+                if(!loader.isContaining("X")) {
+                    if(loader.isContaining("RIGHT") || loader.isContaining("D")) {
                         Adin.swingSword(false, true);
                     }
-                    else if(input.contains("LEFT") || input.contains("A")) {
+                    else if(loader.isContaining("LEFT") || loader.isContaining("A")) {
                         Adin.swingSword(false, false);
                     }
                     else {
@@ -154,55 +153,55 @@ public class Game extends maincrawl {
                 if(floor.intersects(Adin.getX()+(Adin.getWidth()/2)-((Adin.getWidth()/2)/2),
                         Adin.getY()+(Adin.getHeight()/2), Adin.getWidth()/2, Adin.getHeight()/2)) {
                     Adin.setVy(0);
-                    if(input.contains("UP") || input.contains("W")) {
+                    if(loader.isContaining("UP") || loader.isContaining("W")) {
                         Adin.addVelocity(0, -100);
                     }
                 }
                 if(leftWall.intersects(Adin.getX(), Adin.getY()+5, 5, Adin.getHeight()-10)) {
                     Adin.setVx(0);
-                    if(input.contains("RIGHT") || input.contains("D")) {
+                    if(loader.isContaining("RIGHT") || loader.isContaining("D")) {
                         Adin.addVelocity(100, 0);
                     }
                 }
                 if(rightWall.intersects(Adin.getX()+(Adin.getWidth()-5), Adin.getY()+5,
                         5, Adin.getHeight()-10)) {
                     Adin.setVx(0);
-                    if(input.contains("LEFT") || input.contains("A")) {
+                    if(loader.isContaining("LEFT") || loader.isContaining("A")) {
                         Adin.addVelocity(-100, 0);
                     }
                 }
                 if(platforms[0].intersects(Adin.getX()+(Adin.getWidth()-5), Adin.getY()+5,
                         5, Adin.getHeight()-10)) {
                     Adin.setVy(0);
-                    if(input.contains("UP") && Adin.getY() <= 398) { //Find height
+                    if(loader.isContaining("UP") && Adin.getY() <= 398) { //Find height
                         Adin.addVelocity(0, -100);
                     }
                 }
                 if(platforms[1].intersects(Adin.getX()+(Adin.getWidth()-5), Adin.getY()+5,
                         5, Adin.getHeight()-10)) {
                     Adin.setVy(0);
-                    if(input.contains("UP") && Adin.getY() <= 295) {
+                    if(loader.isContaining("UP") && Adin.getY() <= 295) {
                         Adin.addVelocity(0, -100);
                     }
                 }
                 if(platforms[2].intersects(Adin.getX()+(Adin.getWidth()-5), Adin.getY()+5,
                         5, Adin.getHeight()-10)) {
                     Adin.setVy(0);
-                    if(input.contains("UP") && Adin.getY() <= 271) { //Find height
+                    if(loader.isContaining("UP") && Adin.getY() <= 271) { //Find height
                         Adin.addVelocity(0, -100);
                     }
                 }
                 if(platforms[3].intersects(Adin.getX()+(Adin.getWidth()-5), Adin.getY()+5,
                         5, Adin.getHeight()-10)) {
                     Adin.setVy(0);
-                    if(input.contains("UP") && Adin.getY() <= 188) { //Find height
+                    if(loader.isContaining("UP") && Adin.getY() <= 188) { //Find height
                         Adin.addVelocity(0, -100);
                     }
                 }
                 if(platforms[4].intersects(Adin.getX()+(Adin.getWidth()-5), Adin.getY()+5,
                         5, Adin.getHeight()-10)) {
                     Adin.setVy(0);
-                    if(input.contains("UP") && Adin.getY() <= 111) { //Find height
+                    if(loader.isContaining("UP") && Adin.getY() <= 111) { //Find height
                         Adin.addVelocity(0, -100);
                     }
                 }
