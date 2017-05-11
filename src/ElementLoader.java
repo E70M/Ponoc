@@ -1,5 +1,7 @@
 import javafx.scene.image.Image;
+import java.util.ArrayList;
 public class ElementLoader {
+    private ArrayList<String> input = new ArrayList<>();
     public Image getAppIcon() {
         return new Image(ElementLoader.class.getResourceAsStream("Ponoc_Icon.png"));
     }
@@ -23,5 +25,8 @@ public class ElementLoader {
     }
     public Image getEnemyRight() {
         return new Image(ElementLoader.class.getResourceAsStream("enemyright.png"));
+    }
+    public void addToInput() {
+        
     }
 }
