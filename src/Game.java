@@ -33,6 +33,8 @@ public class Game extends maincrawl {
             String code = e.getCode().toString();
             loader.removeInput(code);
         });
+        level.setOnMousePressed(e -> loader.addToInput("X"));
+        level.setOnMouseReleased(e -> loader.removeInput("X"));
         GraphicsContext gc = layout.getGraphicsContext2D();
         Font theFont = Font.font("Helvetica", FontWeight.BOLD, 24);
         gc.setFont(theFont);
