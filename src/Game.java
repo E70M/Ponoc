@@ -33,8 +33,8 @@ public class Game extends maincrawl {
             String code = e.getCode().toString();
             loader.removeInput(code);
         });
-        level.setOnMousePressed(e -> loader.addToInput("X"));
-        level.setOnMouseReleased(e -> loader.removeInput("X"));
+        level.setOnMousePressed(e -> loader.addToInput("CLICK"));
+        level.setOnMouseReleased(e -> loader.removeInput("CLICK"));
         GraphicsContext gc = layout.getGraphicsContext2D();
         Font theFont = Font.font("Helvetica", FontWeight.BOLD, 24);
         gc.setFont(theFont);
@@ -113,7 +113,7 @@ public class Game extends maincrawl {
                         Adin.setFalling(false);
                     }
                 }
-                if(loader.isContaining("X")) {
+                if(loader.isContaining("CLICK")) {
                     if(loader.isContaining("RIGHT") || loader.isContaining("D")) {
                         Adin.swingSword(true, true);
                     }
@@ -129,7 +129,7 @@ public class Game extends maincrawl {
                         }
                     }
                 }
-                if(!loader.isContaining("X")) {
+                if(!loader.isContaining("CLICK")) {
                     if(loader.isContaining("RIGHT") || loader.isContaining("D")) {
                         Adin.swingSword(false, true);
                     }
