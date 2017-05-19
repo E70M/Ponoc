@@ -8,6 +8,7 @@ import javafx.stage.*;
 import java.net.URL;
 import java.util.*;
 public class Controller implements Initializable {
+    ElementLoader loader = new ElementLoader();
     static Stage parentStage, window;
     static Parent root;
     @FXML CheckBox musicbox;
@@ -52,6 +53,7 @@ public class Controller implements Initializable {
         window = new Stage();
         window.setTitle("Wait!");
         window.initModality(Modality.APPLICATION_MODAL);
+        window.getIcons().add(loader.getAppIcon());
         window.setScene(new Scene(root, 500, 250));
         window.setX(parentStage.getX() + 250);
         window.setY(parentStage.getY() + 125);
