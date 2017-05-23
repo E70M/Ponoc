@@ -307,6 +307,8 @@ public class Game extends maincrawl {
                     }
                 }
                 if(enemies.size() == 0 && remainingWaves == 0) {
+                    //Create boss
+                    //If boss.isDead():
                     Adin.setVisible(false);
                 }
                 gc.clearRect(0, 0, 1000, 500);
@@ -319,7 +321,7 @@ public class Game extends maincrawl {
                         }
                     }
                     else {
-                        //Boss render
+                        //Boss.render(gc);
                     }
                     String lives = "Lives: " + Adin.getLives();
                     gc.fillText(lives, 10, 30);
@@ -333,6 +335,7 @@ public class Game extends maincrawl {
                     for(int i=0; i<enemies.size(); i++) {
                         enemies.remove(i);
                     }
+                    //boss.setVisible(false);
                     if(Adin.getLives() < 1) {
                         endText = "Game Over";
                     }
