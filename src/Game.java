@@ -74,11 +74,11 @@ public class Game extends maincrawl {
                         } //Waves 2,3,4
                         remainingWaves--;
                     }
-                    /*else if (boss.isDead = false) {
-                        Boss smrt = new Boss(px,py);
-                        smrt.setImage();
+                    else if boss.isDead {
+                        Boss smrt = new Boss(double x,double y);
+                        smrt.setImage(loader.getBoss(), "Boss.png");
                         smrt.setVisible(true);
-                    }*/
+                    }
                     else {
                         Adin.setVisible(false);
                     }
