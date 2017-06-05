@@ -43,6 +43,7 @@ public class Game extends maincrawl {
         gc.setLineWidth(1);
         Image leveldesign = loader.getFightBackground();
         Hero Adin = new Hero(initialAdinX, initialAdinY);
+        Boss boss = new Boss(0, 0);
         Adin.setImage(loader.getAdinRight(), "adinright.png");
         Adin.setPosition(initialAdinX, initialAdinY);
         ArrayList<Enemy> enemies = new ArrayList<>();
@@ -73,6 +74,11 @@ public class Game extends maincrawl {
                         } //Waves 2,3,4
                         remainingWaves--;
                     }
+                    /*else if (boss.isDead = false) {
+                        Boss smrt = new Boss(px,py);
+                        smrt.setImage();
+                        smrt.setVisible(true);
+                    }*/
                     else {
                         Adin.setVisible(false);
                     }
