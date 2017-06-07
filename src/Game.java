@@ -74,8 +74,8 @@ public class Game extends maincrawl {
                         } //Waves 2,3,4
                         remainingWaves--;
                     }
-                    else if boss.isDead {
-                        Boss smrt = new Boss(double x,double y);
+                    else if(boss.isDead()) {
+                        Boss smrt = new Boss(500, 111);
                         smrt.setImage(loader.getBoss(), "Boss.png");
                         smrt.setVisible(true);
                     }

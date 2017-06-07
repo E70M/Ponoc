@@ -24,7 +24,6 @@ public class ElementLoader {
         return new Image(ElementLoader.class.getResourceAsStream("enemyleft.png"));
     }
     public Image getEnemyRight() {
-
         return new Image(ElementLoader.class.getResourceAsStream("enemyright.png"));
     }
     public Image getBoss() {
