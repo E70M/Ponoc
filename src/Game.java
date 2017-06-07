@@ -12,7 +12,7 @@ public class Game extends maincrawl {
     ElementLoader loader = new ElementLoader();
     private Stage window;
     private double initialAdinX = 500, initialAdinY = 425;
-    static int remainingWaves = 0, jumpTimer = 0;
+    static int remainingWaves = 4, jumpTimer = 0;
     public Game(Stage primaryStage) {
         this.window = primaryStage;
     }
@@ -43,7 +43,7 @@ public class Game extends maincrawl {
         gc.setLineWidth(1);
         Image leveldesign = loader.getFightBackground();
         Hero Adin = new Hero(initialAdinX, initialAdinY);
-        Boss smrt = new Boss(500, 111);
+        Boss smrt = new Boss(500, 398);
         smrt.setImage(loader.getBoss(), "Boss.png");
         smrt.setVisible(false);
         Adin.setImage(loader.getAdinRight(), "adinright.png");
@@ -290,9 +290,9 @@ public class Game extends maincrawl {
                     }
                     villain.update(elapsedTime);
                 }
-                if(Adin.intersects(smrt)) {
+                if(Adin.intersects(smrt) && smrt.isVisible()) {
                     smrt.removeLife(1);
-                    smrt.setPosition((int)Math.random() * 1000, (int)Math.random() * 500);
+                    //smrt.setPosition((int)Math.random() * 1000, (int)Math.random() * 500);
                     if(!Adin.checkSwordPos()) {
                         Adin.removeLife(1);
                         if(Adin.getLives() == 0) {

@@ -1,9 +1,9 @@
 public class Hero extends Sprite {
     static boolean swordpos = false;
-    private int lives = 5;
     ElementLoader loader = new ElementLoader();
     Hero(double x, double y) {
         super(x,y);
+        super.setLives(5);
     }
     void swingSword(boolean toggle, boolean right) {
         if(toggle) {
@@ -32,12 +32,6 @@ public class Hero extends Sprite {
         else {
             return false;
         }
-    }
-    void removeLife(int factor) {
-        lives -= factor;
-    }
-    int getLives() {
-        return lives;
     }
     /*int getDirection() {
         if(getImageName().equals("adinright.png") || getImageName().equals("adin_swordright.png")

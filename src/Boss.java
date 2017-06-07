@@ -1,13 +1,11 @@
 public class Boss extends Enemy {
-    private int dx, dy, lives = 20;
+    private int dx, dy;
     public Boss(double x, double y) {
         super(x, y);
-    }
-    public void removeLife(int n) {
-        lives -= n;
+        super.setLives(20);
     }
     public boolean isDead() {
-        if(lives == 0) {
+        if(super.getLives() == 0) {
             return true;
         }
         else {
