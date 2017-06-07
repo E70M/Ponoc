@@ -12,7 +12,7 @@ public class Game extends maincrawl {
     ElementLoader loader = new ElementLoader();
     private Stage window;
     private double initialAdinX = 500, initialAdinY = 425;
-    static int remainingWaves = 4, jumpTimer = 0;
+    static int remainingWaves = 0, jumpTimer = 0;
     public Game(Stage primaryStage) {
         this.window = primaryStage;
     }
@@ -43,7 +43,9 @@ public class Game extends maincrawl {
         gc.setLineWidth(1);
         Image leveldesign = loader.getFightBackground();
         Hero Adin = new Hero(initialAdinX, initialAdinY);
-        Boss boss = new Boss(0, 0);
+        Boss smrt = new Boss(500, 111);
+        smrt.setImage(loader.getBoss(), "Boss.png");
+        smrt.setVisible(false);
         Adin.setImage(loader.getAdinRight(), "adinright.png");
         Adin.setPosition(initialAdinX, initialAdinY);
         ArrayList<Enemy> enemies = new ArrayList<>();
@@ -73,14 +75,6 @@ public class Game extends maincrawl {
                             enemies.add(villain);
                         } //Waves 2,3,4
                         remainingWaves--;
-                    }
-                    else if(boss.isDead()) {
-                        Boss smrt = new Boss(500, 111);
-                        smrt.setImage(loader.getBoss(), "Boss.png");
-                        smrt.setVisible(true);
-                    }
-                    else {
-                        Adin.setVisible(false);
                     }
                 }
                 Adin.setVelocity(0,0);
@@ -296,6 +290,17 @@ public class Game extends maincrawl {
                     }
                     villain.update(elapsedTime);
                 }
+                if(Adin.intersects(smrt)) {
+                    smrt.removeLife(1);
+                    smrt.setPosition((int)Math.random() * 1000, (int)Math.random() * 500);
+                    if(!Adin.checkSwordPos()) {
+                        Adin.removeLife(1);
+                        if(Adin.getLives() == 0) {
+                            playSound("herodeath.wav", 1);
+                            Adin.setVisible(false);
+                        }
+                    }
+                }
                 Adin.update(elapsedTime);
                 Iterator<Enemy> enemyIter = enemies.iterator();
                 while(enemyIter.hasNext()) {
@@ -313,9 +318,10 @@ public class Game extends maincrawl {
                     }
                 }
                 if(enemies.size() == 0 && remainingWaves == 0) {
-                    //Create boss
-                    //If boss.isDead():
-                    Adin.setVisible(false);
+                    smrt.setVisible(true);
+                    if(smrt.isDead()) {
+                        Adin.setVisible(false);
+                    }
                 }
                 gc.clearRect(0, 0, 1000, 500);
                 if(Adin.isVisible()) {
@@ -327,7 +333,7 @@ public class Game extends maincrawl {
                         }
                     }
                     else {
-                        //Boss.render(gc);
+                        smrt.render(gc);
                     }
                     String lives = "Lives: " + Adin.getLives();
                     gc.fillText(lives, 10, 30);
@@ -341,7 +347,7 @@ public class Game extends maincrawl {
                     for(int i=0; i<enemies.size(); i++) {
                         enemies.remove(i);
                     }
-                    //boss.setVisible(false);
+                    smrt.setVisible(false);
                     if(Adin.getLives() < 1) {
                         endText = "Game Over";
                     }
