@@ -98,7 +98,7 @@ public class Game extends maincrawl {
                     }
                     else {*/
                         Adin.setJumping(true);
-                        Adin.setFalling(false);
+                        Adin.setFalling(false); 
                         if (ceiling.intersects(Adin.getX() + (Adin.getWidth() / 2) - ((Adin.getWidth() / 2) / 2),
                                 Adin.getY(), Adin.getWidth() / 2, Adin.getHeight() / 2)
                                 || Adin.getVy() == Adin.getMaxSpeedUp()) {
