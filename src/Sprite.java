@@ -6,6 +6,7 @@ public class Sprite {
     private double posX, posY, velocityX, velocityY, width, height;
     protected boolean falling = false, jumping = false;
     private double gravity = 50, maxSpeedUp = -500, maxSpeedDown = 500;
+    private int lives;
     private String imagefile;
     private boolean vis = true;
     public Sprite(double x, double y) {
@@ -104,5 +105,14 @@ public class Sprite {
     }
     public void setVisible(Boolean visible) {
         vis = visible;
+    }
+    public void setLives(int n) {
+        this.lives = n;
+    }
+    public int getLives() {
+        return lives;
+    }
+    public void removeLife(int n) {
+        lives -= n;
     }
 }
