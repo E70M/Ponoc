@@ -12,7 +12,7 @@ public class Game extends maincrawl {
     ElementLoader loader = new ElementLoader();
     private Stage window;
     private double initialAdinX = 500, initialAdinY = 425;
-    static int remainingWaves = 4, jumpTimer = 0;
+    static int remainingWaves = 1, jumpTimer = 0;
     public Game(Stage primaryStage) {
         this.window = primaryStage;
     }
@@ -50,6 +50,7 @@ public class Game extends maincrawl {
         Adin.setPosition(initialAdinX, initialAdinY);
         ArrayList<Enemy> enemies = new ArrayList<>();
         ArrayList<Boss> bosses = new ArrayList<>();
+        bosses.add(smrt);
         Rectangle floor = new Rectangle(0,500,1000, 0);
         Rectangle ceiling = new Rectangle(0,0,1000,0);
         Rectangle leftWall = new Rectangle(0,0.1,0,499.9);
@@ -291,99 +292,100 @@ public class Game extends maincrawl {
                     }
                     villain.update(elapsedTime);
                 }
-                for (Boss smrt: bosses){
-                int direction = (int)(Math.random() * 4) + 1;
-                if(direction == 1) { //Left
-                    smrt.setImage(loader.getBoss(), "Boss.png");
-                    int dir2 = (int)(Math.random() * 3) + 1;
-                    if(dir2 == 1) { //left only
-                        smrt.addVelocity(-10, 0);
+                for (Boss smrt : bosses) {
+                    int direction = (int)(Math.random() * 4) + 1;
+                    if(direction == 1) { //Left
+                        smrt.setImage(loader.getBoss(), "Boss.png");
+                        int dir2 = (int)(Math.random() * 3) + 1;
+                        if(dir2 == 1) { //left only
+                            smrt.addVelocity(-10, 0);
+                        }
+                        else if(dir2 == 2) { //left and up
+                            smrt.addVelocity(-10,-10);
+                        }
+                        else { //left and down
+                            smrt.addVelocity(-10, 10);
+                        }
                     }
-                    else if(dir2 == 2) { //left and up
-                        smrt.addVelocity(-10,-10);
+                    else if(direction == 2) { //Right
+                        smrt.setImage(loader.getBoss(), "Boss.png");
+                        int dir2 = (int)(Math.random() * 3) + 1;
+                        if(dir2 == 1) { //right only
+                            smrt.addVelocity(10, 0);
+                        }
+                        else if(dir2 == 2) { //right and up
+                            smrt.addVelocity(10,-10);
+                        }
+                        else { //right and down
+                            smrt.addVelocity(10, 10);
+                        }
                     }
-                    else { //left and down
-                        smrt.addVelocity(-10, 10);
+                    else if(direction == 3) { //Up
+                        int dir2 = (int)(Math.random() * 3) + 1;
+                        if(dir2 == 1) { //up only
+                            smrt.addVelocity(0, -10);
+                        }
+                        else if(dir2 == 2) { //up and left
+                            smrt.addVelocity(-10,-10);
+                        }
+                        else { //up and right
+                            smrt.addVelocity(10, -10);
+                        }
                     }
+                    else { //Down
+                        int dir2 = (int)(Math.random() * 3) + 1;
+                        if(dir2 == 1) { //down only
+                            smrt.addVelocity(0, 10);
+                        }
+                        else if(dir2 == 2) { //down and left
+                            smrt.addVelocity(-10,10);
+                        }
+                        else { //down and right
+                            smrt.addVelocity(10, 10);
+                        }
+                    }
+                    if(ceiling.intersects(smrt.getX(), smrt.getY(), smrt.getWidth(), smrt.getHeight())) {
+                        smrt.setVy(0);
+                        int moveOff = (int)(Math.random() * 2);
+                        if(moveOff == 1) {
+                            smrt.addVelocity(0,10);
+                        }
+                    }
+                    if(floor.intersects(smrt.getX(), smrt.getY(), smrt.getWidth(), smrt.getHeight())) {
+                        smrt.setVy(0);
+                        int moveOff = (int)(Math.random() * 2);
+                        if(moveOff == 1) {
+                            smrt.addVelocity(0,-10);
+                        }
+                    }
+                    if(leftWall.intersects(smrt.getX(), smrt.getY(), smrt.getWidth(), smrt.getHeight())) {
+                        smrt.setVx(0);
+                        int moveOff = (int)(Math.random() * 2);
+                        if(moveOff == 1) {
+                            smrt.addVelocity(10,0);
+                        }
+                    }
+                    if(rightWall.intersects(smrt.getX(), smrt.getY(), smrt.getWidth(), smrt.getHeight())) {
+                        smrt.setVx(0);
+                        int moveOff = (int)(Math.random() * 2);
+                        if(moveOff == 1) {
+                            smrt.addVelocity(-10,0);
+                        }
+                    }
+                    smrt.update(elapsedTime);
                 }
-                else if(direction == 2) { //Right
-                    smrt.setImage(loader.getBoss(), "Boss.png");
-                    int dir2 = (int)(Math.random() * 3) + 1;
-                    if(dir2 == 1) { //right only
-                        smrt.addVelocity(10, 0);
-                    }
-                    else if(dir2 == 2) { //right and up
-                        smrt.addVelocity(10,-10);
-                    }
-                    else { //right and down
-                        smrt.addVelocity(10, 10);
-                    }
-                }
-                else if(direction == 3) { //Up
-                    int dir2 = (int)(Math.random() * 3) + 1;
-                    if(dir2 == 1) { //up only
-                        smrt.addVelocity(0, -10);
-                    }
-                    else if(dir2 == 2) { //up and left
-                        smrt.addVelocity(-10,-10);
-                    }
-                    else { //up and right
-                        smrt.addVelocity(10, -10);
-                    }
-                }
-                else { //Down
-                    int dir2 = (int)(Math.random() * 3) + 1;
-                    if(dir2 == 1) { //down only
-                        smrt.addVelocity(0, 10);
-                    }
-                    else if(dir2 == 2) { //down and left
-                        smrt.addVelocity(-10,10);
-                    }
-                    else { //down and right
-                        smrt.addVelocity(10, 10);
-                    }
-                }
-                if(ceiling.intersects(smrt.getX(), smrt.getY(), smrt.getWidth(), smrt.getHeight())) {
-                    smrt.setVy(0);
-                    int moveOff = (int)(Math.random() * 2);
-                    if(moveOff == 1) {
-                        smrt.addVelocity(0,10);
-                    }
-                }
-                if(floor.intersects(smrt.getX(), smrt.getY(), smrt.getWidth(), smrt.getHeight())) {
-                    smrt.setVy(0);
-                    int moveOff = (int)(Math.random() * 2);
-                    if(moveOff == 1) {
-                        smrt.addVelocity(0,-10);
-                    }
-                }
-                if(leftWall.intersects(smrt.getX(), smrt.getY(), smrt.getWidth(), smrt.getHeight())) {
-                    smrt.setVx(0);
-                    int moveOff = (int)(Math.random() * 2);
-                    if(moveOff == 1) {
-                        smrt.addVelocity(10,0);
-                    }
-                }
-                if(rightWall.intersects(smrt.getX(), smrt.getY(), smrt.getWidth(), smrt.getHeight())) {
-                    smrt.setVx(0);
-                    int moveOff = (int)(Math.random() * 2);
-                    if(moveOff == 1) {
-                        smrt.addVelocity(-10,0);
-                    }
-                }
-                smrt.update(elapsedTime);
-                }
-
-                
                 if(Adin.intersects(smrt)) {
-                if(Adin.intersects(smrt) && smrt.isVisible()) {
-                    smrt.removeLife(1);
-                    //smrt.setPosition((int)Math.random() * 1000, (int)Math.random() * 500);
-                    if(!Adin.checkSwordPos()) {
-                        Adin.removeLife(1);
-                        if(Adin.getLives() == 0) {
-                            playSound("herodeath.wav", 1);
-                            Adin.setVisible(false);
+                    if(Adin.intersects(smrt) && smrt.isVisible()) {
+                        smrt.removeLife(1);
+                        smrt.setPosition((int)Math.random() * 1000, (int)Math.random() * 500);
+                        if (!Adin.checkSwordPos()) {
+                            Adin.removeLife(1);
+                            if (Adin.getLives() == 0) {
+                                playSound("herodeath.wav", 1);
+                                Adin.setVisible(false);
+                                smrt.setVisible(false);
+                                bosses.remove(smrt);
+                            }
                         }
                     }
                 }
@@ -434,6 +436,7 @@ public class Game extends maincrawl {
                         enemies.remove(i);
                     }
                     smrt.setVisible(false);
+                    bosses.remove(smrt);
                     if(Adin.getLives() < 1) {
                         endText = "Game Over";
                     }
