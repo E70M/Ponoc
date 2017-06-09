@@ -455,5 +455,6 @@ public class Game extends maincrawl {
             spawnCoord(limit, axis, hero);
         }
         return ret;
+
     }
 }
