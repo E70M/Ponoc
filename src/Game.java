@@ -12,7 +12,7 @@ public class Game extends maincrawl {
     ElementLoader loader = new ElementLoader();
     private Stage window;
     private double initialAdinX = 500, initialAdinY = 425;
-    static int remainingWaves = 1, jumpTimer = 0;
+    static int remainingWaves = 4; //jumpTimer = 0;
     public Game(Stage primaryStage) {
         this.window = primaryStage;
     }
@@ -377,7 +377,7 @@ public class Game extends maincrawl {
                 if(Adin.intersects(smrt)) {
                     if(Adin.intersects(smrt) && smrt.isVisible()) {
                         smrt.removeLife(1);
-                        smrt.setPosition((int)Math.random() * 1000, (int)Math.random() * 500);
+                        smrt.setPosition(spawnCoord(850, "X", Adin), spawnCoord(360, "Y", Adin));
                         if (!Adin.checkSwordPos()) {
                             Adin.removeLife(1);
                             if (Adin.getLives() == 0) {
@@ -423,9 +423,21 @@ public class Game extends maincrawl {
                     else {
                         smrt.render(gc);
                     }
-                    String lives = "Lives: " + Adin.getLives();
-                    gc.fillText(lives, 10, 30);
-                    gc.strokeText(lives, 10, 30);
+                    String heroLives = "Hero Lives: " + Adin.getLives();
+                    String bossLives = "Boss Lives: " + smrt.getLives();
+                    String enemiesRemaining = "Enemies Remaining: " + enemies.size();
+                    String wavecount = "Waves Left: " + remainingWaves;
+                    gc.setFill(Color.YELLOW);
+                    gc.fillText(heroLives, 10, 30);
+                    gc.strokeText(heroLives, 10, 30);
+                    gc.fillText(enemiesRemaining, 10, 60);
+                    gc.strokeText(enemiesRemaining, 10, 60);
+                    gc.fillText(wavecount, 10, 90);
+                    gc.strokeText(wavecount, 10, 90);
+                    if(smrt.isVisible() && !smrt.isDead()) {
+                        gc.fillText(bossLives, 10, 120);
+                        gc.strokeText(bossLives, 10, 120);
+                    }
                 }
                 else {
                     gc.setFill(Color.web("0x000033"));
