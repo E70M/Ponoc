@@ -3,7 +3,7 @@ import java.util.*;
 public class Enemy extends Sprite {
     private int dx, dy;
     public Enemy(double x, double y) {
-        super(x,y);
+        super(x, y);
     }
     public void move() {
         /*x += dx;

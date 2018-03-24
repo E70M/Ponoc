@@ -36,10 +36,6 @@ public class ElementLoader {
         input.remove(code);
     }
     public boolean isContaining(String test) {
-        if (input.contains(test)) {
-            return true;
-        } else {
-            return false;
-        }
+        return input.contains(test);
     }
 }

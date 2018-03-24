@@ -5,15 +5,18 @@ public class Sprite {
     private Image i;
     private double posX, posY, velocityX, velocityY, width, height;
     protected boolean falling = false, jumping = false;
-    private double gravity = 50, maxSpeedUp = -500, maxSpeedDown = 500;
     private int lives;
     private String imagefile;
-    private boolean vis = true;
+    private boolean vis;
+    public static final double GRAVITY = 50, maxSpeedUp = -500, maxSpeedDown = 500;
     public Sprite(double x, double y) {
         this.posX = x;
         this.posY = y;
         velocityX = 0;
         velocityY = 0;
+        vis = true;
+        width = 0;
+        height = 0;
     }
     public void setImage(Image filename, String imagefile) {
         i = filename;
@@ -54,7 +57,7 @@ public class Sprite {
         velocityX += x;
         velocityY += y;
         if(getFalling() || getJumping()) {
-            velocityY += gravity;
+            velocityY += GRAVITY;
             if(velocityY < maxSpeedUp) {
                 velocityY = maxSpeedUp;
                 if(getFalling()) {

@@ -70,12 +70,7 @@ public class Controller implements Initializable {
         window.close();
     }
     public boolean handleMusic() {
-        if(musicbox.isSelected()) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return musicbox.isSelected();
     }
     public void playFX(String soundfile, int cycleCount) {
         final Task task = new Task() {

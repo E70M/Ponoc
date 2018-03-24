@@ -8,8 +8,6 @@ public class Boss extends Enemy {
         if(super.getLives() == 0) {
             return true;
         }
-        else {
-            return false;
-        }
+    	return false;
     }
 }
